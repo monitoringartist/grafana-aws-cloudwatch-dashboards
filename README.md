@@ -1,10 +1,14 @@
 # Grafana dashboards for AWS CloudWatch
 
-Feel free to create PR for additional AWS resources.
+Feel free to create pull request for additional AWS resources.
 
 ### AWS Billing
 
 ![AWS Billing](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-billing/aws-billing.png) 
+
+### AWS ECS Cluster
+
+### AWS ECS Service
 
 # Author
 

@@ -38,6 +38,7 @@
   "id": null,
   "title": "AWS Billing",
   "tags": [
+    "monitoringartist",
     "cloudwatch"
   ],
   "style": "dark",
