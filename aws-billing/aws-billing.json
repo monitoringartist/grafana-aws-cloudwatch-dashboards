@@ -6,7 +6,7 @@
       "description": "",
       "type": "datasource",
       "pluginId": "cloudwatch",
-      "pluginName": "Cloudwatch"
+      "pluginName": "CloudWatch"
     }
   ],
   "__requires": [
@@ -17,15 +17,21 @@
       "version": ""
     },
     {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.0.0"
+      "version": "3.1.0-beta1"
     },
     {
       "type": "datasource",
       "id": "cloudwatch",
-      "name": "Cloudwatch",
+      "name": "CloudWatch",
       "version": "1.0.0"
     }
   ],
@@ -507,7 +513,8 @@
           "tooltip": {
             "msResolution": false,
             "shared": true,
-            "value_type": "cumulative"
+            "value_type": "cumulative",
+            "sort": 0
           },
           "type": "graph",
           "xaxis": {
@@ -593,6 +600,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 1,
-  "links": []
+  "version": 0,
+  "links": [],
+  "gnetId": null
 }
