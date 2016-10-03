@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.0"
+      "version": "3.1.1"
     },
     {
       "type": "datasource",
@@ -93,7 +93,8 @@
           "targets": [
             {
               "dimensions": {
-                "ServiceName": "$service"
+                "ServiceName": "$service",
+                "ClusterName": "$cluster"
               },
               "metricName": "CPUUtilization",
               "namespace": "AWS/ECS",
@@ -178,7 +179,8 @@
           "targets": [
             {
               "dimensions": {
-                "ServiceName": "$service"
+                "ServiceName": "$service",
+                "ClusterName": "$cluster"
               },
               "metricName": "MemoryUtilization",
               "namespace": "AWS/ECS",
@@ -265,7 +267,7 @@
           "targets": [
             {
               "dimensions": {
-                "ServiceName": "$service"
+                "ClusterName": "$cluster"
               },
               "metricName": "CPUReservation",
               "namespace": "AWS/ECS",
@@ -351,7 +353,7 @@
           "targets": [
             {
               "dimensions": {
-                "ServiceName": "$service"
+                "ClusterName": "$cluster"
               },
               "metricName": "MemoryReservation",
               "namespace": "AWS/ECS",
@@ -462,6 +464,19 @@
         "query": "regions()",
         "refresh": 1,
         "type": "query"
+      },
+      {
+        "type": "query",
+        "datasource": "${DS_CLOUDWATCH}",
+        "refresh": 1,
+        "name": "cluster",
+        "hide": 0,
+        "options": [],
+        "includeAll": false,
+        "multi": false,
+        "query": "dimension_values($region,AWS/ECS,CPUUtilization,ClusterName)",
+        "label": "Cluster",
+        "current": {}
       },
       {
         "current": {},
