@@ -36,7 +36,7 @@
     }
   ],
   "id": null,
-  "title": "AWS ECS Service",
+  "title": "AWS ECS",
   "tags": [
     "monitoringartist",
     "cloudwatch"
@@ -93,8 +93,8 @@
           "targets": [
             {
               "dimensions": {
-                "ServiceName": "$service",
-                "ClusterName": "$cluster"
+                "ClusterName": "$cluster",
+                "ServiceName": "$service"
               },
               "metricName": "CPUUtilization",
               "namespace": "AWS/ECS",
@@ -108,7 +108,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Service CPUUtilization ($service)",
+          "title": "CPUUtilization (cluster $cluster, service $service)",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -179,8 +179,8 @@
           "targets": [
             {
               "dimensions": {
-                "ServiceName": "$service",
-                "ClusterName": "$cluster"
+                "ClusterName": "$cluster",
+                "ServiceName": "$service"
               },
               "metricName": "MemoryUtilization",
               "namespace": "AWS/ECS",
@@ -194,7 +194,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Service MemoryUtilization ($service)",
+          "title": "MemoryUtilization (cluster $cluster, service $service)",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -281,7 +281,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Service CPUReservation ($service)",
+          "title": "CPUReservation (cluster $cluster, service $service)",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -367,7 +367,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Service MemoryReservation ($service)",
+          "title": "MemoryReservation (cluster $cluster, service $service)",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -406,7 +406,7 @@
       "height": "25px",
       "panels": [
         {
-          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/ecs-metricscollected.html\">AWS CloudWatch ECS documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/151\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/ecs-metricscollected.html\">AWS CloudWatch ECS documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/551\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
           "editable": true,
           "error": false,
           "id": 5,
@@ -466,17 +466,17 @@
         "type": "query"
       },
       {
-        "type": "query",
+        "current": {},
         "datasource": "${DS_CLOUDWATCH}",
-        "refresh": 1,
-        "name": "cluster",
         "hide": 0,
-        "options": [],
         "includeAll": false,
-        "multi": false,
-        "query": "dimension_values($region,AWS/ECS,CPUUtilization,ClusterName)",
         "label": "Cluster",
-        "current": {}
+        "multi": false,
+        "name": "cluster",
+        "options": [],
+        "query": "dimension_values($region,AWS/ECS,CPUUtilization,ClusterName)",
+        "refresh": 1,
+        "type": "query"
       },
       {
         "current": {},
@@ -514,7 +514,7 @@
     ]
   },
   "schemaVersion": 12,
-  "version": 2,
+  "version": 4,
   "links": [],
   "gnetId": null
 }

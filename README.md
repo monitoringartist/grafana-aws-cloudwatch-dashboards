@@ -6,9 +6,7 @@ Feel free to create pull request for additional AWS resources.
 
 ![AWS Billing](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-billing/aws-billing.png) 
 
-### AWS ECS Cluster
-
-### AWS ECS Service
+### AWS ECS
 
 # Author
 
