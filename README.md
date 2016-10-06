@@ -4,7 +4,11 @@ Feel free to create pull request for additional AWS resources.
 
 ### AWS Billing
 
-![AWS Billing](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-billing/aws-billing.png) 
+![AWS Billing](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-billing/aws-billing.png)
+
+### AWS S3
+
+![AWS S3](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-s3/aws-s3.png)
 
 ### AWS ECS
 
