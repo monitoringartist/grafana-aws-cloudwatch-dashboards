@@ -10,6 +10,10 @@ Feel free to create pull request for additional AWS resources.
 
 ![AWS S3](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-s3/aws-s3.png)
 
+### AWS Cloudwatch Browser
+
+![AWS Cloudwatch Browser](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-cloudwatch-browser/aws-cloudwatch-browser.png)
+
 ### AWS ECS
 
 ### AWS SQS
