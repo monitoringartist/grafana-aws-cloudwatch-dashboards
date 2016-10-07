@@ -12,6 +12,10 @@ Feel free to create pull request for additional AWS resources.
 
 ### AWS ECS
 
+### AWS SQS
+
+### AWS SNS
+
 # Author
 
 [Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring'),
