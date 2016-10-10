@@ -14,6 +14,10 @@ Feel free to create pull request for additional AWS resources.
 
 ![AWS Cloudwatch Browser](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-cloudwatch-browser/aws-cloudwatch-browser.png)
 
+### AWS EMR Hadoop 2
+
+![AWS EMR Hadoop 2](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-emr/aws-emr-hadoop-2.png)
+
 ### AWS ECS
 
 ### AWS SQS
