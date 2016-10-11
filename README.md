@@ -10,6 +10,10 @@ Feel free to create pull request for additional AWS resources.
 
 ![AWS EC2](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-ec2/aws-ec2.png)
 
+### AWS EBS
+
+![AWS EBS](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-ebs/aws-ebs.png)
+
 
 ### AWS S3
 
