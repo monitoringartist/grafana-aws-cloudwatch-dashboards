@@ -6,6 +6,11 @@ Feel free to create pull request for additional AWS resources.
 
 ![AWS Billing](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-billing/aws-billing.png)
 
+### AWS EC2
+
+![AWS EC2](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-ec2/aws-ec2.png)
+
+
 ### AWS S3
 
 ![AWS S3](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-s3/aws-s3.png)
