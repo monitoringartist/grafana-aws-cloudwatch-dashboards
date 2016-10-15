@@ -14,7 +14,6 @@ Feel free to create pull request for additional AWS resources.
 
 ![AWS EBS](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-ebs/aws-ebs.png)
 
-
 ### AWS S3
 
 ![AWS S3](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-s3/aws-s3.png)
@@ -26,6 +25,10 @@ Feel free to create pull request for additional AWS resources.
 ### AWS EMR Hadoop 2
 
 ![AWS EMR Hadoop 2](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-emr/aws-emr-hadoop-2.png)
+
+### AWS ELB Classic Load Balancer
+
+![AWS ELB Classic Load Balancer](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-elb/aws-elb-classic-lb.png)
 
 ### AWS ECS
 
