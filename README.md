@@ -30,7 +30,11 @@ Feel free to create pull request for additional AWS resources.
 
 ![AWS ELB Classic Load Balancer](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-elb/aws-elb-classic-lb.png)
 
+### AWS ELB Application Load Balancer
+
 ### AWS ECS
+
+### AWS EFS
 
 ### AWS SQS
 
