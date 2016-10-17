@@ -44,6 +44,8 @@ Feel free to create pull request for additional AWS resources.
 
 ### AWS Events
 
+### AWS CloudFront
+
 # Author
 
 [Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring'),
