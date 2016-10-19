@@ -1271,7 +1271,7 @@
         "multi": false,
         "name": "loadbalancername",
         "options": [],
-        "query": "dimension_values($region,AWS/ApplicationELB,ActiveConnectionCount,LoadBalancerName)",
+        "query": "dimension_values($region,AWS/ApplicationELB,ActiveConnectionCount,LoadBalancer)",
         "refresh": 1,
         "regex": "",
         "type": "query"
