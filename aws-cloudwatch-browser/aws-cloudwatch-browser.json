@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.0"
+      "version": "3.1.1"
     },
     {
       "type": "datasource",
@@ -166,7 +166,7 @@
       "height": "25px",
       "panels": [
         {
-          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html\">Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/585\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html\">Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference </a>&nbsp;Note: some metrics may need more dimensions.<br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/585\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
           "editable": true,
           "error": false,
           "id": 2,
@@ -284,27 +284,27 @@
   "annotations": {
     "list": [
       {
-        "name": "Alarms",
         "datasource": "${DS_CLOUDWATCH}",
-        "iconColor": "rgba(255, 96, 96, 1)",
-        "enable": true,
-        "namespace": "$namespace",
-        "metricName": "$metric",
-        "statistics": [
-          "Average"
-        ],
         "dimensions": {
           "$dimension": "$dimensionvalue"
         },
+        "enable": false,
+        "iconColor": "rgba(255, 96, 96, 1)",
+        "metricName": "$metric",
+        "name": "Alarms",
+        "namespace": "$namespace",
         "period": "",
+        "prefixMatching": false,
         "region": "$region",
-        "prefixMatching": false
+        "statistics": [
+          "Average"
+        ]
       }
     ]
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 8,
+  "version": 2,
   "links": [],
-  "gnetId": 575
+  "gnetId": 590
 }
