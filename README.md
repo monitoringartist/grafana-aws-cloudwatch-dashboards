@@ -2,9 +2,9 @@
 
 Feel free to create pull request for additional AWS resources/printscreens/...
 
-### [AWS Billing](/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-billing)
+### [AWS Billing](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-billing)
 
-![AWS Billing](https://raw.githubusercontent.com/monitoringartist/grafana-aws-cloudwatch-dashboards/master/aws-billing/aws-billing.png)
+[![AWS Billing](aws-billing/aws-billing.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-billing)
 
 ### AWS EC2
 
