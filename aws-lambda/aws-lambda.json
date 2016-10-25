@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.0"
+      "version": "3.1.1"
     },
     {
       "type": "datasource",
@@ -99,7 +99,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "TopicName": "$topic"
+                "FunctionName": "$functionname"
               },
               "functions": [],
               "group": {
@@ -211,7 +211,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "TopicName": "$topic"
+                "FunctionName": "$functionname"
               },
               "functions": [],
               "group": {
@@ -323,7 +323,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "TopicName": "$topic"
+                "FunctionName": "$functionname"
               },
               "functions": [],
               "group": {
@@ -435,7 +435,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "TopicName": "$topic"
+                "FunctionName": "$functionname"
               },
               "functions": [],
               "group": {
@@ -518,7 +518,7 @@
     }
   ],
   "time": {
-    "from": "now-7d",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -581,7 +581,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 5,
+  "version": 1,
   "links": [],
   "gnetId": 593
 }

@@ -1,4 +1,4 @@
-# Grafana dashboards for AWS CloudWatch
+# Grafana dashboards for AWS CloudWatch [![Cloud AWS ready](https://img.shields.io/badge/AWS-ready-brightgreen.svg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
 
 Feel free to create pull request for additional AWS resources/printscreens/...
 
