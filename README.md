@@ -42,6 +42,10 @@ Feel free to create pull request for additional AWS resources/printscreens/...
 
 [![AWS Lambda](aws-lambda/aws-lambda.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-lambda)
 
+### [AWS Logs](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-logs)
+
+[![AWS Logs](aws-logs/aws-logs.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-logs)
+
 ### [AWS RDS](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-rds)
 
 ### [AWS S3](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-s3)
