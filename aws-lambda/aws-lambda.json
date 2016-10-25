@@ -83,7 +83,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -140,7 +140,7 @@
           },
           "yaxes": [
             {
-              "format": "dtdurationms",
+              "format": "ms",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -195,7 +195,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -233,7 +233,7 @@
               "refId": "A",
               "region": "$region",
               "statistics": [
-                "Average"
+                "Sum"
               ]
             }
           ],
@@ -267,7 +267,8 @@
               "min": null,
               "show": false
             }
-          ]
+          ],
+          "decimals": 0
         }
       ],
       "title": "New row"
@@ -307,7 +308,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -419,7 +420,7 @@
           "lines": true,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "connected",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -581,7 +582,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 1,
+  "version": 3,
   "links": [],
   "gnetId": 593
 }
