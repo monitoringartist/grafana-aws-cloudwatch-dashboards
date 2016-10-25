@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.0"
+      "version": "3.1.1"
     },
     {
       "type": "datasource",
@@ -275,13 +275,12 @@
       "title": "New row"
     },
     {
-      "title": "New row",
-      "height": "25px",
-      "editable": true,
       "collapse": false,
+      "editable": true,
+      "height": "25px",
       "panels": [
         {
-          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/s3-metricscollected.html\">AWS Cloudwatch S3 documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/575\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/s3-metricscollected.html\">AWS CloudWatch S3 documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/575\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
           "editable": true,
           "error": false,
           "id": 2,
@@ -292,7 +291,8 @@
           "title": "Documentation",
           "type": "text"
         }
-      ]
+      ],
+      "title": "New row"
     }
   ],
   "time": {
@@ -327,30 +327,30 @@
   "templating": {
     "list": [
       {
-        "type": "query",
+        "current": {},
         "datasource": "${DS_CLOUDWATCH}",
-        "refresh": 1,
-        "name": "region",
         "hide": 0,
-        "options": [],
         "includeAll": false,
-        "multi": false,
         "label": "Region",
+        "multi": false,
+        "name": "region",
+        "options": [],
         "query": "regions()",
-        "current": {}
+        "refresh": 1,
+        "type": "query"
       },
       {
-        "type": "query",
+        "current": {},
         "datasource": "${DS_CLOUDWATCH}",
-        "refresh": 1,
-        "name": "bucket",
         "hide": 0,
-        "options": [],
         "includeAll": true,
-        "multi": false,
         "label": "Bucket",
+        "multi": false,
+        "name": "bucket",
+        "options": [],
         "query": "dimension_values($region,AWS/S3,NumberOfObjects,BucketName)",
-        "current": {}
+        "refresh": 1,
+        "type": "query"
       }
     ]
   },
@@ -359,7 +359,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 6,
+  "version": 1,
   "links": [],
-  "gnetId": 139
+  "gnetId": 575
 }
