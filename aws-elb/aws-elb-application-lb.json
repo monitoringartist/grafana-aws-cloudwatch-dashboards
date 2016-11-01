@@ -108,7 +108,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -139,7 +139,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -268,7 +268,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -299,7 +299,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -330,7 +330,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -361,7 +361,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -392,7 +392,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -423,7 +423,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -544,7 +544,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -575,7 +575,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -606,7 +606,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -637,7 +637,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -762,7 +762,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -793,7 +793,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -824,7 +824,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -953,7 +953,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -984,7 +984,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -1106,7 +1106,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -1137,7 +1137,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
