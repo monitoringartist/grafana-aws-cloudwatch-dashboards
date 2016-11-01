@@ -108,7 +108,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -139,7 +139,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -268,7 +268,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -299,7 +299,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -330,7 +330,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -361,7 +361,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -392,7 +392,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -423,7 +423,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -544,7 +544,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -575,7 +575,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -606,7 +606,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -637,7 +637,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -716,193 +716,6 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "id": 9,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "Latency_Average",
-              "yaxis": 2
-            },
-            {
-              "alias": "SpilloverCount_Sum",
-              "yaxis": 2
-            },
-            {
-              "alias": "BackendConnectionErrors_Sum",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "HealthyHostCount",
-              "mode": 0,
-              "namespace": "AWS/ApplicationELB",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "UnHealthyHostCount",
-              "mode": 0,
-              "namespace": "AWS/ApplicationELB",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "BackendConnectionErrors",
-              "mode": 0,
-              "namespace": "AWS/ApplicationELB",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "C",
-              "region": "$region",
-              "statistics": [
-                "Sum"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "HostCount / BackendConnectionErrors",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
-        }
-      ],
-      "title": "New row"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${DS_CLOUDWATCH}",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
           "id": 8,
           "isNew": true,
           "legend": {
@@ -953,7 +766,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -984,7 +797,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -1106,7 +919,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
@@ -1137,7 +950,7 @@
                 "filter": ""
               },
               "dimensions": {
-                "LoadBalancerName": "$loadbalancername"
+                "LoadBalancer": "$loadbalancername"
               },
               "functions": [],
               "group": {
