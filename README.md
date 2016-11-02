@@ -1,5 +1,7 @@
 # Grafana dashboards for AWS CloudWatch [![Cloud AWS ready](https://img.shields.io/badge/AWS-ready-brightgreen.svg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
 
+Doc: [Cloudwatch datasource configuration](http://docs.grafana.org/datasources/cloudwatch/)
+
 Feel free to create pull request for additional AWS resources/printscreens/...
 
 ### [AWS Auto Scaling](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-autoscaling)
