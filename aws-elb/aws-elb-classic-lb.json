@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.0"
+      "version": "3.1.1"
     },
     {
       "type": "datasource",
@@ -202,7 +202,12 @@
       "height": "250px",
       "panels": [
         {
-          "aliasColors": {},
+          "aliasColors": {
+            "HTTPCode_Backend_2XX_Sum": "#7EB26D",
+            "HTTPCode_Backend_5XX_Sum": "#BF1B00",
+            "HTTPCode_ELB_4XX_Sum": "#EAB839",
+            "HTTPCode_ELB_5XX_Sum": "#99440A"
+          },
           "bars": false,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
@@ -630,7 +635,9 @@
       "height": "250px",
       "panels": [
         {
-          "aliasColors": {},
+          "aliasColors": {
+            "BackendConnectionErrors_Sum": "#BF1B00"
+          },
           "bars": false,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
@@ -833,8 +840,8 @@
     }
   ],
   "time": {
-    "from": "2016-10-14T13:31:18.891Z",
-    "to": "2016-10-14T14:40:09.568Z"
+    "from": "now-12h",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -897,7 +904,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 12,
+  "version": 0,
   "links": [],
   "gnetId": 644
 }

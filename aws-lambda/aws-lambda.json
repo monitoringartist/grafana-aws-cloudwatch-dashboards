@@ -45,7 +45,7 @@
   "style": "dark",
   "timezone": "browser",
   "editable": true,
-  "hideControls": false,
+  "hideControls": true,
   "sharedCrosshair": false,
   "rows": [
     {
@@ -55,8 +55,9 @@
       "panels": [
         {
           "aliasColors": {},
-          "bars": false,
+          "bars": true,
           "datasource": "${DS_CLOUDWATCH}",
+          "decimals": 3,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -77,10 +78,10 @@
             "show": true,
             "sort": "current",
             "sortDesc": true,
-            "total": false,
+            "total": true,
             "values": true
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 2,
           "links": [],
           "nullPointMode": "null as zero",
@@ -167,8 +168,9 @@
       "panels": [
         {
           "aliasColors": {},
-          "bars": false,
+          "bars": true,
           "datasource": "${DS_CLOUDWATCH}",
+          "decimals": 0,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -189,10 +191,10 @@
             "show": true,
             "sort": "current",
             "sortDesc": true,
-            "total": false,
+            "total": true,
             "values": true
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 2,
           "links": [],
           "nullPointMode": "null as zero",
@@ -267,8 +269,7 @@
               "min": null,
               "show": false
             }
-          ],
-          "decimals": 0
+          ]
         }
       ],
       "title": "New row"
@@ -279,8 +280,10 @@
       "height": "250px",
       "panels": [
         {
-          "aliasColors": {},
-          "bars": false,
+          "aliasColors": {
+            "Errors_Average": "#BF1B00"
+          },
+          "bars": true,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
           "error": false,
@@ -302,10 +305,10 @@
             "show": true,
             "sort": "current",
             "sortDesc": true,
-            "total": false,
+            "total": true,
             "values": true
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 2,
           "links": [],
           "nullPointMode": "null as zero",
@@ -391,8 +394,10 @@
       "height": "250px",
       "panels": [
         {
-          "aliasColors": {},
-          "bars": false,
+          "aliasColors": {
+            "Throttles_Average": "#EAB839"
+          },
+          "bars": true,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
           "error": false,
@@ -414,10 +419,10 @@
             "show": true,
             "sort": "current",
             "sortDesc": true,
-            "total": false,
+            "total": true,
             "values": true
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 2,
           "links": [],
           "nullPointMode": "null as zero",
@@ -503,7 +508,7 @@
       "height": "25px",
       "panels": [
         {
-          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/lam-metricscollected.html\">AWS Cloudwatch Lambda documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/593\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/lam-metricscollected.html\">AWS CloudWatch Lambda documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/593\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
           "editable": true,
           "error": false,
           "id": 2,
@@ -519,7 +524,7 @@
     }
   ],
   "time": {
-    "from": "now-12h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -582,7 +587,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 3,
+  "version": 2,
   "links": [],
   "gnetId": 593
 }
