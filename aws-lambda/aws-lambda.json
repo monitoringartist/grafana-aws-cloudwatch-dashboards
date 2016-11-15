@@ -281,7 +281,8 @@
       "panels": [
         {
           "aliasColors": {
-            "Errors_Average": "#BF1B00"
+            "Errors_Average": "#BF1B00",
+            "Errors_Sum": "#BF1B00"
           },
           "bars": true,
           "datasource": "${DS_CLOUDWATCH}",
@@ -349,7 +350,7 @@
               "refId": "A",
               "region": "$region",
               "statistics": [
-                "Average"
+                "Sum"
               ]
             }
           ],
@@ -524,7 +525,7 @@
     }
   ],
   "time": {
-    "from": "now-3h",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -587,7 +588,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 2,
+  "version": 3,
   "links": [],
   "gnetId": 593
 }
