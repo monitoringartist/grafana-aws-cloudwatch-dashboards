@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.1"
+      "version": "3.1.0"
     },
     {
       "type": "datasource",
@@ -396,7 +396,8 @@
       "panels": [
         {
           "aliasColors": {
-            "Throttles_Average": "#EAB839"
+            "Throttles_Average": "#EAB839",
+            "Throttles_Sum": "#EAB839"
           },
           "bars": true,
           "datasource": "${DS_CLOUDWATCH}",
@@ -464,7 +465,7 @@
               "refId": "A",
               "region": "$region",
               "statistics": [
-                "Average"
+                "Sum"
               ]
             }
           ],
@@ -525,8 +526,8 @@
     }
   ],
   "time": {
-    "from": "now-6h",
-    "to": "now"
+    "from": "2016-11-23T09:59:31.283Z",
+    "to": "2016-11-23T12:11:00.392Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -588,7 +589,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 3,
+  "version": 19,
   "links": [],
   "gnetId": 593
 }
