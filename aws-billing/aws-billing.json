@@ -667,6 +667,134 @@
               "statistics": [
                 "Average"
               ]
+            },
+            {
+              "alias": "AWSIoT",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "Currency": "USD",
+                "ServiceName": "AWSIoT"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "EstimatedCharges",
+              "mode": 0,
+              "namespace": "AWS/Billing",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "S",
+              "region": "us-east-1",
+              "statistics": [
+                "Average"
+              ]
+            },
+            {
+              "alias": "AmazonEFS",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "Currency": "USD",
+                "ServiceName": "AmazonEFS"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "EstimatedCharges",
+              "mode": 0,
+              "namespace": "AWS/Billing",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "T",
+              "region": "us-east-1",
+              "statistics": [
+                "Average"
+              ]
+            },
+            {
+              "alias": "AmazonElastiCache",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "Currency": "USD",
+                "ServiceName": "AmazonElastiCache"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "EstimatedCharges",
+              "mode": 0,
+              "namespace": "AWS/Billing",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "U",
+              "region": "us-east-1",
+              "statistics": [
+                "Average"
+              ]
+            },
+            {
+              "alias": "AmazonSimpleDB",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "Currency": "USD",
+                "ServiceName": "AmazonSimpleDB"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "EstimatedCharges",
+              "mode": 0,
+              "namespace": "AWS/Billing",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "V",
+              "region": "us-east-1",
+              "statistics": [
+                "Average"
+              ]
             }
           ],
           "timeFrom": null,
