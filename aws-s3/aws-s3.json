@@ -45,7 +45,7 @@
   "style": "dark",
   "timezone": "browser",
   "editable": true,
-  "hideControls": false,
+  "hideControls": true,
   "sharedCrosshair": false,
   "rows": [
     {
@@ -277,10 +277,791 @@
     {
       "collapse": false,
       "editable": true,
-      "height": "25px",
+      "height": "250px",
       "panels": [
         {
-          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/s3-metricscollected.html\">AWS CloudWatch S3 documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/575\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "${DS_CLOUDWATCH}",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "sort": null,
+            "sortDesc": null,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "AllRequests_Sum",
+              "yaxis": 2
+            }
+          ],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "AllRequests",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "A",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "GetRequests",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "PutRequests",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "C",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "DeleteRequests",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "D",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "HeadRequests",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "E",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "PostRequests",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "F",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "ListRequests",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "G",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Filtered Requests",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "title": "New row",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "${DS_CLOUDWATCH}",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 7,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "sort": null,
+            "sortDesc": null,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "AllRequests_Sum",
+              "yaxis": 2
+            },
+            {
+              "alias": "BytesDownloaded_Sum",
+              "yaxis": 2
+            },
+            {
+              "alias": "FirstByteLatency_Average",
+              "yaxis": 2
+            }
+          ],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "FirstByteLatency",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "A",
+              "region": "$region",
+              "statistics": [
+                "Average"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "TotalRequestLatency",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "$region",
+              "statistics": [
+                "Average"
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Filtered Latency",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "ms",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "ms",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "New row",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "${DS_CLOUDWATCH}",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "sort": null,
+            "sortDesc": null,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "AllRequests_Sum",
+              "yaxis": 2
+            },
+            {
+              "alias": "BytesDownloaded_Sum",
+              "yaxis": 2
+            }
+          ],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "BytesDownloaded",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "A",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "BytesUploaded",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Filtered Bytes",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "New row",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "${DS_CLOUDWATCH}",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 6,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "sort": null,
+            "sortDesc": null,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "AllRequests_Sum",
+              "yaxis": 2
+            },
+            {
+              "alias": "BytesDownloaded_Sum",
+              "yaxis": 2
+            },
+            {
+              "alias": "4xxErrors_Sum",
+              "yaxis": 2
+            }
+          ],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "4xxErrors",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "A",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "BucketName": "$bucket",
+                "FilterId": "$filterid"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "5xxErrors",
+              "mode": 0,
+              "namespace": "AWS/S3",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "$region",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Filtered Errors",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            },
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": 0,
+              "show": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "New row",
+      "height": "25px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html\">AWS CloudWatch S3 documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/575\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
           "editable": true,
           "error": false,
           "id": 2,
@@ -291,12 +1072,11 @@
           "title": "Documentation",
           "type": "text"
         }
-      ],
-      "title": "New row"
+      ]
     }
   ],
   "time": {
-    "from": "now-7d",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -343,12 +1123,25 @@
         "current": {},
         "datasource": "${DS_CLOUDWATCH}",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Bucket",
         "multi": false,
         "name": "bucket",
         "options": [],
         "query": "dimension_values($region,AWS/S3,NumberOfObjects,BucketName)",
+        "refresh": 1,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": "${DS_CLOUDWATCH}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "FilterId",
+        "multi": false,
+        "name": "filterid",
+        "options": [],
+        "query": "dimension_values($region,AWS/S3,AllRequests,FilterId)",
         "refresh": 1,
         "type": "query"
       }
@@ -359,7 +1152,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 1,
+  "version": 10,
   "links": [],
   "gnetId": 575
 }
