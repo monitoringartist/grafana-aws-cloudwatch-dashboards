@@ -461,7 +461,7 @@
         "multi": false,
         "name": "autoscalinggroupname",
         "options": [],
-        "query": "dimension_values($region, AWS/CloudFront, GroupTotalInstances, AutoScalingGroupName)",
+        "query": "dimension_values($region, AWS/AutoScaling, GroupTotalInstances, AutoScalingGroupName)",
         "refresh": 1,
         "regex": "",
         "sort": 0,
