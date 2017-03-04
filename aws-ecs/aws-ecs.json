@@ -93,8 +93,7 @@
           "targets": [
             {
               "dimensions": {
-                "ClusterName": "$cluster",
-                "ServiceName": "$service"
+                "ClusterName": "$cluster"
               },
               "metricName": "CPUUtilization",
               "namespace": "AWS/ECS",
@@ -179,8 +178,7 @@
           "targets": [
             {
               "dimensions": {
-                "ClusterName": "$cluster",
-                "ServiceName": "$service"
+                "ClusterName": "$cluster"
               },
               "metricName": "MemoryUtilization",
               "namespace": "AWS/ECS",
