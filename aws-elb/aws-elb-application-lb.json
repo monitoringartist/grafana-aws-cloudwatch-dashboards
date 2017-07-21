@@ -11,6 +11,18 @@
   ],
   "__requires": [
     {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "4.4.1"
+    },
+    {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
@@ -21,53 +33,35 @@
       "id": "text",
       "name": "Text",
       "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "3.1.0"
-    },
-    {
-      "type": "datasource",
-      "id": "cloudwatch",
-      "name": "CloudWatch",
-      "version": "1.0.0"
     }
   ],
-  "id": null,
-  "title": "AWS ELB Application Load Balancer",
+  "annotations": {
+    "list": []
+  },
   "description": "Visualize AWS ELB Application Load Balancer metrics",
-  "tags": [
-    "monitoringartist",
-    "cloudwatch"
-  ],
-  "style": "dark",
-  "timezone": "browser",
   "editable": true,
+  "gnetId": 650,
+  "graphTooltip": 0,
   "hideControls": false,
-  "sharedCrosshair": false,
+  "id": null,
+  "links": [],
+  "refresh": false,
   "rows": [
     {
       "collapse": false,
-      "editable": true,
       "height": "250px",
       "panels": [
         {
           "aliasColors": {},
           "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
           "error": false,
           "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
+          "grid": {},
           "id": 7,
-          "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -98,6 +92,7 @@
               "yaxis": 2
             }
           ],
+          "spaceLength": 10,
           "span": 12,
           "stack": false,
           "steppedLine": false,
@@ -165,6 +160,7 @@
               ]
             }
           ],
+          "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
           "title": "RequestCount / Latency",
@@ -176,7 +172,11 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
           },
           "yaxes": [
             {
@@ -198,28 +198,28 @@
           ]
         }
       ],
-      "title": "Row"
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Row",
+      "titleSize": "h6"
     },
     {
       "collapse": false,
-      "editable": true,
       "height": "250px",
       "panels": [
         {
           "aliasColors": {},
-          "bars": false,
+          "bars": true,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
           "error": false,
           "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
+          "grid": {},
           "id": 1,
-          "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -232,10 +232,10 @@
             "total": false,
             "values": true
           },
-          "lines": true,
+          "lines": false,
           "linewidth": 2,
           "links": [],
-          "nullPointMode": "null as zero",
+          "nullPointMode": "null",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -258,6 +258,7 @@
               "yaxis": 2
             }
           ],
+          "spaceLength": 10,
           "span": 12,
           "stack": true,
           "steppedLine": false,
@@ -449,6 +450,7 @@
               ]
             }
           ],
+          "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
           "title": "HTTPCode",
@@ -460,7 +462,11 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
           },
           "yaxes": [
             {
@@ -482,28 +488,28 @@
           ]
         }
       ],
-      "title": "New row"
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "New row",
+      "titleSize": "h6"
     },
     {
       "collapse": false,
-      "editable": true,
       "height": "250px",
       "panels": [
         {
           "aliasColors": {},
           "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
           "error": false,
           "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
+          "grid": {},
           "id": 10,
-          "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -534,6 +540,7 @@
               "yaxis": 2
             }
           ],
+          "spaceLength": 10,
           "span": 12,
           "stack": true,
           "steppedLine": false,
@@ -663,6 +670,7 @@
               ]
             }
           ],
+          "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
           "title": "ConnectionCount",
@@ -674,7 +682,11 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
           },
           "yaxes": [
             {
@@ -696,28 +708,28 @@
           ]
         }
       ],
-      "title": "New row"
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "New row",
+      "titleSize": "h6"
     },
     {
       "collapse": false,
-      "editable": true,
       "height": "250px",
       "panels": [
         {
           "aliasColors": {},
           "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
           "error": false,
           "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
+          "grid": {},
           "id": 8,
-          "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -756,6 +768,7 @@
               "yaxis": 2
             }
           ],
+          "spaceLength": 10,
           "span": 12,
           "stack": false,
           "steppedLine": false,
@@ -823,6 +836,7 @@
               ]
             }
           ],
+          "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
           "title": "ConsumedLBCapacityUnits / ProcessedBytes",
@@ -834,7 +848,11 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
           },
           "yaxes": [
             {
@@ -856,29 +874,28 @@
           ]
         }
       ],
-      "title": "New row"
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "New row",
+      "titleSize": "h6"
     },
     {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
       "collapse": false,
+      "height": "250px",
       "panels": [
         {
           "aliasColors": {},
           "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": "${DS_CLOUDWATCH}",
           "editable": true,
           "error": false,
           "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
+          "grid": {},
           "id": 11,
-          "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -909,6 +926,7 @@
               "yaxis": 2
             }
           ],
+          "spaceLength": 10,
           "span": 12,
           "stack": true,
           "steppedLine": false,
@@ -976,6 +994,7 @@
               ]
             }
           ],
+          "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
           "title": "TLSNegotiationErrorCount",
@@ -987,7 +1006,11 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
           },
           "yaxes": [
             {
@@ -1008,29 +1031,88 @@
             }
           ]
         }
-      ]
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "New row",
+      "titleSize": "h6"
     },
     {
-      "title": "New row",
-      "height": "25px",
-      "editable": true,
       "collapse": false,
+      "height": "25px",
       "panels": [
         {
           "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elb-metricscollected.html\">AWS ELB documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.net/dashboards/650\">Installed from Grafana.net dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
           "editable": true,
           "error": false,
           "id": 2,
-          "isNew": true,
           "links": [],
           "mode": "html",
           "span": 12,
           "title": "Documentation",
           "type": "text"
         }
-      ]
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "New row",
+      "titleSize": "h6"
     }
   ],
+  "schemaVersion": 14,
+  "style": "dark",
+  "tags": [
+    "monitoringartist",
+    "cloudwatch"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_CLOUDWATCH}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Region",
+        "multi": false,
+        "name": "region",
+        "options": [],
+        "query": "regions()",
+        "refresh": 1,
+        "regex": "",
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_CLOUDWATCH}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "LoadBalancerName",
+        "multi": false,
+        "name": "loadbalancername",
+        "options": [],
+        "query": "dimension_values($region,AWS/ApplicationELB,ActiveConnectionCount,LoadBalancer)",
+        "refresh": 1,
+        "regex": "",
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
   "time": {
     "from": "now-24h",
     "to": "now"
@@ -1060,43 +1142,7 @@
       "30d"
     ]
   },
-  "templating": {
-    "list": [
-      {
-        "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
-        "hide": 0,
-        "includeAll": false,
-        "label": "Region",
-        "multi": false,
-        "name": "region",
-        "options": [],
-        "query": "regions()",
-        "refresh": 1,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
-        "hide": 0,
-        "includeAll": false,
-        "label": "LoadBalancerName",
-        "multi": false,
-        "name": "loadbalancername",
-        "options": [],
-        "query": "dimension_values($region,AWS/ApplicationELB,ActiveConnectionCount,LoadBalancer)",
-        "refresh": 1,
-        "regex": "",
-        "type": "query"
-      }
-    ]
-  },
-  "annotations": {
-    "list": []
-  },
-  "refresh": false,
-  "schemaVersion": 12,
-  "version": 10,
-  "links": [],
-  "gnetId": 650
+  "timezone": "browser",
+  "title": "AWS ELB Application Load Balancer",
+  "version": 2
 }
