@@ -12,7 +12,7 @@ Doc:
 
 Feel free to create pull request for additional AWS resources/printscreens/...
 
-Import all Monitoring Artist AWS dashboard in one go (example script,
+Import all Monitoring Artist AWS dashboards in one go (example script,
 `bash/curl/jq` required):
 
 ```bash
