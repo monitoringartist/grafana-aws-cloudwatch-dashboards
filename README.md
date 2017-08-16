@@ -22,8 +22,7 @@ grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
 grafana_datasource="cloudwatch"
 ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584);
-for d in "${ds[@]}"
-do
+for d in "${ds[@]}"; do
   echo -n "Processing $d: "
   j=$(curl -s -k -u $grafana_cred $grafana_host/api/gnet/dashboards/$d | jq .json)
   curl -s -k -u $grafana_cred -XPOST -H "Accept: application/json" \
