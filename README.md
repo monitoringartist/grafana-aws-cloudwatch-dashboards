@@ -21,7 +21,7 @@ Import all Monitoring Artist AWS dashboards in one go (example script,
 grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
 grafana_datasource="cloudwatch"
-ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584);
+ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969);
 for d in "${ds[@]}"; do
   echo -n "Processing $d: "
   j=$(curl -s -k -u $grafana_cred $grafana_host/api/gnet/dashboards/$d | jq .json)
@@ -102,6 +102,8 @@ done
 
 ### [AWS SQS](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-sqs)
 [![AWS SQS](aws-sqs/aws-sqs.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-sqs)
+
+### [AWS VPN](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-vpn)
 
 # Author
 
