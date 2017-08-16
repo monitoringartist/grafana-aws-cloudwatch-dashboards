@@ -1,8 +1,39 @@
-# Grafana dashboards for AWS CloudWatch [![Cloud AWS ready](https://img.shields.io/badge/AWS-ready-brightgreen.svg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
+[<img src="https://monitoringartist.github.io/managed-by-monitoringartist.png" alt="Managed by Monitoring Artist: DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring" align="right"/>](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring')
 
-Doc: [Cloudwatch datasource configuration](http://docs.grafana.org/datasources/cloudwatch/)
+# Grafana dashboards for AWS CloudWatch
+
+Set of AWS Grafana dashboards published on
+[grafana.com](https://grafana.com/dashboards?dataSource=cloudwatch) -
+10k+ downloads.
+
+Doc:
+- [Cloudwatch datasource configuration](http://docs.grafana.org/datasources/cloudwatch/)
+- [Grafana doc](http://docs.grafana.org/)
 
 Feel free to create pull request for additional AWS resources/printscreens/...
+
+Import all Monitoring Artist AWS dashboard in one go (example script,
+`bash/curl/jq` required):
+
+```bash
+#!/bin/bash
+### Please edit grafana_* variables to match your Grafana setup: ###
+grafana_host="http://localhost:3000"
+grafana_cred="admin:admin"
+grafana_datasource="cloudwatch"
+ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584);
+for d in "${ds[@]}"
+do
+  echo -n "Processing $d: "
+  j=$(curl -s -k -u $grafana_cred $grafana_host/api/gnet/dashboards/$d | jq .json)
+  curl -s -k -u $grafana_cred -XPOST -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d "{\"dashboard\":$j,\"overwrite\":true, \
+        \"inputs\":[{\"name\":\"DS_CLOUDWATCH\",\"type\":\"datasource\", \
+        \"pluginId\":\"cloudwatch\",\"value\":\"$grafana_datasource\"}]}" \
+    $grafana_host/api/dashboards/import; echo ""
+done
+```
 
 ### [AWS API Gateway](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-api-gateway)
 
@@ -81,10 +112,11 @@ Kubernetes, ECS, AWS, Google GCP, Terraform, Lambda, Zabbix, Grafana, Elasticsea
 Kibana, Prometheus, Sysdig, ...
 
 Summary:
-* 1000+ [GitHub](https://github.com/monitoringartist/) stars
-* 6000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
-* 800 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
+* 2000+ [GitHub](https://github.com/monitoringartist/) stars
+* 10 000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
+* 1 000 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
 
 Professional devops / monitoring / consulting services:
 
 [![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
+
