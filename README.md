@@ -17,7 +17,7 @@ Import all Monitoring Artist AWS dashboards in one go (example script,
 
 ```bash
 #!/bin/bash
-### Please edit grafana_* variables to match your Grafana setup: ###
+### Please edit grafana_* variables to match your Grafana setup:
 grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
 grafana_datasource="cloudwatch"
