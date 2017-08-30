@@ -120,7 +120,7 @@
               },
               "period": "",
               "refId": "A",
-              "region": "$region",
+              "region": "us-east-1",
               "statistics": [
                 "Sum"
               ]
@@ -237,7 +237,7 @@
               },
               "period": "",
               "refId": "A",
-              "region": "$region",
+              "region": "us-east-1",
               "statistics": [
                 "Average"
               ]
@@ -269,7 +269,7 @@
               },
               "period": "",
               "refId": "B",
-              "region": "$region",
+              "region": "us-east-1",
               "statistics": [
                 "Average"
               ]
@@ -386,7 +386,7 @@
               },
               "period": "",
               "refId": "A",
-              "region": "$region",
+              "region": "us-east-1",
               "statistics": [
                 "Sum"
               ]
@@ -418,7 +418,7 @@
               },
               "period": "",
               "refId": "B",
-              "region": "$region",
+              "region": "us-east-1",
               "statistics": [
                 "Sum"
               ]
@@ -521,29 +521,11 @@
         "datasource": "${DS_CLOUDWATCH}",
         "hide": 0,
         "includeAll": false,
-        "label": "Region",
-        "multi": false,
-        "name": "region",
-        "options": [],
-        "query": "regions()",
-        "refresh": 1,
-        "regex": "",
-        "sort": 0,
-        "tagValuesQuery": null,
-        "tagsQuery": null,
-        "type": "query"
-      },
-      {
-        "allValue": null,
-        "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
-        "hide": 0,
-        "includeAll": false,
         "label": "DistributionId",
         "multi": false,
         "name": "distributionid",
         "options": [],
-        "query": "dimension_values($region, AWS/CloudFront, Requests, DistributionId)",
+        "query": "dimension_values(us-east-1, AWS/CloudFront, Requests, DistributionId)",
         "refresh": 1,
         "regex": "",
         "sort": 0,
