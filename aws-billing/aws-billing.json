@@ -157,6 +157,38 @@
               ]
             },
             {
+              "alias": "AmazonRDS",
+              "application": {
+                "filter": ""
+              },
+              "dimensions": {
+                "Currency": "USD",
+                "ServiceName": "AmazonRDS"
+              },
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "host": {
+                "filter": ""
+              },
+              "item": {
+                "filter": ""
+              },
+              "metricName": "EstimatedCharges",
+              "mode": 0,
+              "namespace": "AWS/Billing",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "us-east-1",
+              "statistics": [
+                "Average"
+              ]
+            },
+            {
               "alias": "AmazonS3",
               "application": {
                 "filter": ""
