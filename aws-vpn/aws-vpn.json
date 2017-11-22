@@ -402,7 +402,7 @@
         "multi": false,
         "name": "vpnid",
         "options": [],
-        "query": "dimension_values($region,AWS/VPN,TunnelState)",
+        "query": "dimension_values($region,AWS/VPN,TunnelState, VpnId)",
         "refresh": 1,
         "regex": "",
         "sort": 0,
