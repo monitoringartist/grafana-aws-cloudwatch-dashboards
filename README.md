@@ -37,6 +37,34 @@ for d in "${ds[@]}"; do
 done
 ```
 
+Use [AWS Policy Generator](http://awspolicygen.s3.amazonaws.com/policygen.html),
+which fits your needs. Example of minimal IAM role for Grafana (CloudWatch
++ EC2 metrics):
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1517573702923",
+      "Action": [
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics",
+        "ec2:DescribeTags"
+      ],
+      "Effect": "Allow",
+      "Resource": "*",
+      "Condition":{
+         "Bool":{
+            "aws:SecureTransport":"true"
+            }
+         }
+      }
+    }
+  ]
+}
+```
+
 ### [AWS API Gateway](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-api-gateway)
 
 [![AWS API Gateway](aws-api-gateway/aws-api-gateway.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-api-gateway)
