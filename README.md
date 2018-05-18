@@ -4,7 +4,7 @@
 
 Set of AWS Grafana dashboards published on
 [grafana.com](https://grafana.com/dashboards?dataSource=cloudwatch) -
-10k+ downloads.
+15k+ downloads.
 
 Doc:
 - [Cloudwatch datasource configuration](http://docs.grafana.org/datasources/cloudwatch/)
@@ -43,25 +43,27 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1517573702923",
-      "Action": [
-        "cloudwatch:GetMetricStatistics",
-        "cloudwatch:ListMetrics",
-        "ec2:DescribeTags"
-      ],
-      "Effect": "Allow",
-      "Resource": "*",
-      "Condition":{
-         "Bool":{
-            "aws:SecureTransport":"true"
-            }
-         }
-      }
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowReadingMetricsFromCloudWatch",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:ListMetrics",
+                "cloudwatch:GetMetricStatistics"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowReadingTagsFromEC2",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeTags",
+                "ec2:DescribeInstances"
+            ],
+            "Resource": "*"
+        }
+    ]
 }
 ```
 
