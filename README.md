@@ -143,14 +143,13 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch
 [Devops Monitoring Expert](http://www.jangaraj.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring'),
 who loves monitoring systems and cutting/bleeding edge technologies: Docker,
 Kubernetes, ECS, AWS, Google GCP, Terraform, Lambda, Zabbix, Grafana, Elasticsearch,
-Kibana, Prometheus, Sysdig, ...
+Kibana, Prometheus, Sysdig,...
 
 Summary:
 * 2000+ [GitHub](https://github.com/monitoringartist/) stars
-* 10 000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
+* 15 000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
 * 1 000 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
 
 Professional devops / monitoring / consulting services:
 
 [![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
-
