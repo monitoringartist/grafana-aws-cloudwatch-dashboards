@@ -104,6 +104,7 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch
 [![AWS EMR Hadoop 2](aws-emr/aws-emr-hadoop-2.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-emr)
 
 ### [AWS Events](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-events)
+[![AWS Events](aws-events/aws-events.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-events)
 
 ### [AWS Lambda](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-lambda)
 [![AWS Lambda](aws-lambda/aws-lambda.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-lambda)
