@@ -920,6 +920,22 @@
           "statistics": [
             "Average"
           ]
+        },
+        {
+          "alias": "{{ServiceName}}",
+          "dimensions": {
+            "Currency": "USD",
+            "ServiceName": "AmazonCloudFront"
+          },
+          "highResolution": false,
+          "metricName": "EstimatedCharges",
+          "namespace": "AWS/Billing",
+          "period": "",
+          "refId": "AA",
+          "region": "us-east-1",
+          "statistics": [
+            "Average"
+          ]
         }
       ],
       "thresholds": [],
