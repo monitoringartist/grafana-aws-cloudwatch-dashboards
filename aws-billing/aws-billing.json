@@ -916,6 +916,7 @@
           "metricName": "EstimatedCharges",
           "namespace": "AWS/Billing",
           "period": "",
+          "refId": "AA",
           "region": "us-east-1",
           "statistics": [
             "Average"
@@ -931,7 +932,7 @@
           "metricName": "EstimatedCharges",
           "namespace": "AWS/Billing",
           "period": "",
-          "refId": "AA",
+          "refId": "AB",
           "region": "us-east-1",
           "statistics": [
             "Average"
