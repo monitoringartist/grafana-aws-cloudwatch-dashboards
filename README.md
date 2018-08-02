@@ -38,8 +38,7 @@ done
 ```
 
 Use [AWS Policy Generator](http://awspolicygen.s3.amazonaws.com/policygen.html),
-which fits your needs. Example of minimal IAM role for Grafana (CloudWatch
-+ EC2 metrics):
+which fits your needs. Example of minimal IAM role for Grafana (CloudWatch + EC2 metrics):
 
 ```
 {
