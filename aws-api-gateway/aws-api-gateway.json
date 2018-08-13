@@ -862,7 +862,7 @@
         "multi": false,
         "name": "stage",
         "options": [],
-        "query": "dimension_values($region,AWS/ApiGateway,Count,Stage)",
+        "query": "dimension_values($region,AWS/ApiGateway,Count,Stage, {\"ApiName\": \"$apiname\"})",
         "refresh": 1,
         "regex": "",
         "sort": 0,
