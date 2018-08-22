@@ -13,7 +13,7 @@ Doc:
 Feel free to create pull request for additional AWS resources/printscreens/...
 
 Please set your dashboard variables (`Region, ...`) after dashboard import.
-Empty dashboard variables are reason of initial *"Unable to call AWS API"* error.
+Empty dashboard variables are reason of initial *"Unable to call AWS API" or "Metric request error"* error.
 
 Import all Monitoring Artist AWS dashboards in one go (example script,
 `bash/curl/jq` required):
