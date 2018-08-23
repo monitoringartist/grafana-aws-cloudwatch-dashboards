@@ -4,7 +4,7 @@
 
 Set of AWS Grafana dashboards published on
 [grafana.com](https://grafana.com/dashboards?dataSource=cloudwatch) -
-15k+ downloads.
+20k+ downloads.
 
 Doc:
 - [Cloudwatch datasource configuration](http://docs.grafana.org/datasources/cloudwatch/)
