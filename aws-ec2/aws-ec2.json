@@ -49,7 +49,7 @@
     ]
   },
   "description": "Visualize AWS EC2 and related EBS metrics",
-  "editable": false,
+  "editable": true,
   "gnetId": 617,
   "graphTooltip": 0,
   "id": null,
