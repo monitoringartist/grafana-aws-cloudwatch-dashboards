@@ -205,6 +205,39 @@
           },
           "dimensions": {
             "Currency": "USD",
+            "ServiceName": "AmazonRedshift"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricName": "EstimatedCharges",
+          "mode": 0,
+          "namespace": "AWS/Billing",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "RS",
+          "region": "us-east-1",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{ServiceName}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "Currency": "USD",
             "ServiceName": "AmazonS3"
           },
           "functions": [],
