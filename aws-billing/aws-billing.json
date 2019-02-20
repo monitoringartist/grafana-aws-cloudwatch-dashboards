@@ -225,7 +225,7 @@
             "showDisabledItems": false
           },
           "period": "",
-          "refId": "C",
+          "refId": "RS",
           "region": "us-east-1",
           "statistics": [
             "Average"
