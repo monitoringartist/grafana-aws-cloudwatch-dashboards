@@ -1,38 +1,29 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_CLOUDWATCH",
-      "label": "CloudWatch Datasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "cloudwatch",
-      "pluginName": "CloudWatch"
-    }
-  ],
+  "__inputs": [],
   "__requires": [
     {
       "type": "datasource",
       "id": "cloudwatch",
       "name": "CloudWatch",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.0.0"
+      "version": "6.1.6"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "panel",
       "id": "text",
       "name": "Text",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -49,10 +40,11 @@
     ]
   },
   "description": "Visualize estimated AWS charges per AWS resource (EC2, S3, ...)",
-  "editable": false,
+  "editable": true,
   "gnetId": 139,
   "graphTooltip": 0,
   "id": null,
+  "iteration": 1557389384960,
   "links": [],
   "panels": [
     {
@@ -60,7 +52,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLOUDWATCH}",
+      "datasource": "$datasource",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -108,6 +100,7 @@
           "dimensions": {
             "Currency": "USD"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -116,6 +109,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -128,6 +122,7 @@
           "period": "",
           "refId": "A",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -141,6 +136,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonEC2"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -149,6 +145,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -161,6 +158,7 @@
           "period": "",
           "refId": "B",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -174,6 +172,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonRDS"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -182,6 +181,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -194,6 +194,7 @@
           "period": "",
           "refId": "C",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -207,6 +208,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonS3"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -215,6 +217,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -227,6 +230,7 @@
           "period": "",
           "refId": "D",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -240,6 +244,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonCloudWatch"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -248,6 +253,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -260,6 +266,7 @@
           "period": "",
           "refId": "E",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -273,6 +280,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonDynamoDB"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -281,6 +289,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -293,6 +302,7 @@
           "period": "",
           "refId": "F",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -306,6 +316,7 @@
             "Currency": "USD",
             "ServiceName": "ElasticMapReduce"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -314,6 +325,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -326,6 +338,7 @@
           "period": "",
           "refId": "G",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -339,6 +352,7 @@
             "Currency": "USD",
             "ServiceName": "AWSDataTransfer"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -347,6 +361,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -359,6 +374,7 @@
           "period": "",
           "refId": "H",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -372,6 +388,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonECR"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -380,6 +397,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -392,6 +410,7 @@
           "period": "",
           "refId": "I",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -405,6 +424,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonRoute53"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -413,6 +433,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -425,6 +446,7 @@
           "period": "",
           "refId": "J",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -438,6 +460,7 @@
             "Currency": "USD",
             "ServiceName": "AWSQueueService"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -446,6 +469,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -458,6 +482,7 @@
           "period": "",
           "refId": "K",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -471,6 +496,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonES"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -479,6 +505,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -491,6 +518,7 @@
           "period": "",
           "refId": "L",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -504,6 +532,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonKinesis"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -512,6 +541,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -524,6 +554,7 @@
           "period": "",
           "refId": "M",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -537,6 +568,7 @@
             "Currency": "USD",
             "ServiceName": "awskms"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -545,6 +577,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -557,6 +590,7 @@
           "period": "",
           "refId": "N",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -570,6 +604,7 @@
             "Currency": "USD",
             "ServiceName": "AWSLambda"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -578,6 +613,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -590,6 +626,7 @@
           "period": "",
           "refId": "O",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -603,6 +640,7 @@
             "Currency": "USD",
             "ServiceName": "AWSCloudTrail"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -611,6 +649,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -623,6 +662,7 @@
           "period": "",
           "refId": "P",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -636,6 +676,7 @@
             "Currency": "USD",
             "ServiceName": "AWSDirectConnect"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -644,6 +685,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -656,6 +698,7 @@
           "period": "",
           "refId": "Q",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -669,6 +712,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonSNS"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -677,6 +721,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -689,6 +734,7 @@
           "period": "",
           "refId": "R",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -702,6 +748,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonVPC"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -710,6 +757,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -722,6 +770,7 @@
           "period": "",
           "refId": "S",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -735,6 +784,7 @@
             "Currency": "USD",
             "ServiceName": "AWSIoT"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -743,6 +793,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -755,6 +806,7 @@
           "period": "",
           "refId": "T",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -768,6 +820,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonEFS"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -776,6 +829,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -788,6 +842,7 @@
           "period": "",
           "refId": "U",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -801,6 +856,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonElastiCache"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -809,6 +865,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -821,6 +878,7 @@
           "period": "",
           "refId": "V",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -834,6 +892,7 @@
             "Currency": "USD",
             "ServiceName": "AmazonSimpleDB"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -842,6 +901,7 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -854,6 +914,7 @@
           "period": "",
           "refId": "W",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -864,12 +925,15 @@
             "Currency": "USD",
             "ServiceName": "AWSAppSync"
           },
+          "expression": "",
           "highResolution": false,
+          "id": "",
           "metricName": "EstimatedCharges",
           "namespace": "AWS/Billing",
           "period": "",
           "refId": "X",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -880,12 +944,15 @@
             "Currency": "USD",
             "ServiceName": "AWSConfig"
           },
+          "expression": "",
           "highResolution": false,
+          "id": "",
           "metricName": "EstimatedCharges",
           "namespace": "AWS/Billing",
           "period": "",
           "refId": "Y",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -896,12 +963,15 @@
             "Currency": "USD",
             "ServiceName": "AWSMarketplace"
           },
+          "expression": "",
           "highResolution": false,
+          "id": "",
           "metricName": "EstimatedCharges",
           "namespace": "AWS/Billing",
           "period": "",
           "refId": "Z",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -912,12 +982,15 @@
             "Currency": "USD",
             "ServiceName": "AmazonApiGateway"
           },
+          "expression": "",
           "highResolution": false,
+          "id": "",
           "metricName": "EstimatedCharges",
           "namespace": "AWS/Billing",
           "period": "",
           "refId": "AA",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -928,12 +1001,15 @@
             "Currency": "USD",
             "ServiceName": "AmazonCloudFront"
           },
+          "expression": "",
           "highResolution": false,
+          "id": "",
           "metricName": "EstimatedCharges",
           "namespace": "AWS/Billing",
           "period": "",
           "refId": "AB",
           "region": "us-east-1",
+          "returnData": false,
           "statistics": [
             "Average"
           ]
@@ -941,6 +1017,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Estimated charges",
       "tooltip": {
@@ -999,14 +1076,28 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 16,
+  "schemaVersion": 18,
   "style": "dark",
   "tags": [
     "monitoringartist",
     "cloudwatch"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "cloudwatch",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      }
+    ]
   },
   "time": {
     "from": "now-30d",
