@@ -7,7 +7,7 @@ Set of AWS Grafana dashboards published on
 20k+ downloads.
 
 Doc:
-- [Cloudwatch datasource configuration](http://docs.grafana.org/datasources/cloudwatch/)
+- [Cloudwatch datasource configuration](https://grafana.com/docs/features/datasources/cloudwatch/)
 - [Grafana doc](http://docs.grafana.org/)
 
 Feel free to create pull request for additional AWS resources/printscreens/...
@@ -48,19 +48,28 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch + EC2
             "Sid": "AllowReadingMetricsFromCloudWatch",
             "Effect": "Allow",
             "Action": [
+                "cloudwatch:DescribeAlarmsForMetric",
                 "cloudwatch:ListMetrics",
-                "cloudwatch:GetMetricStatistics"
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:GetMetricData"
             ],
             "Resource": "*"
         },
         {
-            "Sid": "AllowReadingTagsFromEC2",
+            "Sid": "AllowReadingTagsInstancesRegionsFromEC2",
             "Effect": "Allow",
             "Action": [
                 "ec2:DescribeTags",
-                "ec2:DescribeInstances"
+                "ec2:DescribeInstances",
+                "ec2:DescribeRegions"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "AllowReadingResourcesForTags",
+            "Effect" : "Allow",
+            "Action" : "tag:GetResources",
+            "Resource" : "*"
         }
     ]
 }
@@ -136,8 +145,8 @@ Kubernetes, ECS, AWS, Google GCP, Terraform, Lambda, Zabbix, Grafana, Elasticsea
 Kibana, Prometheus, Sysdig,...
 
 Summary:
-* 2000+ [GitHub](https://github.com/monitoringartist/) stars
-* 15 000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
+* 3000+ [GitHub](https://github.com/monitoringartist/) stars
+* 100 000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
 * 1 000 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
 
 Professional devops / monitoring / consulting services:
