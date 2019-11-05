@@ -4,7 +4,7 @@
 
 Set of AWS Grafana dashboards published on
 [grafana.com](https://grafana.com/dashboards?dataSource=cloudwatch) -
-20k+ downloads.
+100k+ downloads.
 
 Doc:
 - [Cloudwatch datasource configuration](https://grafana.com/docs/features/datasources/cloudwatch/)
@@ -24,7 +24,7 @@ Import all Monitoring Artist AWS dashboards in one go (example script,
 grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
 grafana_datasource="cloudwatch"
-ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050);
+ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099);
 for d in "${ds[@]}"; do
   echo -n "Processing $d: "
   j=$(curl -s -k -u "$grafana_cred" $grafana_host/api/gnet/dashboards/$d | jq .json)
@@ -135,6 +135,9 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch + EC2
 
 ### [AWS SQS](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-sqs)
 [![AWS SQS](aws-sqs/aws-sqs.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-sqs)
+
+### [AWS Step Functions](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-step-functions)
+[![AWS SNS](aws-step-functions/aws-step-functions.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-step-functions)
 
 ### [AWS VPN](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-vpn)
 
