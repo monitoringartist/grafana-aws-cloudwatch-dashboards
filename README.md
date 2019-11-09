@@ -24,7 +24,7 @@ Import all Monitoring Artist AWS dashboards in one go (example script,
 grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
 grafana_datasource="cloudwatch"
-ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099);
+ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099 11154 11155);
 for d in "${ds[@]}"; do
   echo -n "Processing $d: "
   j=$(curl -s -k -u "$grafana_cred" $grafana_host/api/gnet/dashboards/$d | jq .json)
@@ -120,6 +120,9 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch + EC2
 ### [AWS Logs](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-logs)
 [![AWS Logs](aws-logs/aws-logs.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-logs)
 
+### [AWS CodeBuild](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-codebuild)
+[![AWS CodeBuild](aws-codebuild/aws-codebuild.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-codebuild)
+
 ### [AWS RDS](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-rds)
 
 ### [AWS Redshift](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-redshift)
@@ -153,7 +156,7 @@ Kibana, Prometheus, Sysdig,...
 Summary:
 * 3000+ [GitHub](https://github.com/monitoringartist/) stars
 * 100 000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
-* 1 000 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
+* 15 000 000+ [Docker images](https://hub.docker.com/u/monitoringartist/) downloads
 
 Professional devops / monitoring / consulting services:
 
