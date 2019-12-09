@@ -1,38 +1,29 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_CLOUDWATCH",
-      "label": "CloudWatch Datasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "cloudwatch",
-      "pluginName": "CloudWatch"
-    }
-  ],
+  "__inputs": [],
   "__requires": [
     {
       "type": "datasource",
       "id": "cloudwatch",
       "name": "CloudWatch",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.0.0"
+      "version": "6.4.4"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "panel",
       "id": "text",
       "name": "Text",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -53,7 +44,7 @@
   "gnetId": 1516,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1529223089541,
+  "iteration": 1575933848016,
   "links": [],
   "panels": [
     {
@@ -61,10 +52,11 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLOUDWATCH}",
+      "datasource": "$datasource",
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -89,6 +81,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -120,13 +115,16 @@
             "ApiName": "$apiname",
             "Stage": "$stage"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
           },
+          "highResolution": false,
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -146,6 +144,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Count",
       "tooltip": {
@@ -190,10 +189,11 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLOUDWATCH}",
+      "datasource": "$datasource",
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -218,6 +218,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -246,6 +249,10 @@
         {
           "alias": "IntegrationLatency Average",
           "yaxis": 1
+        },
+        {
+          "alias": "Latency Maximum",
+          "yaxis": 2
         }
       ],
       "spaceLength": 10,
@@ -261,13 +268,16 @@
             "ApiName": "$apiname",
             "Stage": "$stage"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
           },
+          "highResolution": false,
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -293,13 +303,16 @@
             "ApiName": "$apiname",
             "Stage": "$stage"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
           },
+          "highResolution": false,
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -315,10 +328,46 @@
           "statistics": [
             "Average"
           ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "ApiName": "$apiname",
+            "Stage": "$stage"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "metricName": "Latency",
+          "mode": 0,
+          "namespace": "AWS/ApiGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "C",
+          "region": "$region",
+          "statistics": [
+            "Maximum"
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "Latency / IntegrationLatency",
       "tooltip": {
@@ -366,10 +415,11 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLOUDWATCH}",
+      "datasource": "$datasource",
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -394,33 +444,16 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "Latency_Average",
-          "yaxis": 1
-        },
-        {
-          "alias": "TargetResponseTime_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "ClientConnections_Sum",
-          "yaxis": 2
-        },
-        {
-          "alias": "IntegrationLatency_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "5XXError_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "4XXError_Sum",
+          "alias": "Total Error Rate",
           "yaxis": 2
         }
       ],
@@ -437,13 +470,16 @@
             "ApiName": "$apiname",
             "Stage": "$stage"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
           },
+          "highResolution": false,
           "host": {
             "filter": ""
           },
+          "id": "e400",
           "item": {
             "filter": ""
           },
@@ -469,13 +505,16 @@
             "ApiName": "$apiname",
             "Stage": "$stage"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
           },
+          "highResolution": false,
           "host": {
             "filter": ""
           },
+          "id": "e500",
           "item": {
             "filter": ""
           },
@@ -491,10 +530,82 @@
           "statistics": [
             "Sum"
           ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "ApiName": "$apiname",
+            "Stage": "$stage"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "hide": true,
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "countt",
+          "item": {
+            "filter": ""
+          },
+          "metricName": "Count",
+          "mode": 0,
+          "namespace": "AWS/ApiGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "E",
+          "region": "$region",
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "Total Error Rate",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "ApiName": "$apiname",
+            "Stage": "$stage"
+          },
+          "expression": "SUM([e400,e500])*100/countt",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "rate",
+          "item": {
+            "filter": ""
+          },
+          "metricName": "Count",
+          "mode": 0,
+          "namespace": "AWS/ApiGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "D",
+          "region": "$region",
+          "statistics": [
+            "Sum"
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "4XXError / 5XXError",
       "tooltip": {
@@ -521,7 +632,7 @@
           "show": true
         },
         {
-          "format": "none",
+          "format": "percent",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -539,10 +650,11 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLOUDWATCH}",
+      "datasource": "$datasource",
       "editable": true,
       "error": false,
       "fill": 1,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -567,6 +679,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -606,13 +721,16 @@
             "ApiName": "$apiname",
             "Stage": "$stage"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
           },
+          "highResolution": false,
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -638,13 +756,16 @@
             "ApiName": "$apiname",
             "Stage": "$stage"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
           },
+          "highResolution": false,
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
@@ -664,6 +785,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "CacheHitCount / CacheMissCount",
       "tooltip": {
@@ -704,7 +826,7 @@
       }
     },
     {
-      "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/api-gateway-metrics-dimensions.html\">AWS CloudWatch API Gateway documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/1516\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+      "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html\">AWS CloudWatch API Gateway documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/1516\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
       "editable": true,
       "error": false,
       "gridPos": {
@@ -716,12 +838,13 @@
       "id": 2,
       "links": [],
       "mode": "html",
+      "options": {},
       "title": "Documentation",
       "type": "text"
     }
   ],
   "refresh": false,
-  "schemaVersion": 16,
+  "schemaVersion": 20,
   "style": "dark",
   "tags": [
     "monitoringartist",
@@ -730,13 +853,27 @@
   "templating": {
     "list": [
       {
+        "current": {},
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "cloudwatch",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
         "auto": true,
         "auto_count": 30,
         "auto_min": "10s",
         "current": {
-          "selected": true,
-          "text": "1s",
-          "value": "1s"
+          "selected": false,
+          "text": "1m",
+          "value": "1m"
         },
         "hide": 0,
         "label": "Aggregation",
@@ -748,7 +885,7 @@
             "value": "$__auto_interval_agg"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "1s",
             "value": "1s"
           },
@@ -768,7 +905,7 @@
             "value": "30s"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "1m",
             "value": "1m"
           },
@@ -810,12 +947,14 @@
         ],
         "query": "1s,5s,10s,30s,1m,5m,15m,1h,6h,1d,7d,30d",
         "refresh": 2,
+        "skipUrlSync": false,
         "type": "interval"
       },
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
+        "datasource": "$datasource",
+        "definition": "regions()",
         "hide": 0,
         "includeAll": false,
         "label": "Region",
@@ -825,7 +964,8 @@
         "query": "regions()",
         "refresh": 1,
         "regex": "",
-        "sort": 0,
+        "skipUrlSync": false,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -835,7 +975,8 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
+        "datasource": "$datasource",
+        "definition": "dimension_values($region,AWS/ApiGateway,Count,ApiName)",
         "hide": 0,
         "includeAll": false,
         "label": "ApiName",
@@ -845,7 +986,8 @@
         "query": "dimension_values($region,AWS/ApiGateway,Count,ApiName)",
         "refresh": 1,
         "regex": "",
-        "sort": 0,
+        "skipUrlSync": false,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -855,7 +997,8 @@
       {
         "allValue": "*",
         "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
+        "datasource": "$datasource",
+        "definition": "dimension_values($region,AWS/ApiGateway,Count,Stage, {\"ApiName\": \"$apiname\"})",
         "hide": 0,
         "includeAll": false,
         "label": "AND Stage",
@@ -865,7 +1008,8 @@
         "query": "dimension_values($region,AWS/ApiGateway,Count,Stage, {\"ApiName\": \"$apiname\"})",
         "refresh": 1,
         "regex": "",
-        "sort": 0,
+        "skipUrlSync": false,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -875,7 +1019,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {
@@ -906,5 +1050,5 @@
   "timezone": "browser",
   "title": "AWS API Gateway",
   "uid": "AWSAPIGat",
-  "version": 1
+  "version": 3
 }
