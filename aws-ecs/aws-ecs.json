@@ -1,14 +1,5 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_CLOUDWATCH",
-      "label": "cloudwatch",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "cloudwatch",
-      "pluginName": "CloudWatch"
-    }
-  ],
+  "__inputs": [],
   "__requires": [
     {
       "type": "panel",
@@ -55,7 +46,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_CLOUDWATCH}",
+          "datasource": "${datasource}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -141,7 +132,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_CLOUDWATCH}",
+          "datasource": "${datasource}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -226,7 +217,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_CLOUDWATCH}",
+          "datasource": "${datasource}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -312,7 +303,7 @@
       {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_CLOUDWATCH}",
+          "datasource": "${datasource}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -399,7 +390,7 @@
             "CPUReservation_Average": "#EAB839"
           },
           "bars": false,
-          "datasource": "${DS_CLOUDWATCH}",
+          "datasource": "${datasource}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -485,7 +476,7 @@
             "MemoryReservation_Average": "#EAB839"
           },
           "bars": false,
-          "datasource": "${DS_CLOUDWATCH}",
+          "datasource": "${datasource}",
           "editable": true,
           "error": false,
           "fill": 1,
@@ -624,7 +615,21 @@
     "list": [
       {
         "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "cloudwatch",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {},
+        "datasource": "${datasource}",
         "hide": 0,
         "includeAll": false,
         "label": "Region",
@@ -637,7 +642,7 @@
       },
       {
         "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
+        "datasource": "${datasource}",
         "hide": 0,
         "includeAll": false,
         "label": "Cluster",
@@ -650,7 +655,7 @@
       },
       {
         "current": {},
-        "datasource": "${DS_CLOUDWATCH}",
+        "datasource": "${datasource}",
         "hide": 0,
         "includeAll": false,
         "label": "Service",
@@ -666,7 +671,7 @@
   "annotations": {
     "list": [
       {
-        "datasource": "${DS_CLOUDWATCH}",
+        "datasource": "${datasource}",
         "dimensions": {
           "ServiceName": "$service"
         },
