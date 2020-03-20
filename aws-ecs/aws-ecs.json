@@ -34,7 +34,8 @@
   ],
   "style": "dark",
   "timezone": "browser",
-  "editable": true,
+  "description": "Visualize AWS ECS metrics",
+  "editable": false,
   "hideControls": false,
   "sharedCrosshair": false,
   "rows": [

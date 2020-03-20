@@ -124,6 +124,7 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch + EC2
 [![AWS CodeBuild](aws-codebuild/aws-codebuild.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-codebuild)
 
 ### [AWS RDS](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-rds)
+[![AWS RDS](aws-rds/aws-rds.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-rds)
 
 ### [AWS Redshift](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-redshift)
 [![AWS Redshift](aws-redshift/aws-redshift.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-redshift)
