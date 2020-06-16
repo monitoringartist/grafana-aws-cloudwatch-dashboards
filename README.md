@@ -20,6 +20,7 @@ Import all Monitoring Artist AWS dashboards in one go (example script,
 
 ```bash
 #!/bin/bash
+jq --version >/dev/null 2>&1 || { echo >&2 "I require jq but it's not installed.  Aborting."; exit 1; }
 ### Please edit grafana_* variables to match your Grafana setup:
 grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
