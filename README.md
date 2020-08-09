@@ -81,6 +81,18 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch + EC2
 }
 ```
 
+You can also install this project as a Jsonnet library with [jsonnet-bundler](https://github.com/jsonnet-bundler/jsonnet-bundler):
+
+```shell
+$ jb install github.com/monitoringartist/grafana-aws-cloudwatch-dashboards
+$ cat > aws-cloudwatch-dashboards.jsonnet <<EOF
+local awsCloudWatch = import 'github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/dashboards.libsonnet';
+
+awsCloudWatch.grafanaDashboards
+EOF
+$ jsonnet -J vendor aws-cloudwatch-dashboards.jsonnet
+```
+
 ### [AWS API Gateway](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-api-gateway)
 [![AWS API Gateway](aws-api-gateway/aws-api-gateway.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-api-gateway)
 
