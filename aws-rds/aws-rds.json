@@ -1,14 +1,5 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_CLOUDWATCH",
-      "label": "CloudWatch",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "cloudwatch",
-      "pluginName": "CloudWatch"
-    }
-  ],
+  "__inputs": [],
   "__requires": [
     {
       "type": "datasource",
