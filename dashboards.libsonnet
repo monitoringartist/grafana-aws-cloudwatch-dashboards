@@ -5,6 +5,7 @@
     'aws-billing.json': (import 'aws-billing/aws-billing.json'),
     'aws-cloudfront.json': (import 'aws-cloudfront/aws-cloudfront.json'),
     'aws-cloudwatch-browser.json': (import 'aws-cloudwatch-browser/aws-cloudwatch-browser.json'),
+    'aws-cloudwatch-usage-metrics.json': (import 'aws-cloudwatch-usage-metrics/aws-cloudwatch-usage-metrics.json'),
     'aws-codebuild.json': (import 'aws-codebuild/aws-codebuild.json'),
     'aws-ebs.json': (import 'aws-ebs/aws-ebs.json'),
     'aws-ec2.json': (import 'aws-ec2/aws-ec2.json'),
