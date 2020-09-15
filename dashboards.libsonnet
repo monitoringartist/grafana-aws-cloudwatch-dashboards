@@ -16,6 +16,7 @@
     'aws-elb-classic-lb.json': (import 'aws-elb/aws-elb-classic-lb.json'),
     'aws-emr-hadoop-2.json': (import 'aws-emr/aws-emr-hadoop-2.json'),
     'aws-events.json': (import 'aws-events/aws-events.json'),
+    'aws-kinesis.json': (import 'aws-lambda/aws-kinesis.json'),
     'aws-lambda.json': (import 'aws-lambda/aws-lambda.json'),
     'aws-logs.json': (import 'aws-logs/aws-logs.json'),
     'aws-rds.json': (import 'aws-rds/aws-rds.json'),
