@@ -27,6 +27,7 @@
     'aws-sns.json': (import 'aws-sns/aws-sns.json'),
     'aws-sqs.json': (import 'aws-sqs/aws-sqs.json'),
     'aws-step-functions.json': (import 'aws-step-functions/aws-step-functions.json'),
+    'aws-storage-gateway.json': (import 'aws-storage-gateway/aws-storage-gateway.json'),
     'aws-vpn.json': (import 'aws-vpn/aws-vpn.json'),
   },
 }

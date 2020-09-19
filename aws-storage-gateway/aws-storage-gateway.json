@@ -1,0 +1,2520 @@
+{
+  "__inputs": [],
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.1.5"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": "7.1.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Visualize AWS Storage Gateway metrics",
+  "editable": true,
+  "gnetId": 593,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1600529883619,
+  "links": [],
+  "panels": [
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 1,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "IoWaitPercent Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "UserCpuPercent",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "IoWaitPercent",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "UserCpuPercent/IoWaitPercent",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": false,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 3,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "CacheHitPercent",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "CacheUsed",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CacheHitPercent/CacheUsed",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 9,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "UploadBufferUsed Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "UploadBufferPercentUsed",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "UploadBufferUsed",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "UploadBufferPercentUsed/UploadBufferUsed",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 5,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "MemUsedBytes Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "MemTotalBytes",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "MemUsedBytes",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MemTotalBytes/MemUsedBytes",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "MemUsedBytes Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "CloudBytesDownloaded Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "CloudBytesDownloaded Sum",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "CloudBytesUploaded",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "CloudBytesDownloaded",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CloudBytesUploaded/CloudBytesDownloaded",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "MemUsedBytes Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "ReadTime Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "ReadBytes",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "ReadTime",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "ReadBytes/ReadTime",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "MemUsedBytes Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "ReadTime Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "WriteTime Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "WriteBytes",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "WriteTime",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "WriteBytes/WriteTime",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "hiddenSeries": false,
+      "id": 7,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "MemUsedBytes Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "ReadTime Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "WriteTime Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "IndexFetches Sum",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "IndexEvictions",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayId": "$gatewayid",
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "IndexFetches",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "IndexEvictions/IndexFetches",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 56
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "MemUsedBytes Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "ReadTime Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "WriteTime Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "SmbV1Sessions",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "SmbV2Sessions",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "SmbV3Sessions",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "C",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "NfsSessions",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "D",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "SmbV1Sessions/SmbV2Sessions/SmbV3Sessions/NfsSessions",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "hiddenSeries": false,
+      "id": 11,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "MemUsedBytes Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "ReadTime Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "WriteTime Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "WorkingStoragePercentUsed Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "WorkingStorageFree",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "WorkingStorageUsed",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "WorkingStoragePercentUsed",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "C",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "WorkingStorageFree/WorkingStorageUsed/WorkingStoragePercentUsed",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Maximum": "#e24d42"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 70
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "IncomingBytes Sum",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheUsed Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "MemUsedBytes Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "ReadTime Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "WriteTime Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "QueuedWrites Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "AvailabilityNotifications",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "GatewayName": "$gatewayname"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "QueuedWrites",
+          "mode": 0,
+          "namespace": "AWS/StorageGateway",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "$agg",
+          "refId": "B",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "AvailabilityNotifications/QueuedWrites",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:187",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:188",
+          "format": "bytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "content": "",
+      "datasource": "",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 77
+      },
+      "id": 2,
+      "links": [],
+      "mode": "html",
+      "options": {
+        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/Main_monitoring-gateways-common.html\">AWS CloudWatch Storage Gateway documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/13040\">Installed from Grafana.com dashboards</a>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "title": "Documentation",
+      "type": "text"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [
+    "monitoringartist",
+    "cloudwatch"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "cloudwatch",
+        "queryValue": "stor",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "auto": true,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "selected": false,
+          "text": "auto",
+          "value": "$__auto_interval_agg"
+        },
+        "hide": 0,
+        "label": "Aggregation",
+        "name": "agg",
+        "options": [
+          {
+            "selected": true,
+            "text": "auto",
+            "value": "$__auto_interval_agg"
+          },
+          {
+            "selected": false,
+            "text": "1s",
+            "value": "1s"
+          },
+          {
+            "selected": false,
+            "text": "5s",
+            "value": "5s"
+          },
+          {
+            "selected": false,
+            "text": "10s",
+            "value": "10s"
+          },
+          {
+            "selected": false,
+            "text": "30s",
+            "value": "30s"
+          },
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "15m",
+            "value": "15m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "selected": false,
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "selected": false,
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "query": "1s,5s,10s,30s,1m,5m,15m,1h,6h,1d,7d,30d",
+        "queryValue": "",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "$datasource",
+        "definition": "regions()",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Region",
+        "multi": false,
+        "name": "region",
+        "options": [],
+        "query": "regions()",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "$datasource",
+        "definition": "dimension_values($region,AWS/StorageGateway,UserCpuPercent,GatewayName)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "GatewayName",
+        "multi": false,
+        "name": "gatewayname",
+        "options": [],
+        "query": "dimension_values($region,AWS/StorageGateway,UserCpuPercent,GatewayName)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "$datasource",
+        "definition": "dimension_values($region,AWS/StorageGateway,CacheHitPercent,GatewayId,{\"GatewayName\":\"$gatewayname\"})",
+        "hide": 0,
+        "includeAll": false,
+        "label": "GatewayId",
+        "multi": false,
+        "name": "gatewayid",
+        "options": [],
+        "query": "dimension_values($region,AWS/StorageGateway,CacheHitPercent,GatewayId,{\"GatewayName\":\"$gatewayname\"})",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "$datasource",
+        "definition": "dimension_values($region,AWS/StorageGateway,WorkingStorageFree,VolumeId,{\"GatewayName\":\"$gatewayname\",\"GatewayId\":\"$gatewayid\"})",
+        "hide": 0,
+        "includeAll": false,
+        "label": "VolumeId",
+        "multi": false,
+        "name": "volumeid",
+        "options": [],
+        "query": "dimension_values($region,AWS/StorageGateway,WorkingStorageFree,VolumeId,{\"GatewayName\":\"$gatewayname\",\"GatewayId\":\"$gatewayid\"})",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "AWS Storage Gateway",
+  "uid": "AWSStorag",
+  "version": 1
+}

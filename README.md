@@ -26,7 +26,7 @@ grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
 # Keep grafana_folder empty for adding the dashboards in "General" folder
 grafana_folder="AWS CloudWatch"
-ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099 11154 11155 12979 13018);
+ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099 11154 11155 12979 13018 13040);
 folderId=$(curl -s -k -u "$grafana_cred" $grafana_host/api/folders | jq -r --arg grafana_folder  "$grafana_folder" '.[] | select(.title==$grafana_folder).id')
 if [ -z "$folderId" ] ; then echo "Didn't get folderId" ; else echo "Got folderId $folderId" ; fi
 for d in "${ds[@]}"; do
@@ -168,6 +168,9 @@ $ jsonnet -J vendor aws-cloudwatch-dashboards.jsonnet
 
 ### [AWS Step Functions](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-step-functions)
 [![AWS SNS](aws-step-functions/aws-step-functions.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-step-functions)
+
+### [AWS Storage Gateway](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-storage-gateway)
+[![AWS Storage Gateway](aws-storage-gateway/aws-storage-gateway.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-storage-gateway)
 
 ### [AWS VPN](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-vpn)
 
