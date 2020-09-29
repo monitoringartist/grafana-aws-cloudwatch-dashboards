@@ -11,7 +11,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.4.4"
+      "version": "7.1.5"
     },
     {
       "type": "panel",
@@ -23,7 +23,7 @@
       "type": "panel",
       "id": "text",
       "name": "Text",
-      "version": ""
+      "version": "7.1.0"
     }
   ],
   "annotations": {
@@ -44,7 +44,7 @@
   "gnetId": 1516,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1575933848016,
+  "iteration": 1601391274139,
   "links": [],
   "panels": [
     {
@@ -55,6 +55,13 @@
       "datasource": "$datasource",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -64,6 +71,7 @@
         "x": 0,
         "y": 0
       },
+      "hiddenSeries": false,
       "id": 7,
       "legend": {
         "alignAsTable": true,
@@ -74,17 +82,15 @@
         "show": true,
         "sort": "current",
         "sortDesc": true,
-        "total": false,
+        "total": true,
         "values": true
       },
       "lines": true,
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -128,6 +134,7 @@
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricName": "Count",
           "mode": 0,
           "namespace": "AWS/ApiGateway",
@@ -163,6 +170,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:124",
           "format": "none",
           "label": null,
           "logBase": 1,
@@ -171,6 +179,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:125",
           "format": "none",
           "label": null,
           "logBase": 1,
@@ -192,6 +201,13 @@
       "datasource": "$datasource",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -201,6 +217,7 @@
         "x": 0,
         "y": 7
       },
+      "hiddenSeries": false,
       "id": 14,
       "legend": {
         "alignAsTable": true,
@@ -218,10 +235,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -418,6 +433,13 @@
       "datasource": "$datasource",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -427,6 +449,7 @@
         "x": 0,
         "y": 14
       },
+      "hiddenSeries": false,
       "id": 15,
       "legend": {
         "alignAsTable": true,
@@ -444,10 +467,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -653,6 +674,13 @@
       "datasource": "$datasource",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -662,6 +690,7 @@
         "x": 0,
         "y": 21
       },
+      "hiddenSeries": false,
       "id": 16,
       "legend": {
         "alignAsTable": true,
@@ -679,10 +708,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -705,6 +732,10 @@
         },
         {
           "alias": "5XXError_Average",
+          "yaxis": 2
+        },
+        {
+          "alias": "CacheHitCount Sum",
           "yaxis": 2
         }
       ],
@@ -734,6 +765,7 @@
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricName": "CacheHitCount",
           "mode": 0,
           "namespace": "AWS/ApiGateway",
@@ -769,6 +801,7 @@
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricName": "CacheMissCount",
           "mode": 0,
           "namespace": "AWS/ApiGateway",
@@ -804,6 +837,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:207",
           "format": "none",
           "label": null,
           "logBase": 1,
@@ -812,12 +846,13 @@
           "show": true
         },
         {
+          "$$hashKey": "object:208",
           "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
           "min": 0,
-          "show": false
+          "show": true
         }
       ],
       "yaxis": {
@@ -827,8 +862,15 @@
     },
     {
       "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html\">AWS CloudWatch API Gateway documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/1516\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+      "datasource": "",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 3,
         "w": 24,
@@ -838,13 +880,17 @@
       "id": 2,
       "links": [],
       "mode": "html",
-      "options": {},
+      "options": {
+        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html\">AWS CloudWatch API Gateway documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/1516\">Installed from Grafana.com dashboards</a>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
       "title": "Documentation",
       "type": "text"
     }
   ],
   "refresh": false,
-  "schemaVersion": 20,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [
     "monitoringartist",
@@ -871,16 +917,16 @@
         "auto_count": 30,
         "auto_min": "10s",
         "current": {
-          "selected": false,
-          "text": "1m",
-          "value": "1m"
+          "selected": true,
+          "text": "auto",
+          "value": "$__auto_interval_agg"
         },
         "hide": 0,
         "label": "Aggregation",
         "name": "agg",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "auto",
             "value": "$__auto_interval_agg"
           },
@@ -905,7 +951,7 @@
             "value": "30s"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "1m",
             "value": "1m"
           },
@@ -965,7 +1011,7 @@
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -1050,5 +1096,5 @@
   "timezone": "browser",
   "title": "AWS API Gateway",
   "uid": "AWSAPIGat",
-  "version": 3
+  "version": 1
 }
