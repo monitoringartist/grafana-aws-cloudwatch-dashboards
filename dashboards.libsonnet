@@ -7,6 +7,7 @@
     'aws-cloudwatch-browser.json': (import 'aws-cloudwatch-browser/aws-cloudwatch-browser.json'),
     'aws-cloudwatch-usage-metrics.json': (import 'aws-cloudwatch-usage-metrics/aws-cloudwatch-usage-metrics.json'),
     'aws-codebuild.json': (import 'aws-codebuild/aws-codebuild.json'),
+    'aws-cognito.json': (import 'aws-cognito/aws-cognito.json'),
     'aws-ebs.json': (import 'aws-ebs/aws-ebs.json'),
     'aws-ec2.json': (import 'aws-ec2/aws-ec2.json'),
     'aws-ecs.json': (import 'aws-ecs/aws-ecs.json'),
