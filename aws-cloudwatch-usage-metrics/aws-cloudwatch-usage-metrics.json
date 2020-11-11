@@ -1,4 +1,4 @@
-    {
+{
   "__inputs": [],
   "__requires": [
     {
@@ -11,7 +11,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.1.5"
+      "version": "7.3.1"
     },
     {
       "type": "panel",
@@ -23,7 +23,7 @@
       "type": "panel",
       "id": "text",
       "name": "Text",
-      "version": "7.1.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -42,9 +42,9 @@
   "description": "Browse and visualize available AWS CloudWatch Usage Metrics",
   "editable": true,
   "gnetId": 12979,
-  "graphTooltip": 0,
+  "graphTooltip": 2,
   "id": null,
-  "iteration": 1599603801228,
+  "iteration": 1605126448172,
   "links": [],
   "panels": [
     {
@@ -90,12 +90,21 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:131",
+          "alias": "Usage",
+          "yaxis": 2
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -125,7 +134,7 @@
           "item": {
             "filter": ""
           },
-          "matchExact": false,
+          "matchExact": true,
           "metricName": "$metric",
           "mode": 0,
           "namespace": "AWS/Usage",
@@ -162,6 +171,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:57",
           "format": "none",
           "label": null,
           "logBase": 1,
@@ -170,7 +180,8 @@
           "show": true
         },
         {
-          "format": "short",
+          "$$hashKey": "object:58",
+          "format": "percent",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -184,7 +195,168 @@
       }
     },
     {
-      "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html\">Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference </a>&nbsp;Note: some metrics may need more dimensions.<br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/590\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.1",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:131",
+          "alias": "Usage",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "Class": "$class",
+            "Resource": "$resource",
+            "Service": "$service",
+            "Type": "$type"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "hide": true,
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "m1",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "$metric",
+          "mode": 0,
+          "namespace": "AWS/Usage",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "returnData": false,
+          "statistics": [
+            "Sum"
+          ]
+        },
+        {
+          "alias": "Usage",
+          "dimensions": {},
+          "expression": "m1/SERVICE_QUOTA(m1)*100",
+          "id": "",
+          "matchExact": true,
+          "metricName": "",
+          "namespace": "",
+          "period": "",
+          "refId": "B",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Service Quota Usage",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:57",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:58",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "datasource": "",
       "editable": true,
       "error": false,
@@ -198,17 +370,16 @@
         "h": 3,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 14
       },
       "id": 2,
       "isNew": true,
       "links": [],
-      "mode": "html",
       "options": {
         "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Usage-Metrics.html\">AWS CloudWatch Usage Metrics documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/12979\">Installed from Grafana.com dashboards</a>",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.3.1",
       "title": "Documentation",
       "type": "text"
     }
@@ -220,11 +391,8 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "cloudwatch-healthhub",
-          "value": "cloudwatch-healthhub"
-        },
+        "current": {},
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Datasource",
@@ -232,6 +400,7 @@
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
+        "queryValue": "hea",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -242,6 +411,7 @@
         "current": {},
         "datasource": "$datasource",
         "definition": "regions()",
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Region",
@@ -264,6 +434,7 @@
         "current": {},
         "datasource": "$datasource",
         "definition": "metrics(AWS/Usage)",
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Metric",
@@ -286,6 +457,7 @@
         "current": {},
         "datasource": "$datasource",
         "definition": "dimension_values($region, AWS/Usage, $metric, Type)",
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Type",
@@ -308,6 +480,7 @@
         "current": {},
         "datasource": "$datasource",
         "definition": "dimension_values($region, AWS/Usage, $metric, Service)",
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Service",
@@ -330,6 +503,7 @@
         "current": {},
         "datasource": "$datasource",
         "definition": "dimension_values($region, AWS/Usage, $metric, Resource, {\"Service\": [\"$service\"]})",
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Resource",
@@ -352,6 +526,7 @@
         "current": {},
         "datasource": "$datasource",
         "definition": "dimension_values($region, AWS/Usage, $metric, Class)",
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Class",
@@ -372,7 +547,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {
@@ -402,6 +577,6 @@
   },
   "timezone": "browser",
   "title": "AWS CloudWatch Usage Metrics",
-  "uid": "usageCldw",
+  "uid": "mkCnblDMk",
   "version": 1
 }
