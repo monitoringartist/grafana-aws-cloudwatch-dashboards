@@ -4,11 +4,11 @@
 
 Set of AWS Grafana dashboards published on
 [grafana.com](https://grafana.com/dashboards?dataSource=cloudwatch) -
-100k+ downloads.
+10M+ downloads.
 
 Doc:
 - [Cloudwatch datasource configuration](https://grafana.com/docs/features/datasources/cloudwatch/)
-- [Grafana doc](http://docs.grafana.org/)
+- [Grafana doc](https://grafana.com/docs/)
 
 Feel free to create pull request for additional AWS resources/printscreens/...
 
@@ -26,7 +26,7 @@ grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
 # Keep grafana_folder empty for adding the dashboards in "General" folder
 grafana_folder="AWS CloudWatch"
-ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099 11154 11155 12979 13018 13040 13104);
+ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099 11154 11155 12979 13018 13040 13104 13892);
 folderId=$(curl -s -k -u "$grafana_cred" $grafana_host/api/folders | jq -r --arg grafana_folder  "$grafana_folder" '.[] | select(.title==$grafana_folder).id')
 if [ -z "$folderId" ] ; then echo "Didn't get folderId" ; else echo "Got folderId $folderId" ; fi
 for d in "${ds[@]}"; do
@@ -105,6 +105,9 @@ $ jsonnet -J vendor aws-cloudwatch-dashboards.jsonnet
 
 ### [AWS CloudWatch Browser](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-cloudwatch-browser)
 [![AWS Cloudwatch Browser](aws-cloudwatch-browser/aws-cloudwatch-browser.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-cloudwatch-browser)
+
+### [AWS CloudWatch Synthetics](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-cloudwatch-synthetics)
+[![AWS Cloudwatch Synthetics](aws-cloudwatch-synthetics/aws-cloudwatch-synthetics.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-cloudwatch-synthetics)
 
 ### [AWS CloudWatch Usage Metrics](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-cloudwatch-usage-metrics)
 [![AWS Cloudwatch Browser](aws-cloudwatch-usage-metrics/aws-cloudwatch-usage-metrics.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-cloudwatch-usage-metrics)
