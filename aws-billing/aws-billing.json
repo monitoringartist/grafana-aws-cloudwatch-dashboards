@@ -11,7 +11,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.6.2"
+      "version": "7.4.1"
     },
     {
       "type": "panel",
@@ -44,7 +44,7 @@
   "gnetId": 139,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1588018559208,
+  "iteration": 1614364548685,
   "links": [],
   "panels": [
     {
@@ -55,6 +55,13 @@
       "datasource": "$datasource",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -86,9 +93,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -214,27 +222,249 @@
       }
     },
     {
-      "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/billing-metricscollected.html\">AWS CloudWatch billing documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/139\">Installed from Grafana.com dashboards</a> | \n<a target=\"_blank\" href=\"https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards\">Fork me on GitHub</a>",
-      "datasource": "",
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$datasource",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
       "gridPos": {
-        "h": 3,
+        "h": 10,
         "w": 24,
         "x": 0,
         "y": 15
       },
+      "hiddenSeries": false,
+      "id": 3,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.1",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "Currency": "USD"
+          },
+          "expression": "",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "hide": true,
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "m1",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "EstimatedCharges",
+          "mode": 0,
+          "namespace": "AWS/Billing",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "86400",
+          "refId": "A",
+          "region": "us-east-1",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "Currency": "USD"
+          },
+          "expression": "RATE(m1) * PERIOD(m1)",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "hide": true,
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "m2",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "EstimatedCharges",
+          "mode": 0,
+          "namespace": "AWS/Billing",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "86400",
+          "refId": "B",
+          "region": "us-east-1",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "Total estimated daily charge",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "Currency": "USD"
+          },
+          "expression": "IF(m2>0, m2)",
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "hide": false,
+          "highResolution": false,
+          "host": {
+            "filter": ""
+          },
+          "id": "m3",
+          "item": {
+            "filter": ""
+          },
+          "matchExact": true,
+          "metricName": "EstimatedCharges",
+          "mode": 0,
+          "namespace": "AWS/Billing",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "86400",
+          "refId": "C",
+          "region": "us-east-1",
+          "returnData": false,
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Estimated daily charges",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:75",
+          "format": "currencyUSD",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:76",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
       "id": 2,
       "isNew": true,
       "links": [],
-      "mode": "html",
-      "options": {},
+      "options": {
+        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/billing-metricscollected.html\">AWS CloudWatch billing documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/139\">Installed from Grafana.com dashboards</a>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.4.1",
       "title": "Documentation",
       "type": "text"
     }
   ],
   "refresh": false,
-  "schemaVersion": 22,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "monitoringartist",
@@ -243,6 +473,9 @@
   "templating": {
     "list": [
       {
+        "current": {},
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Datasource",
@@ -250,6 +483,7 @@
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
+        "queryValue": "",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -288,6 +522,6 @@
   },
   "timezone": "browser",
   "title": "AWS Billing",
-  "uid": "AWSBillin",
-  "version": 1
+  "uid": "AWSBillig",
+  "version": 5
 }
