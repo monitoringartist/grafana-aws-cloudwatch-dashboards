@@ -7,7 +7,7 @@ Set of AWS Grafana dashboards published on
 10M+ downloads.
 
 Doc:
-- [Cloudwatch datasource configuration](https://grafana.com/docs/features/datasources/cloudwatch/)
+- [Cloudwatch datasource configuration](https://grafana.com/docs/grafana/latest/datasources/cloudwatch/)
 - [Grafana doc](https://grafana.com/docs/)
 
 Feel free to create pull request for additional AWS resources/printscreens/...
