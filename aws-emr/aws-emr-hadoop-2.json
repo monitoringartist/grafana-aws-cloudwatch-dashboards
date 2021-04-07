@@ -1662,7 +1662,7 @@
         "multi": false,
         "name": "jobflowid",
         "options": [],
-        "query": "dimension_values($region,AWS/ElasticMapReduce,CoreNodesRunning,JobFlowId)",
+        "query": "dimension_values($region,AWS/ElasticMapReduce,IsIdle,JobFlowId)",
         "refresh": 1,
         "type": "query"
       }
