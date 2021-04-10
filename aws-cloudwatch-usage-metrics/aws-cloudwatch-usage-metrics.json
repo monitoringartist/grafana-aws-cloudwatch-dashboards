@@ -387,7 +387,10 @@
   "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "monitoringartist",
+    "cloudwatch"
+  ],
   "templating": {
     "list": [
       {

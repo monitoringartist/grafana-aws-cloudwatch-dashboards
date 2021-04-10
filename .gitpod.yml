@@ -1,0 +1,19 @@
+ports:
+  - port: 3000
+    onOpen: open-browser
+
+tasks:
+  - name: docker-daemon
+    before: sudo docker-up
+    
+  - name: grafana
+    before:
+      echo 'Waiting for docker daemon to start' &&
+      while [ ! -S /var/run/docker.sock ]; do sleep 1; done;
+    init: >-
+      export IMAGE="${IMAGE:=grafana/grafana:latest}" &&
+      mkdir all-dashboards &&
+      find . ! -path all-dashboards -type f -name *.json -exec cp {} all-dashboards \; &&
+      chmod 755 -R all-dashboards &&
+      docker-compose -f .gitpod/docker-compose-gitpod.yml up -d &&
+      docker logs -f grafana

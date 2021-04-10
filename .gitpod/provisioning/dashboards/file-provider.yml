@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  - name: 'file-provider'
+    orgId: 1
+    folder: 'Provisioned CloudWatch Dashboards'
+    type: file
+    updateIntervalSeconds: 600
+    allowUiUpdates: false
+    options:
+      path: /tmp/dashboards
+      foldersFromFilesStructure: false
