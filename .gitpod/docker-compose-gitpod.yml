@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  keycloak:
+      container_name: grafana
+      image: ${IMAGE}
+      ports:
+        - 3000:3000
+      environment:
+        GF_AUTH_ANONYMOUS_ENABLED: "true"
+      volumes:
+        - ../.gitpod/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+        - .././all-dashboards:/tmp/dashboards
