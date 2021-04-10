@@ -1,0 +1,39 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: CI tests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Docker Login
+        uses: docker/login-action@v1.8.0
+        with:
+          username: ${{ secrets.DOCKER_HUB_LOGIN }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Provision dashboards
+        run: |
+          mkdir .github/workflows/all-dashboards
+          find . ! -path .github/workflows/all-dashboards -type f -name *.json -exec cp {} .github/workflows/all-dashboards \;
+          docker pull grafana/grafana:latest
+          docker run --name grafana -d \
+            -e GF_LOG_CONSOLE_FORMAT=json \
+            -e GF_LOG_LEVEL=error \
+            -v $PWD/.github/workflows/provisioning/dashboards/:/etc/grafana/provisioning/dashboards/ \
+            -v $PWD/.github/workflows/all-dashboards/:/tmp/dashboards/ \
+            grafana/grafana:latest
+          sleep 20
+          ERROR=$(docker logs grafana | jq .)
+          if [ ! -z "$ERROR" ]; then echo "$ERROR" && exit 1; fi
