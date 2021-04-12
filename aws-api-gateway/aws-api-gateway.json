@@ -1,5 +1,6 @@
 {
   "__inputs": [],
+  "a": "b",
   "__requires": [
     {
       "type": "datasource",
