@@ -1,0 +1,3856 @@
+{
+	"__inputs": [],
+	"__requires": [{
+			"type": "datasource",
+			"id": "cloudwatch",
+			"name": "CloudWatch",
+			"version": "1.0.0"
+		},
+		{
+			"type": "grafana",
+			"id": "grafana",
+			"name": "Grafana",
+			"version": "7.2.0"
+		},
+		{
+			"type": "panel",
+			"id": "graph",
+			"name": "Graph",
+			"version": ""
+		},
+		{
+			"type": "panel",
+			"id": "text",
+			"name": "Text",
+			"version": "7.1.0"
+		}
+	],
+	"annotations": {
+		"list": [{
+			"builtIn": 1,
+			"datasource": "-- Grafana --",
+			"enable": true,
+			"hide": true,
+			"iconColor": "rgba(0, 211, 255, 1)",
+			"name": "Annotations & Alerts",
+			"type": "dashboard"
+		}]
+	},
+	"description": "Visualize AWS EKS and Cluster metrics",
+	"editable": false,
+	"gnetId": null,
+	"graphTooltip": 0,
+	"id": null,
+	"iteration": 1620252008363,
+	"links": [],
+	"panels": [{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 0,
+				"y": 0
+			},
+			"hiddenSeries": false,
+			"id": 2,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": true,
+				"metricName": "cluster_failed_node_count",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "cluster_failed_node_count",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"$$hashKey": "object:73",
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"$$hashKey": "object:74",
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 6,
+				"y": 0
+			},
+			"hiddenSeries": false,
+			"id": 3,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": true,
+				"metricName": "cluster_node_count",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "cluster_node_count",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 12,
+				"y": 0
+			},
+			"hiddenSeries": false,
+			"id": 6,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": true,
+				"metricName": "namespace_number_of_running_pods",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "namespace_number_of_running_pods",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 18,
+				"y": 0
+			},
+			"hiddenSeries": false,
+			"id": 16,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace",
+					"Service": "$service"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": true,
+				"metricName": "service_number_of_running_pods",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "service_number_of_running_pods",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 0,
+				"y": 7
+			},
+			"hiddenSeries": false,
+			"id": 7,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": true,
+				"metricName": "node_cpu_limit",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_cpu_limit",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"description": "The percentage of CPU units that are reserved for node components, such as kubelet, kube-proxy, and Docker.",
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 6,
+				"y": 7
+			},
+			"hiddenSeries": false,
+			"id": 8,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"InstanceId": "$instanceid",
+					"NodeName": "$nodename"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_cpu_reserved_capacity",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_cpu_reserved_capacity in %",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 12,
+				"y": 7
+			},
+			"hiddenSeries": false,
+			"id": 17,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_cpu_usage_total",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_cpu_usage_total",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 18,
+				"y": 7
+			},
+			"hiddenSeries": false,
+			"id": 19,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_cpu_usage_total",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_cpu_usage_total",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 0,
+				"y": 14
+			},
+			"hiddenSeries": false,
+			"id": 18,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_cpu_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All node_cpu_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 6,
+				"y": 14
+			},
+			"hiddenSeries": false,
+			"id": 20,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"InstanceId": "$instanceid",
+					"NodeName": "$nodename"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_cpu_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_cpu_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 12,
+				"y": 14
+			},
+			"hiddenSeries": false,
+			"id": 21,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_filesystem_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All node_filesystem_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 18,
+				"y": 14
+			},
+			"hiddenSeries": false,
+			"id": 22,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"InstanceId": "$instanceid",
+					"NodeName": "$nodename"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_filesystem_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_filesystem_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 0,
+				"y": 21
+			},
+			"hiddenSeries": false,
+			"id": 5,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_memory_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All node_memory_limit",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 6,
+				"y": 21
+			},
+			"hiddenSeries": false,
+			"id": 23,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_memory_reserved_capacity",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All node_memory_reserved_capacity",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 12,
+				"y": 21
+			},
+			"hiddenSeries": false,
+			"id": 25,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"InstanceId": "$instanceid",
+					"NodeName": "$nodename"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_memory_reserved_capacity",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_memory_reserved_capacity",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 18,
+				"y": 21
+			},
+			"hiddenSeries": false,
+			"id": 24,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"InstanceId": "$instanceid",
+					"NodeName": "$nodename"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_memory_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_memory_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 11,
+				"x": 0,
+				"y": 28
+			},
+			"hiddenSeries": false,
+			"id": 15,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"InstanceId": "$instanceid",
+					"NodeName": "$nodename"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_number_of_running_containers",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_number_of_running_containers",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 13,
+				"x": 11,
+				"y": 28
+			},
+			"hiddenSeries": false,
+			"id": 27,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"InstanceId": "$instanceid",
+					"NodeName": "$nodename"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "node_number_of_running_pods",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "node_number_of_running_pods",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 0,
+				"y": 35
+			},
+			"hiddenSeries": false,
+			"id": 28,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_reserved_capacity",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All pod_cpu_reserved_capacity",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 6,
+				"x": 6,
+				"y": 35
+			},
+			"hiddenSeries": false,
+			"id": 11,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace",
+					"PodName": "$podname"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_reserved_capacity",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "pod_cpu_reserved_capacity",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 5,
+				"x": 12,
+				"y": 35
+			},
+			"hiddenSeries": false,
+			"id": 12,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace",
+					"PodName": "$podname"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_reserved_capacity",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "pod_cpu_reserved_capacity",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 7,
+				"x": 17,
+				"y": 35
+			},
+			"hiddenSeries": false,
+			"id": 30,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_reserved_capacity",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All pod_cpu_reserved_capacity",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {
+					"unit": "short"
+				},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 9,
+				"x": 0,
+				"y": 42
+			},
+			"hiddenSeries": false,
+			"id": 29,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_utilization_over_pod_limit",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All Cluster and Namespace pod_cpu_utilization_over_pod_limit",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {
+					"unit": "short"
+				},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 8,
+				"x": 9,
+				"y": 42
+			},
+			"hiddenSeries": false,
+			"id": 31,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_utilization_over_pod_limit",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All Cluster pod_cpu_utilization_over_pod_limit",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {
+					"unit": "short"
+				},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 7,
+				"x": 17,
+				"y": 42
+			},
+			"hiddenSeries": false,
+			"id": 13,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace",
+					"PodName": "$podname"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_utilization_over_pod_limit",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "pod_cpu_utilization_over_pod_limit",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 9,
+				"x": 0,
+				"y": 48
+			},
+			"hiddenSeries": false,
+			"id": 4,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All Cluster pod_cpu_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 8,
+				"x": 9,
+				"y": 48
+			},
+			"hiddenSeries": false,
+			"id": 34,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All Cluster and Namespace pod_cpu_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 7,
+				"w": 7,
+				"x": 17,
+				"y": 48
+			},
+			"hiddenSeries": false,
+			"id": 32,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace",
+					"PodName": "$podname"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_cpu_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "pod_cpu_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 9,
+				"x": 0,
+				"y": 55
+			},
+			"hiddenSeries": false,
+			"id": 9,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_memory_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All Cluster pod_memory_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 8,
+				"x": 9,
+				"y": 55
+			},
+			"hiddenSeries": false,
+			"id": 36,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_memory_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All Cluster and Namespace pod_memory_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 7,
+				"x": 17,
+				"y": 55
+			},
+			"hiddenSeries": false,
+			"id": 35,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace",
+					"PodName": "$podname"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_memory_utilization",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "pod_memory_utilization",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 9,
+				"x": 0,
+				"y": 61
+			},
+			"hiddenSeries": false,
+			"id": 10,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_memory_utilization_over_pod_limit",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All Cluster pod_memory_utilization_over_pod_limit",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 8,
+				"x": 9,
+				"y": 61
+			},
+			"hiddenSeries": false,
+			"id": 39,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_memory_utilization_over_pod_limit",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "All Cluster and Name pod_memory_utilization_over_pod_limit",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 7,
+				"x": 17,
+				"y": 61
+			},
+			"hiddenSeries": false,
+			"id": 40,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace",
+					"PodName": "$podname"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_memory_utilization_over_pod_limit",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "pod_memory_utilization_over_pod_limit",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": null,
+			"fieldConfig": {
+				"defaults": {},
+				"overrides": []
+			},
+			"fill": 1,
+			"fillGradient": 0,
+			"gridPos": {
+				"h": 6,
+				"w": 9,
+				"x": 0,
+				"y": 67
+			},
+			"hiddenSeries": false,
+			"id": 38,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"nullPointMode": "null",
+			"options": {
+				"alertThreshold": true
+			},
+			"percentage": false,
+			"pluginVersion": "7.5.2",
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [{
+				"alias": "",
+				"dimensions": {
+					"ClusterName": "$clustername",
+					"Namespace": "$namespace",
+					"PodName": "$podname"
+				},
+				"expression": "",
+				"id": "",
+				"matchExact": false,
+				"metricName": "pod_number_of_container_restarts",
+				"namespace": "ContainerInsights",
+				"period": "",
+				"refId": "A",
+				"region": "default",
+				"statistics": [
+					"Average"
+				]
+			}],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "pod_number_of_container_restarts",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		}
+	],
+	"schemaVersion": 27,
+	"style": "dark",
+	"tags": [
+		"monitoringartist",
+		"cloudwatch"
+	],
+	"templating": {
+		"list": [{
+				"current": {
+					"selected": false,
+					"text": "CloudWatch",
+					"value": "CloudWatch"
+				},
+				"description": null,
+				"error": null,
+				"hide": 0,
+				"includeAll": false,
+				"label": "Datasource",
+				"multi": false,
+				"name": "datasource",
+				"options": [],
+				"query": "cloudwatch",
+				"queryValue": "",
+				"refresh": 1,
+				"regex": "",
+				"skipUrlSync": false,
+				"type": "datasource"
+			},
+			{
+				"allValue": null,
+				"current": {},
+				"datasource": "$datasource",
+				"definition": "regions()",
+				"hide": 0,
+				"includeAll": false,
+				"label": "Region",
+				"multi": false,
+				"name": "region",
+				"options": [],
+				"query": "regions()",
+				"refresh": 1,
+				"regex": "",
+				"skipUrlSync": false,
+				"sort": 1,
+				"tagValuesQuery": "",
+				"tags": [],
+				"tagsQuery": "",
+				"type": "query",
+				"useTags": false
+			},
+			{
+				"allValue": null,
+				"current": {},
+				"datasource": "${datasource}",
+				"definition": "dimension_values($region,ContainerInsights,cluster_node_count,ClusterName)",
+				"description": null,
+				"error": null,
+				"hide": 0,
+				"includeAll": false,
+				"label": "Cluster Name",
+				"multi": false,
+				"name": "clustername",
+				"options": [],
+				"query": "dimension_values($region,ContainerInsights,cluster_node_count,ClusterName)",
+				"refresh": 1,
+				"regex": "",
+				"skipUrlSync": false,
+				"sort": 0,
+				"tagValuesQuery": "",
+				"tags": [],
+				"tagsQuery": "",
+				"type": "query",
+				"useTags": false
+			},
+			{
+				"allValue": null,
+				"current": {},
+				"datasource": "${datasource}",
+				"definition": "dimension_values($region,ContainerInsights,namespace_number_of_running_pods,Namespace)",
+				"description": null,
+				"error": null,
+				"hide": 0,
+				"includeAll": false,
+				"label": "Namespace",
+				"multi": false,
+				"name": "namespace",
+				"options": [],
+				"query": "dimension_values($region,ContainerInsights,namespace_number_of_running_pods,Namespace)",
+				"refresh": 1,
+				"regex": "",
+				"skipUrlSync": false,
+				"sort": 0,
+				"tagValuesQuery": "",
+				"tags": [],
+				"tagsQuery": "",
+				"type": "query",
+				"useTags": false
+			},
+			{
+				"allValue": null,
+				"current": {},
+				"datasource": "${datasource}",
+				"definition": "dimension_values($region,ContainerInsights,node_cpu_reserved_capacity,NodeName)",
+				"description": null,
+				"error": null,
+				"hide": 0,
+				"includeAll": false,
+				"label": "NodeName",
+				"multi": false,
+				"name": "nodename",
+				"options": [],
+				"query": "dimension_values($region,ContainerInsights,node_cpu_reserved_capacity,NodeName)",
+				"refresh": 1,
+				"regex": "",
+				"skipUrlSync": false,
+				"sort": 0,
+				"tagValuesQuery": "",
+				"tags": [],
+				"tagsQuery": "",
+				"type": "query",
+				"useTags": false
+			},
+			{
+				"allValue": null,
+				"current": {},
+				"datasource": "${datasource}",
+				"definition": "dimension_values($region,ContainerInsights,pod_cpu_reserved_capacity,PodName)",
+				"description": null,
+				"error": null,
+				"hide": 0,
+				"includeAll": false,
+				"label": "PodName",
+				"multi": false,
+				"name": "podname",
+				"options": [],
+				"query": "dimension_values($region,ContainerInsights,pod_cpu_reserved_capacity,PodName)",
+				"refresh": 1,
+				"regex": "",
+				"skipUrlSync": false,
+				"sort": 0,
+				"tagValuesQuery": "",
+				"tags": [],
+				"tagsQuery": "",
+				"type": "query",
+				"useTags": false
+			},
+			{
+				"allValue": null,
+				"current": {},
+				"datasource": "${datasource}",
+				"definition": "dimension_values($region,ContainerInsights,node_cpu_reserved_capacity,InstanceId)",
+				"description": null,
+				"error": null,
+				"hide": 0,
+				"includeAll": false,
+				"label": "InstanceId",
+				"multi": false,
+				"name": "instanceid",
+				"options": [],
+				"query": "dimension_values($region,ContainerInsights,node_cpu_reserved_capacity,InstanceId)",
+				"refresh": 1,
+				"regex": "",
+				"skipUrlSync": false,
+				"sort": 0,
+				"tagValuesQuery": "",
+				"tags": [],
+				"tagsQuery": "",
+				"type": "query",
+				"useTags": false
+			},
+			{
+				"allValue": null,
+				"current": {},
+				"datasource": "${datasource}",
+				"definition": "dimension_values($region,ContainerInsights,service_number_of_running_pods,Service)",
+				"description": null,
+				"error": null,
+				"hide": 0,
+				"includeAll": false,
+				"label": "Service",
+				"multi": false,
+				"name": "service",
+				"options": [],
+				"query": "dimension_values($region,ContainerInsights,service_number_of_running_pods,Service)",
+				"refresh": 1,
+				"regex": "",
+				"skipUrlSync": false,
+				"sort": 0,
+				"tagValuesQuery": "",
+				"tags": [],
+				"tagsQuery": "",
+				"type": "query",
+				"useTags": false
+			}
+		]
+	},
+	"time": {
+		"from": "now-7d",
+		"to": "now"
+	},
+	"timepicker": {
+		"refresh_intervals": [
+			"5s",
+			"10s",
+			"30s",
+			"1m",
+			"5m",
+			"15m",
+			"30m",
+			"1h",
+			"2h",
+			"1d"
+		],
+		"time_options": [
+			"5m",
+			"15m",
+			"1h",
+			"6h",
+			"12h",
+			"24h",
+			"2d",
+			"7d",
+			"30d"
+		]
+	},
+	"timezone": "browser",
+	"title": "AWS EKS and Kubernetes Container",
+	"uid": "AWSEksK8S",
+	"version": 1
+}
