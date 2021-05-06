@@ -3622,6 +3622,31 @@
 				"align": false,
 				"alignLevel": null
 			}
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 73
+      },
+      "id": 42,
+      "options": {
+        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-EKS.html#monitoring-console.distributions\">AWS CloudWatch EKS and Cluster documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/674\">Installed from Grafana.com dashboards</a>\n",
+        "mode": "html"
+      },
+      "pluginVersion": "7.4.5",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Documentation",
+      "type": "text"
 		}
 	],
 	"schemaVersion": 27,
