@@ -14,6 +14,7 @@
     'aws-ec2.json': (import 'aws-ec2/aws-ec2.json'),
     'aws-ecs.json': (import 'aws-ecs/aws-ecs.json'),
     'aws-efs.json': (import 'aws-efs/aws-efs.json'),
+    'aws-eks.json': (import 'aws-eks/aws-eks.json'),
     'aws-elasticache-redis.json': (import 'aws-elasticache/aws-elasticache-redis.json'),
     'aws-elb-application-lb.json': (import 'aws-elb/aws-elb-application-lb.json'),
     'aws-elb-classic-lb.json': (import 'aws-elb/aws-elb-classic-lb.json'),
