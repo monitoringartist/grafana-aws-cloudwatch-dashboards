@@ -18,7 +18,7 @@
       }
     ]
   },
-  "description": "Visualize AWS VPN metrics",
+  "description": "Visualize AWS Network Firewall metrics",
   "editable": true,
   "gnetId": 2969,
   "graphTooltip": 0,
@@ -519,7 +519,7 @@
       "id": 2,
       "links": [],
       "options": {
-        "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/monitoring-cloudwatch-vpn.html\">AWS CloudWatch VPN documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/2969\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+        "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/monitoring-cloudwatch.html\">AWS Network Firewall metrics in Amazon CloudWatch</a><br/>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
         "mode": "html"
       },
       "pluginVersion": "8.1.2",
