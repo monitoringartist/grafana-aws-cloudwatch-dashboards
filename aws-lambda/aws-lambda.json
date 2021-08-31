@@ -831,11 +831,7 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": true,
-          "text": "cloudwatch-adp-prd",
-          "value": "cloudwatch-adp-prd"
-        },
+        "current": {},
         "hide": 0,
         "includeAll": false,
         "label": "Datasource",

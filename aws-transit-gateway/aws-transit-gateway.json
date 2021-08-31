@@ -1,4 +1,31 @@
 {
+  "__inputs": [],
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "8.1.1"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph (old)",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -19,11 +46,11 @@
     ]
   },
   "description": "Visualize AWS Transit Gateway metrics",
-  "editable": true,
+  "editable": false,
   "gnetId": 2969,
   "graphTooltip": 0,
-  "id": 13,
-  "iteration": 1629899306035,
+  "id": null,
+  "iteration": 1630418702360,
   "links": [],
   "panels": [
     {
@@ -31,7 +58,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${datasource}",
+      "datasource": "$datasource",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -65,21 +92,29 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:399",
           "alias": "Latency_Average",
           "yaxis": 2
         },
         {
+          "$$hashKey": "object:400",
           "alias": "TargetResponseTime_Average",
           "yaxis": 2
         },
         {
+          "$$hashKey": "object:401",
           "alias": "ClientConnections_Sum",
+          "yaxis": 2
+        },
+        {
+          "$$hashKey": "object:402",
+          "alias": "BytesOut_Average",
           "yaxis": 2
         }
       ],
@@ -160,7 +195,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Bytes",
+      "title": "BytesIn / BytesOut",
       "tooltip": {
         "msResolution": false,
         "shared": true,
@@ -205,7 +240,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${datasource}",
+      "datasource": "$datasource",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -239,21 +274,29 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
+          "$$hashKey": "object:140",
           "alias": "Latency_Average",
           "yaxis": 2
         },
         {
+          "$$hashKey": "object:141",
           "alias": "TargetResponseTime_Average",
           "yaxis": 2
         },
         {
+          "$$hashKey": "object:142",
           "alias": "PermittedThroughput_Average",
+          "yaxis": 2
+        },
+        {
+          "$$hashKey": "object:707",
+          "alias": "PacketsOut_Average",
           "yaxis": 2
         }
       ],
@@ -261,40 +304,6 @@
       "stack": false,
       "steppedLine": false,
       "targets": [
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "dimensions": {
-            "TransitGateway": "$transitgateway"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "matchExact": true,
-          "metricName": "PacketsIn",
-          "mode": 0,
-          "namespace": "AWS/TransitGateway",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "",
-          "refId": "A",
-          "region": "$region",
-          "statistics": [
-            "Average"
-          ]
-        },
         {
           "alias": "",
           "dimensions": {
@@ -312,13 +321,31 @@
           "statistics": [
             "Average"
           ]
+        },
+        {
+          "alias": "",
+          "dimensions": {
+            "TransitGateway": "$transitgateway"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricName": "PacketsIn",
+          "namespace": "AWS/TransitGateway",
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistics": [
+            "Average"
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Packets",
+      "title": "PacketsIn / PacketsOut",
       "tooltip": {
         "msResolution": false,
         "shared": true,
@@ -363,7 +390,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${datasource}",
+      "datasource": "$datasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -375,13 +402,14 @@
       "hiddenSeries": false,
       "id": 14,
       "legend": {
-        "avg": false,
+        "alignAsTable": true,
+        "avg": true,
         "current": false,
-        "max": false,
-        "min": false,
+        "max": true,
+        "min": true,
         "show": true,
-        "total": false,
-        "values": false
+        "total": true,
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -390,11 +418,16 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "alias": "PacketDropCountNoRoute_Average",
+          "yaxis": 2
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -440,7 +473,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Packet Drop Count: No Route / Blackhole",
+      "title": "PacketDropCountNoRoute / PacketDropCountBlackhole",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -461,7 +494,7 @@
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -470,7 +503,7 @@
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         }
       ],
@@ -492,10 +525,10 @@
       "id": 2,
       "links": [],
       "options": {
-        "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-cloudwatch-metrics.html\">CloudWatch metrics for your transit gateways</a><br/>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-cloudwatch-metrics.html\">AWS CloudWatch Transit Gateway documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/14954\">Installed from Grafana.com dashboards</a>",
         "mode": "html"
       },
-      "pluginVersion": "8.1.2",
+      "pluginVersion": "8.1.1",
       "title": "Documentation",
       "type": "text"
     }
@@ -510,11 +543,7 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "CloudWatch_Network",
-          "value": "CloudWatch_Network"
-        },
+        "current": {},
         "description": null,
         "error": null,
         "hide": 0,
@@ -524,7 +553,7 @@
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
-        "queryValue": "",
+        "queryValue": "he",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -532,12 +561,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": false,
-          "text": "default",
-          "value": "default"
-        },
-        "datasource": "${datasource}",
+        "current": {},
+        "datasource": "$datasource",
         "definition": "",
         "description": null,
         "error": null,
@@ -559,12 +584,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": false,
-          "text": "tgw-0d819020d3ab8bde4",
-          "value": "tgw-0d819020d3ab8bde4"
-        },
-        "datasource": "${datasource}",
+        "current": {},
+        "datasource": "$datasource",
         "definition": "dimension_values($region, AWS/TransitGateway, BytesIn, TransitGateway)",
         "description": null,
         "error": null,
@@ -578,7 +599,7 @@
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "type": "query"
       }
     ]
@@ -614,6 +635,6 @@
   },
   "timezone": "browser",
   "title": "AWS Transit Gateway",
-  "uid": "dXTzuj7nk",
-  "version": 10
+  "uid": "BB2Dg14nk",
+  "version": 3
 }

@@ -189,6 +189,9 @@ Single click provisioning [![Gitpod ready-to-test](https://img.shields.io/badge/
 ### [AWS Storage Gateway](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-storage-gateway)
 [![AWS Storage Gateway](aws-storage-gateway/aws-storage-gateway.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-storage-gateway)
 
+### [AWS Transit Gateway](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-transit-gateway)
+[![AWS Transit Gateway](aws-transit-gateway/aws-transit-gateway.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-transit-gateway)
+
 ### [AWS VPN](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-vpn)
 
 # Author
