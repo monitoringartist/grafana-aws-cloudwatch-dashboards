@@ -24,6 +24,7 @@
     'aws-kinesis.json': (import 'aws-lambda/aws-kinesis.json'),
     'aws-lambda.json': (import 'aws-lambda/aws-lambda.json'),
     'aws-logs.json': (import 'aws-logs/aws-logs.json'),
+    'aws-network-firewall.json': (import 'aws-network-firewall/aws-network-firewall.json'),
     'aws-rds.json': (import 'aws-rds/aws-rds.json'),
     'aws-redshift.json': (import 'aws-redshift/aws-redshift.json'),
     'aws-route-53.json': (import 'aws-route-53/aws-route-53.json'),
@@ -33,6 +34,8 @@
     'aws-sqs.json': (import 'aws-sqs/aws-sqs.json'),
     'aws-step-functions.json': (import 'aws-step-functions/aws-step-functions.json'),
     'aws-storage-gateway.json': (import 'aws-storage-gateway/aws-storage-gateway.json'),
+    'aws-transit-gateway.json': (import 'aws-transit-gateway/aws-transit-gateway.json'),
     'aws-vpn.json': (import 'aws-vpn/aws-vpn.json'),
+    'aws-x-ray.json': (import 'aws-x-ray/aws-x-ray.json'),
   },
 }
