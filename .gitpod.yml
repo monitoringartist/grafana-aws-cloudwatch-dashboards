@@ -3,13 +3,7 @@ ports:
     onOpen: open-browser
 
 tasks:
-  - name: docker-daemon
-    before: sudo docker-up
-    
   - name: grafana
-    before:
-      echo 'Waiting for docker daemon to start' &&
-      while [ ! -S /var/run/docker.sock ]; do sleep 1; done;
     init: >-
       export IMAGE="${IMAGE:=grafana/grafana:latest}" &&
       mkdir all-dashboards &&

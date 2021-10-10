@@ -1,6 +1,7 @@
 version: '3.8'
+
 services:
-  keycloak:
+  grafana:
       container_name: grafana
       image: ${IMAGE}
       ports:
