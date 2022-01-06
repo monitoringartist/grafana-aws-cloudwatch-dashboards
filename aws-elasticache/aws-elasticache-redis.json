@@ -370,7 +370,7 @@
               "item": {
                 "filter": ""
               },
-              "metricName": "HashBasedCmds",
+              "metricName": "ListBasedCmds",
               "mode": 0,
               "namespace": "AWS/ElastiCache",
               "options": {
@@ -401,7 +401,7 @@
               "item": {
                 "filter": ""
               },
-              "metricName": "ListBasedCmds",
+              "metricName": "SetBasedCmds",
               "mode": 0,
               "namespace": "AWS/ElastiCache",
               "options": {
@@ -432,7 +432,7 @@
               "item": {
                 "filter": ""
               },
-              "metricName": "SetBasedCmds",
+              "metricName": "SetTypeCmds",
               "mode": 0,
               "namespace": "AWS/ElastiCache",
               "options": {
@@ -463,7 +463,7 @@
               "item": {
                 "filter": ""
               },
-              "metricName": "SetTypeCmds",
+              "metricName": "SortedSetBasedCmds",
               "mode": 0,
               "namespace": "AWS/ElastiCache",
               "options": {
@@ -494,37 +494,6 @@
               "item": {
                 "filter": ""
               },
-              "metricName": "SortedSetBasedCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "G",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
               "metricName": "StringBasedCmds",
               "mode": 0,
               "namespace": "AWS/ElastiCache",
@@ -532,7 +501,7 @@
                 "showDisabledItems": false
               },
               "period": "",
-              "refId": "H",
+              "refId": "G",
               "region": "$region",
               "statistics": [
                 "Average"
