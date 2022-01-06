@@ -1,10 +1,23 @@
 {
   "__inputs": [],
+  "__elements": [],
   "__requires": [
+    {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "8.3.3"
+    },
     {
       "type": "panel",
       "id": "graph",
-      "name": "Graph",
+      "name": "Graph (old)",
       "version": ""
     },
     {
@@ -12,1681 +25,1805 @@
       "id": "text",
       "name": "Text",
       "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "3.1.1"
-    },
-    {
-      "type": "datasource",
-      "id": "cloudwatch",
-      "name": "CloudWatch",
-      "version": "1.0.0"
     }
   ],
-  "id": null,
-  "title": "AWS ElastiCache Redis",
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
   "description": "Visualize AWS ElastiCache Redis metrics",
+  "editable": false,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 969,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1641482595110,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 13,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "CacheHits",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "CacheMisses",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "Evictions",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "D",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "Reclaimed",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Cache",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 17,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "max",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "GetTypeCmds",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "HashBasedCmds",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "ListBasedCmds",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "SetBasedCmds",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "D",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "SetTypeCmds",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "E",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "SortedSetBasedCmds",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "F",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "StringBasedCmds",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "G",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Cmds",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "CurrConnections_Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "NewConnections",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "CurrConnections",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Connections",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 16,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "CurrItems_Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "SaveInProgress",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "CurrItems",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "SaveInProgress / CurrItems",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "ReplicationBytes_Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "BytesUsedForCache",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "ReplicationBytes",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "BytesUsedForCache / ReplicationBytes",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "hiddenSeries": false,
+      "id": 15,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "ReplicationLag_Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "HyperLogLogBasedCmds",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "ReplicationLag",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "HyperLogLogBasedCmds / ReplicationLag",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "s",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "hiddenSeries": false,
+      "id": 1,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId",
+            "CacheNodeId": "$cachenodeid"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "DatabaseMemoryUsagePercentage",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "CacheNodeId $cachenodeid DatabaseMemoryUsagePercentage",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "hiddenSeries": false,
+      "id": 18,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId",
+            "CacheNodeId": "$cachenodeid"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "CPUUtilization",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "CacheNodeId $cachenodeid CPUUtilization",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percent",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 56
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "NetworkBytesIn_Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId",
+            "CacheNodeId": "$cachenodeid"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "NetworkBytesIn",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId",
+            "CacheNodeId": "$cachenodeid"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "NetworkBytesOut",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "CacheNodeId $cachenodeid NetworkBytes",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "uid": "${datasource}"
+      },
+      "decimals": 3,
+      "editable": true,
+      "error": false,
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "hiddenSeries": false,
+      "id": 11,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.3.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "FreeableMemory_Average",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId",
+            "CacheNodeId": "$cachenodeid"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "SwapUsage",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "dimensions": {
+            "CacheClusterId": "$cacheclusterId",
+            "CacheNodeId": "$cachenodeid"
+          },
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "metricEditorMode": 0,
+          "metricName": "FreeableMemory",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/ElastiCache",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "CacheNodeId $cachenodeid FreeableMemory / SwapUsage",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "bytes",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "editable": true,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 70
+      },
+      "id": 2,
+      "isNew": true,
+      "links": [],
+      "options": {
+        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.html\">AWS CloudWatch ElastiCache documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/969\">Installed from Grafana.com dashboards</a>",
+        "mode": "html"
+      },
+      "pluginVersion": "8.3.3",
+      "title": "Documentation",
+      "type": "text"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 34,
+  "style": "dark",
   "tags": [
     "monitoringartist",
     "cloudwatch"
   ],
-  "style": "dark",
-  "timezone": "browser",
-  "editable": true,
-  "hideControls": true,
-  "sharedCrosshair": false,
-  "rows": [
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 13,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "CacheHits",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "CacheMisses",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "Evictions",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "D",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "Reclaimed",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "C",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Cache",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
-        }
-      ],
-      "title": "Row"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 17,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "max",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "GetTypeCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "HashBasedCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "ListBasedCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "C",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "SetBasedCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "D",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "SetTypeCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "E",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "SortedSetBasedCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "F",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "StringBasedCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "G",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Cmds",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": false
-            }
-          ]
-        }
-      ],
-      "title": "New row"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 14,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "CurrConnections_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "NewConnections",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "CurrConnections",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Connections",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
-        }
-      ],
-      "title": "New row"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 16,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "CurrItems_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "SaveInProgress",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "CurrItems",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "SaveInProgress / CurrItems",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
-        }
-      ],
-      "title": "New row"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 12,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "ReplicationBytes_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "BytesUsedForCache",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "ReplicationBytes",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "BytesUsedForCache / ReplicationBytes",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "bytes",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "bytes",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
-        }
-      ],
-      "title": "New row"
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 15,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "ReplicationLag_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "HyperLogLogBasedCmds",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "ReplicationLag",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "HyperLogLogBasedCmds / ReplicationLag",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 1,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId",
-                "CacheNodeId": "$cachenodeid"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "DatabaseMemoryUsagePercentage",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CacheNodeId $cachenodeid DatabaseMemoryUsagePercentage",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "percent",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 18,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId",
-                "CacheNodeId": "$cachenodeid"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "CPUUtilization",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CacheNodeId $cachenodeid CPUUtilization",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "percent",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 10,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "NetworkBytesIn_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId",
-                "CacheNodeId": "$cachenodeid"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "NetworkBytesIn",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId",
-                "CacheNodeId": "$cachenodeid"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "NetworkBytesOut",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CacheNodeId $cachenodeid NetworkBytes",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "bytes",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "bytes",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "decimals": 3,
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 11,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "FreeableMemory_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId",
-                "CacheNodeId": "$cachenodeid"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "SwapUsage",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {
-                "CacheClusterId": "$cacheclusterId",
-                "CacheNodeId": "$cachenodeid"
-              },
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "FreeableMemory",
-              "mode": 0,
-              "namespace": "AWS/ElastiCache",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CacheNodeId $cachenodeid FreeableMemory / SwapUsage",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "bytes",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "bytes",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "New row",
-      "height": "25px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
-        {
-          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/elasticache-metricscollected.html\">AWS CloudWatch ElastiCache documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/969\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
-          "editable": true,
-          "error": false,
-          "id": 2,
-          "isNew": true,
-          "links": [],
-          "mode": "html",
-          "span": 12,
-          "title": "Documentation",
-          "type": "text"
-        }
-      ]
-    }
-  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "cloudwatch",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "uid": "${datasource}"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Region",
+        "multi": false,
+        "name": "region",
+        "options": [],
+        "query": "regions()",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "uid": "${datasource}"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "CacheClusterId",
+        "multi": false,
+        "name": "cacheclusterId",
+        "options": [],
+        "query": "dimension_values($region,AWS/ElastiCache,CPUUtilization,CacheClusterId)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "uid": "${datasource}"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "CacheNodeId",
+        "multi": false,
+        "name": "cachenodeid",
+        "options": [],
+        "query": "dimension_values($region,AWS/ElastiCache,CPUUtilization,CacheNodeId)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
   "time": {
     "from": "now-12h",
     "to": "now"
@@ -1716,69 +1853,9 @@
       "30d"
     ]
   },
-  "templating": {
-    "list": [
-      {
-        "current": {},
-        "hide": 0,
-        "includeAll": false,
-        "label": "Datasource",
-        "multi": false,
-        "name": "datasource",
-        "options": [],
-        "query": "cloudwatch",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
-      },
-      {
-        "current": {},
-        "datasource": "${datasource}",
-        "hide": 0,
-        "includeAll": false,
-        "label": "Region",
-        "multi": false,
-        "name": "region",
-        "options": [],
-        "query": "regions()",
-        "refresh": 1,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": "${datasource}",
-        "hide": 0,
-        "includeAll": false,
-        "label": "CacheClusterId",
-        "multi": false,
-        "name": "cacheclusterId",
-        "options": [],
-        "query": "dimension_values($region,AWS/ElastiCache,CPUUtilization,CacheClusterId)",
-        "refresh": 1,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": "${datasource}",
-        "hide": 0,
-        "includeAll": false,
-        "label": "CacheNodeId",
-        "multi": false,
-        "name": "cachenodeid",
-        "options": [],
-        "query": "dimension_values($region,AWS/ElastiCache,CPUUtilization,CacheNodeId)",
-        "refresh": 1,
-        "type": "query"
-      }
-    ]
-  },
-  "annotations": {
-    "list": []
-  },
-  "refresh": false,
-  "schemaVersion": 12,
-  "version": 20,
-  "links": [],
-  "gnetId": 593
+  "timezone": "browser",
+  "title": "AWS ElastiCache Redis",
+  "uid": "AWSERedis",
+  "version": 2,
+  "weekStart": ""
 }
