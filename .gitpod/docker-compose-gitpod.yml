@@ -8,6 +8,10 @@ services:
         - 3000:3000
       environment:
         GF_AUTH_ANONYMOUS_ENABLED: "true"
+        GF_USERS_VIEWERS_CAN_EDIT: "true"
+        AWS_SDK_LOAD_CONFIG: "true"
+        GF_AUTH_SIGV4_AUTH_ENABLED: "true"
+        GF_INSTALL_PLUGINS: grafana-x-ray-datasource
       volumes:
-        - ../.gitpod/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+        - ../.gitpod/provisioning/:/etc/grafana/provisioning/
         - .././all-dashboards:/tmp/dashboards
