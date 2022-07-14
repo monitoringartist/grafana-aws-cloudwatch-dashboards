@@ -149,8 +149,8 @@ Single click provisioning [![Gitpod ready-to-test](https://img.shields.io/badge/
 ### [AWS EMR Hadoop 2](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-emr)
 [![AWS EMR Hadoop 2](aws-emr/aws-emr-hadoop-2.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-emr)
 
-### [AWS Events](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-events)
-[![AWS Events](aws-events/aws-events.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-events)
+### [AWS Eventbridge](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-eventbridge)
+[![AWS Eventbridge](aws-eventbridge/aws-eventbridge.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-eventbridge)
 
 ### [AWS Inspector](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-inspector)
 [![AWS Inspector](aws-inspector/aws-inspector.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-inspector)
