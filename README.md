@@ -80,6 +80,7 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch + EC2
     ]
 }
 ```
+See https://github.com/monitoringartist/grafana-cross-account-cloudwatch-access for AWS cross account access.
 
 You can also install this project as a Jsonnet library with [jsonnet-bundler](https://github.com/jsonnet-bundler/jsonnet-bundler):
 
