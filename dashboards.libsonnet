@@ -25,6 +25,7 @@
     'aws-lambda.json': (import 'aws-lambda/aws-lambda.json'),
     'aws-logs.json': (import 'aws-logs/aws-logs.json'),
     'aws-network-firewall.json': (import 'aws-network-firewall/aws-network-firewall.json'),
+    'aws-prometheus.json': (import 'aws-prometheus/aws-prometheus.json'),
     'aws-rds.json': (import 'aws-rds/aws-rds.json'),
     'aws-redshift.json': (import 'aws-redshift/aws-redshift.json'),
     'aws-route-53.json': (import 'aws-route-53/aws-route-53.json'),
