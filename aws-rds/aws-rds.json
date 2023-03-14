@@ -92,10 +92,6 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        },
-        {
           "alias": "FailedSQLServerAgentJobsCount_Average",
           "yaxis": 2
         }
@@ -258,12 +254,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -422,12 +413,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -581,10 +567,6 @@
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        },
         {
           "alias": "BurstBalance_Average",
           "yaxis": 2
@@ -782,12 +764,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -940,12 +917,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -1098,12 +1070,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -1256,12 +1223,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -1414,12 +1376,7 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -1767,7 +1724,7 @@
             "filter": ""
           },
           "matchExact": true,
-          "metricName": "OldestReplicationSlotLag",
+          "metricName": "ReplicationSlotDiskUsage",
           "mode": 0,
           "namespace": "AWS/RDS",
           "options": {
@@ -1801,7 +1758,7 @@
             "filter": ""
           },
           "matchExact": true,
-          "metricName": "ReplicaLag",
+          "metricName": "TransactionLogsDiskUsage",
           "mode": 0,
           "namespace": "AWS/RDS",
           "options": {
