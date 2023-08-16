@@ -82,6 +82,24 @@ which fits your needs. Example of minimal IAM role for Grafana (CloudWatch + EC2
 ```
 See https://github.com/monitoringartist/grafana-cross-account-cloudwatch-access for AWS cross account access.
 
+If you meet this error `CloudWatch metrics query failed: AccessDenied: User: arn:aws:sts::111111111111:role is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::111111111111:role status code: 403`, when adding the AWS CloudWatch as Data Source in Grafana. You could update the `Trust relationship` tab of this role `arn:aws:iam::111111111111:role`.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111111111111:role",
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
 You can also install this project as a Jsonnet library with [jsonnet-bundler](https://github.com/jsonnet-bundler/jsonnet-bundler):
 
 ```shell
