@@ -1,4 +1,38 @@
 {
+  "__inputs": [],
+  "__elements": [],
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "8.5.13"
+    },
+    {
+      "type": "datasource",
+      "id": "influxdb",
+      "name": "InfluxDB",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -22,69 +56,97 @@
     ]
   },
   "description": "Visualize AWS EBS metrics",
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "gnetId": 623,
   "graphTooltip": 2,
-  "id": 72,
+  "id": null,
+  "iteration": 1694162719777,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
+        "type": "cloudwatch",
         "uid": "$datasource"
       },
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "hiddenSeries": false,
       "id": 17,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -97,6 +159,7 @@
           "dimensions": {
             "VolumeId": "$volumeid"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -104,9 +167,11 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeTotalReadTime",
           "metricQueryType": 0,
@@ -116,8 +181,10 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "A",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Average"
         },
         {
@@ -131,6 +198,7 @@
           "dimensions": {
             "VolumeId": "$volumeid"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -138,9 +206,11 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeTotalWriteTime",
           "metricQueryType": 0,
@@ -150,8 +220,10 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "B",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Average"
         },
         {
@@ -165,6 +237,7 @@
           "dimensions": {
             "VolumeId": "$volumeid"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -172,9 +245,11 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeIdleTime",
           "metricQueryType": 0,
@@ -184,98 +259,115 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "C",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Average"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "VolumeTime",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "s",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "s",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
+        "type": "cloudwatch",
         "uid": "$datasource"
       },
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VolumeIdleTime_Average"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "hidden"
+              }
+            ]
+          }
+        ]
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 7
       },
-      "hiddenSeries": false,
       "id": 16,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -310,108 +402,98 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "A",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Average"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "VolumeQueueLength",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:104",
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:105",
-          "format": "s",
-          "logBase": 1,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
+        "type": "cloudwatch",
         "uid": "$datasource"
       },
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 14
       },
-      "hiddenSeries": false,
       "id": 21,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        {
-          "alias": "VolumeConsumedReadWriteOps_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "VolumeWriteBytes_Sum",
-          "yaxis": 2
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -446,8 +528,10 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "A",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Sum"
         },
         {
@@ -483,109 +567,98 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "B",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Sum"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "VolumeReadOps/VolumeWriteOps",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:58",
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:59",
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
+        "type": "cloudwatch",
         "uid": "$datasource"
       },
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 21
       },
-      "hiddenSeries": false,
       "id": 20,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        {
-          "alias": "VolumeConsumedReadWriteOps_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "VolumeWriteBytes_Sum",
-          "yaxis": 2
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -620,8 +693,10 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "A",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Sum"
         },
         {
@@ -657,111 +732,99 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "B",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Sum"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "VolumeReadBytes/VolumeWriteBytes",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:58",
-          "format": "bytes",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:59",
-          "format": "bytes",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "cloudwatch",
         "uid": "$datasource"
       },
       "description": "For more info: https://repost.aws/knowledge-center/ebs-cloudwatch-metrics-throughput-iops",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "iops"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 28
       },
-      "hiddenSeries": false,
       "id": 22,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        {
-          "alias": "VolumeConsumedReadWriteOps_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "VolumeWriteBytes_Sum",
-          "yaxis": 2
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -847,9 +910,8 @@
         },
         {
           "datasource": {
-            "name": "Expression",
             "type": "__expr__",
-            "uid": "__expr__"
+            "uid": "$datasource"
           },
           "expression": "($A + $B)/60",
           "hide": false,
@@ -857,106 +919,92 @@
           "type": "math"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Average IOPS",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:58",
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:59",
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "cloudwatch",
         "uid": "$datasource"
       },
       "description": "For more info: https://repost.aws/knowledge-center/ebs-cloudwatch-metrics-throughput-iops",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "iops"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 28
       },
-      "hiddenSeries": false,
       "id": 24,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        {
-          "alias": "VolumeConsumedReadWriteOps_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "VolumeWriteBytes_Sum",
-          "yaxis": 2
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -1042,9 +1090,8 @@
         },
         {
           "datasource": {
-            "name": "Expression",
             "type": "__expr__",
-            "uid": "__expr__"
+            "uid": "$datasource"
           },
           "expression": "($A + $B)/(60-$C)",
           "hide": false,
@@ -1093,106 +1140,92 @@
           "statistic": "Sum"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Actual average IOPS",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:58",
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:59",
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "cloudwatch",
         "uid": "$datasource"
       },
       "description": "For more info: https://repost.aws/knowledge-center/ebs-cloudwatch-metrics-throughput-iops",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 35
       },
-      "hiddenSeries": false,
       "id": 23,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        {
-          "alias": "VolumeConsumedReadWriteOps_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "VolumeWriteBytes_Sum",
-          "yaxis": 2
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -1278,9 +1311,8 @@
         },
         {
           "datasource": {
-            "name": "Expression",
             "type": "__expr__",
-            "uid": "__expr__"
+            "uid": "$datasource"
           },
           "expression": "($A + $B)/60",
           "hide": false,
@@ -1288,106 +1320,92 @@
           "type": "math"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Average Throughput ",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:58",
-          "format": "bytes",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:59",
-          "format": "bytes",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "cloudwatch",
         "uid": "$datasource"
       },
       "description": "For more info: https://repost.aws/knowledge-center/ebs-cloudwatch-metrics-throughput-iops",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 35
       },
-      "hiddenSeries": false,
       "id": 25,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        {
-          "alias": "VolumeConsumedReadWriteOps_Average",
-          "yaxis": 2
-        },
-        {
-          "alias": "VolumeWriteBytes_Sum",
-          "yaxis": 2
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -1473,9 +1491,8 @@
         },
         {
           "datasource": {
-            "name": "Expression",
             "type": "__expr__",
-            "uid": "__expr__"
+            "uid": "$datasource"
           },
           "expression": "($A + $B)/(60-$C)",
           "hide": false,
@@ -1524,100 +1541,116 @@
           "statistic": "Sum"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Average actual Throughput ",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:58",
-          "format": "bytes",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:59",
-          "format": "bytes",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
+        "type": "cloudwatch",
         "uid": "$datasource"
       },
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VolumeIdleTime_Average"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VolumeConsumedReadWriteOps_Average"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          }
+        ]
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 42
       },
-      "hiddenSeries": false,
       "id": 18,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        {
-          "alias": "VolumeConsumedReadWriteOps_Average",
-          "yaxis": 2
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -1630,6 +1663,7 @@
           "dimensions": {
             "VolumeId": "$volumeid"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -1637,9 +1671,11 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeThroughputPercentage",
           "metricQueryType": 0,
@@ -1649,8 +1685,10 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "A",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Average"
         },
         {
@@ -1664,6 +1702,7 @@
           "dimensions": {
             "VolumeId": "$volumeid"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -1671,9 +1710,11 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeConsumedReadWriteOps",
           "metricQueryType": 0,
@@ -1683,103 +1724,131 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "B",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Average"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "VolumeThroughputPercentage",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "percent",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
+        "type": "cloudwatch",
         "uid": "$datasource"
       },
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VolumeIdleTime_Average"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "hidden"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VolumeConsumedReadWriteOps_Average"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "hidden"
+              }
+            ]
+          }
+        ]
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 49
       },
-      "hiddenSeries": false,
       "id": 19,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "9.1.8",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "VolumeIdleTime_Average",
-          "yaxis": 2
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        {
-          "alias": "VolumeConsumedReadWriteOps_Average",
-          "yaxis": 2
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "8.5.13",
       "targets": [
         {
           "alias": "",
@@ -1792,6 +1861,7 @@
           "dimensions": {
             "VolumeId": "$volumeid"
           },
+          "expression": "",
           "functions": [],
           "group": {
             "filter": ""
@@ -1799,9 +1869,11 @@
           "host": {
             "filter": ""
           },
+          "id": "",
           "item": {
             "filter": ""
           },
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "BurstBalance",
           "metricQueryType": 0,
@@ -1811,48 +1883,18 @@
             "showDisabledItems": false
           },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "A",
           "region": "$region",
+          "sqlExpression": "",
           "statistic": "Average"
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "BurstBalance",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "percent",
-          "logBase": 1,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "none",
-          "logBase": 1,
-          "min": 0,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "datasource": {
-        "uid": ""
-      },
+      "datasource": {},
       "editable": true,
       "error": false,
       "gridPos": {
@@ -1865,15 +1907,13 @@
       "isNew": true,
       "links": [],
       "options": {
-        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html\">AWS Cloudwatch EBS documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/623\">Installed from Grafana.com dashboards</a>",
+        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html\">AWS Cloudwatch EBS documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/grafana/dashboards/623-aws-ebs/\">Installed from Grafana.com dashboards</a>",
         "mode": "html"
       },
-      "pluginVersion": "9.1.8",
+      "pluginVersion": "8.5.13",
       "targets": [
         {
-          "datasource": {
-            "uid": ""
-          },
+          "datasource": {},
           "refId": "A"
         }
       ],
@@ -1882,7 +1922,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 37,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [
     "monitoringartist",
@@ -1892,7 +1932,6 @@
     "list": [
       {
         "current": {},
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Datasource",
@@ -1900,7 +1939,7 @@
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
-        "queryValue": "",
+        "queryValue": "dynatr",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1922,7 +1961,7 @@
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tagsQuery": "",
         "type": "query",
@@ -1940,11 +1979,24 @@
         "multi": false,
         "name": "volumeid",
         "options": [],
-        "query": "dimension_values($region, AWS/EBS, VolumeQueueLength, VolumeId)",
+        "query": {
+          "attributeName": "",
+          "dimensionFilters": "",
+          "dimensionKey": "VolumeId",
+          "ec2Filters": "",
+          "instanceID": "",
+          "metricName": "VolumeQueueLength",
+          "namespace": "AWS/EBS",
+          "queryType": "dimensionValues",
+          "refId": "CloudWatchVariableQueryEditor-VariableQuery",
+          "region": "$region",
+          "resourceType": "",
+          "tags": ""
+        },
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tagsQuery": "",
         "type": "query",
@@ -1984,6 +2036,6 @@
   "timezone": "browser",
   "title": "AWS EBS",
   "uid": "AWSEBSaaa",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
