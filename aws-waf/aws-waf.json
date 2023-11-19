@@ -1,0 +1,938 @@
+{
+  "__inputs": [],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.2.0"
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Visualize AWS WAF metrics",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "AllowedRequests",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "A",
+          "region": "$Region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "BlockedRequests",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "B",
+          "region": "$Region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "AllowedRequests / BlockedRequests",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CountedRequests",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "A",
+          "region": "$Region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "PassedRequests",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "B",
+          "region": "$Region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "CountedRequests / PassedRequests",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CaptchaRequests",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "A",
+          "region": "$Region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "RequestsWithValidCaptchaToken",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "B",
+          "region": "$Region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "CaptchaRequests / RequestsWithValidCaptchaToken",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CaptchasAttempted",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "A",
+          "region": "$Region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CaptchasSolved",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "B",
+          "region": "$Region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "CaptchasAttempted / CaptchasSolved",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "ChallengeRequests",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "A",
+          "region": "$Region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{ metric }} {{ Region }} {{ WebACL }} {{ Rule }}",
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Region": "$Region",
+            "Rule": "$Rule",
+            "WebACL": "$WebACL"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "label": "${PROP('MetricName')} ${PROP('Dim.Region')} ${PROP('Dim.WebACL')} ${PROP('Dim.Rule')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "RequestsWithValidChallengeToken",
+          "metricQueryType": 0,
+          "namespace": "AWS/WAFV2",
+          "period": "",
+          "refId": "B",
+          "region": "$Region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "ChallengeRequests / RequestsWithValidChallengeToken",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 45
+      },
+      "id": 5,
+      "links": [],
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html\">AWS CloudWatch WAF documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/20009\">Installed from Grafana.com dashboards</a>\n",
+        "mode": "html"
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Documentation",
+      "type": "text"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 38,
+  "tags": [
+    "monitoringartist",
+    "cloudwatch"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "cloudwatch",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "uid": "$datasource"
+        },
+        "definition": "regions()",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Region",
+        "multi": false,
+        "name": "region",
+        "options": [],
+        "query": "regions()",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "*",
+        "current": {},
+        "datasource": {
+          "uid": "$datasource"
+        },
+        "definition": "dimension_values($region,AWS/WAFV2,AllowedRequests,Region)",
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "WAF Region",
+        "multi": false,
+        "name": "Region",
+        "options": [],
+        "query": "dimension_values($region,AWS/WAFV2,AllowedRequests,Region)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "*",
+        "current": {},
+        "datasource": {
+          "uid": "$datasource"
+        },
+        "definition": "dimension_values($region,AWS/WAFV2,AllowedRequests,WebACL)",
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "WebACL",
+        "multi": false,
+        "name": "WebACL",
+        "options": [],
+        "query": "dimension_values($region,AWS/WAFV2,AllowedRequests,WebACL)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "*",
+        "current": {},
+        "datasource": {
+          "uid": "$datasource"
+        },
+        "definition": "dimension_values($region,AWS/WAFV2,AllowedRequests,Rule)",
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Rule",
+        "multi": false,
+        "name": "Rule",
+        "options": [],
+        "query": "dimension_values($region,AWS/WAFV2,AllowedRequests,Rule)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "*",
+        "current": {},
+        "datasource": {
+          "uid": "$datasource"
+        },
+        "definition": "dimension_values($region,AWS/WAFV2,AllowedRequests,RuleGroup)",
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "RuleGroup",
+        "multi": false,
+        "name": "RuleGroup",
+        "options": [],
+        "query": "dimension_values($region,AWS/WAFV2,AllowedRequests,RuleGroup)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "AWS WAF",
+  "uid": "AWSWAFaaa",
+  "version": 1,
+  "weekStart": ""
+}

@@ -41,6 +41,7 @@
     'aws-transfer-family.json': (import 'aws-transfer-family/aws-transfer-family.json'),
     'aws-transit-gateway.json': (import 'aws-transit-gateway/aws-transit-gateway.json'),
     'aws-vpn.json': (import 'aws-vpn/aws-vpn.json'),
+    'aws-waf.json': (import 'aws-waf/aws-waf.json'),
     'aws-x-ray.json': (import 'aws-x-ray/aws-x-ray.json'),
   },
 }
