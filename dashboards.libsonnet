@@ -22,6 +22,7 @@
     'aws-elb-classic-lb.json': (import 'aws-elb/aws-elb-classic-lb.json'),
     'aws-emr-hadoop-2.json': (import 'aws-emr/aws-emr-hadoop-2.json'),
     'aws-eventbridge.json': (import 'aws-eventbridge/aws-eventbridge.json'),
+    'aws-fsx.json': (import 'aws-fsx/aws-fsx.json'),
     'aws-inspector.json': (import 'aws-inspector/aws-inspector.json'),
     'aws-kinesis.json': (import 'aws-kinesis/aws-kinesis.json'),
     'aws-lambda.json': (import 'aws-lambda/aws-lambda.json'),
