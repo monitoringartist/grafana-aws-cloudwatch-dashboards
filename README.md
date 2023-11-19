@@ -26,7 +26,7 @@ grafana_host="http://localhost:3000"
 grafana_cred="admin:admin"
 # Keep grafana_folder empty for adding the dashboards in "General" folder
 grafana_folder="AWS CloudWatch"
-ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099 11154 11155 12979 13018 13040 13104 13892 14189 14391 14392 14954 14955 15016 16899 17741 17978 20007);
+ds=(1516 677 139 674 590 659 758 623 617 551 653 969 650 644 607 593 707 575 1519 581 584 2969 8050 11099 11154 11155 12979 13018 13040 13104 13892 14189 14391 14392 14954 14955 15016 16899 17741 17978 20007 20008);
 folderId=$(curl -s -k -u "$grafana_cred" $grafana_host/api/folders | jq -r --arg grafana_folder  "$grafana_folder" '.[] | select(.title==$grafana_folder).id')
 if [ -z "$folderId" ] ; then echo "Didn't get folderId" ; else echo "Got folderId $folderId" ; fi
 for d in "${ds[@]}"; do
@@ -203,6 +203,9 @@ Single click provisioning [![Gitpod ready-to-test](https://img.shields.io/badge/
 
 ### [AWS Storage Gateway](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-storage-gateway)
 [![AWS Storage Gateway](aws-storage-gateway/aws-storage-gateway.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-storage-gateway)
+
+### [AWS Transfer Family](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-transfer-family)
+[![AWS Transfer Family](aws-transfer-family/aws-transfer-family.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-transfer-family)
 
 ### [AWS Transit Gateway](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-transit-gateway)
 [![AWS Transit Gateway](aws-transit-gateway/aws-transit-gateway.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-transit-gateway)

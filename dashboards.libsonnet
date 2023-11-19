@@ -38,6 +38,7 @@
     'aws-sqs.json': (import 'aws-sqs/aws-sqs.json'),
     'aws-step-functions.json': (import 'aws-step-functions/aws-step-functions.json'),
     'aws-storage-gateway.json': (import 'aws-storage-gateway/aws-storage-gateway.json'),
+    'aws-transfer-family.json': (import 'aws-transfer-family/aws-transfer-family.json'),
     'aws-transit-gateway.json': (import 'aws-transit-gateway/aws-transit-gateway.json'),
     'aws-vpn.json': (import 'aws-vpn/aws-vpn.json'),
     'aws-x-ray.json': (import 'aws-x-ray/aws-x-ray.json'),
