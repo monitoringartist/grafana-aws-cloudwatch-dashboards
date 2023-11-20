@@ -547,7 +547,7 @@
       }
     },
     {
-      "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/sns-metricscollected.html\">AWS CloudWatch SNS documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/581\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
+      "contenr": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/sns/latest/dg/sns-monitoring-using-cloudwatch.html\">AWS CloudWatch SNS documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/581\">Installed from Grafana.com dashboards</a>\n",
       "editable": true,
       "error": false,
       "gridPos": {

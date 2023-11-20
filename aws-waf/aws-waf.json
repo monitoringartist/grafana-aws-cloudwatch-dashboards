@@ -766,7 +766,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html\">AWS CloudWatch WAF documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/20009\">Installed from Grafana.com dashboards</a>\n",
+        "content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html\">AWS CloudWatch WAF documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/20009\">Installed from Grafana.com dashboards</a>\n",
         "mode": "html"
       },
       "pluginVersion": "10.2.0",

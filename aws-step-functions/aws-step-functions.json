@@ -998,7 +998,7 @@
       }
     },
     {
-      "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cw-metrics.html\">AWS CloudWatch Step Functions documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/11099\">Installed from Grafana.com dashboards</a>",
+      "content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cw-metrics.html\">AWS CloudWatch Step Functions documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/11099\">Installed from Grafana.com dashboards</a>\n",
       "editable": true,
       "error": false,
       "gridPos": {
