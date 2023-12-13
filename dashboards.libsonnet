@@ -25,6 +25,7 @@
     'aws-fsx.json': (import 'aws-fsx/aws-fsx.json'),
     'aws-inspector.json': (import 'aws-inspector/aws-inspector.json'),
     'aws-kinesis.json': (import 'aws-kinesis/aws-kinesis.json'),
+    'aws-kinesis-firehose.json': (import 'aws-kinesis-firehose/aws-kinesis-firehose.json'),
     'aws-lambda.json': (import 'aws-lambda/aws-lambda.json'),
     'aws-logs.json': (import 'aws-logs/aws-logs.json'),
     'aws-network-firewall.json': (import 'aws-network-firewall/aws-network-firewall.json'),
