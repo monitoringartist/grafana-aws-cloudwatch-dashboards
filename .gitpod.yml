@@ -5,7 +5,7 @@ ports:
 tasks:
   - name: grafana
     init: >-
-      export IMAGE="${IMAGE:=grafana/grafana:latest}" &&
+      export IMAGE="${IMAGE:=grafana/grafana-enterprise:latest}" &&
       mkdir all-dashboards &&
       find . ! -path all-dashboards -type f -name *.json -exec cp {} all-dashboards \; &&
       chmod 755 -R all-dashboards &&
