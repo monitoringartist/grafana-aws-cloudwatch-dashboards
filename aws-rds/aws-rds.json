@@ -180,7 +180,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -339,7 +339,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -492,7 +492,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -690,7 +690,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -843,7 +843,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -996,7 +996,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -1149,7 +1149,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -1302,7 +1302,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -1455,7 +1455,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -1619,7 +1619,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -1783,7 +1783,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
@@ -1942,7 +1942,7 @@
         "sort": 0,
         "value_type": "cumulative"
       },
-      "type": "graph",
+      "type": "timeseries",
       "xaxis": {
         "buckets": null,
         "mode": "time",
