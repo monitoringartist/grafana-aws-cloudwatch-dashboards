@@ -1,5 +1,15 @@
 {
-  "__inputs": [],
+  "__inputs": [
+    {
+      "name": "DS_CLOUDWATCH",
+      "label": "CloudWatch",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "cloudwatch",
+      "pluginName": "CloudWatch"
+    }
+  ],
+  "__elements": {},
   "__requires": [
     {
       "type": "datasource",
@@ -11,18 +21,18 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.4.1"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
+      "version": "10.4.1"
     },
     {
       "type": "panel",
       "id": "text",
       "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
       "version": ""
     }
   ],
@@ -30,7 +40,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -40,432 +53,348 @@
     ]
   },
   "description": "Visualize estimated AWS charges per AWS resource (EC2, S3, ...)",
-  "editable": false,
+  "editable": true,
+  "fiscalYearStartMonth": 0,
   "gnetId": 139,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1614364548685,
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$datasource",
-      "editable": true,
-      "error": false,
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH}"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "currencyUSD"
         },
         "overrides": []
       },
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
       "gridPos": {
         "h": 15,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "hiddenSeries": false,
-      "id": 1,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "connected",
+      "id": 4,
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Last",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "maxHeight": 520,
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.4.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "alias": "Total",
-          "application": {
-            "filter": ""
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH}"
           },
           "dimensions": {
             "Currency": "USD"
           },
           "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "highResolution": false,
-          "host": {
-            "filter": ""
-          },
           "id": "",
-          "item": {
-            "filter": ""
-          },
+          "label": "Total",
+          "logGroups": [],
           "matchExact": true,
+          "metricEditorMode": 0,
           "metricName": "EstimatedCharges",
-          "mode": 0,
+          "metricQueryType": 0,
           "namespace": "AWS/Billing",
-          "options": {
-            "showDisabledItems": false
-          },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "A",
           "region": "us-east-1",
-          "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "sqlExpression": "",
+          "statistic": "Average"
         },
         {
-          "alias": "{{ServiceName}}",
-          "application": {
-            "filter": ""
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH}"
           },
           "dimensions": {
             "Currency": "USD",
             "ServiceName": "*"
           },
           "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "highResolution": false,
-          "host": {
-            "filter": ""
-          },
+          "hide": false,
           "id": "",
-          "item": {
-            "filter": ""
-          },
+          "label": "${PROP('Dim.ServiceName')}",
+          "logGroups": [],
           "matchExact": true,
+          "metricEditorMode": 0,
           "metricName": "EstimatedCharges",
-          "mode": 0,
+          "metricQueryType": 0,
           "namespace": "AWS/Billing",
-          "options": {
-            "showDisabledItems": false
-          },
           "period": "",
+          "queryMode": "Metrics",
           "refId": "B",
           "region": "us-east-1",
-          "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "sqlExpression": "",
+          "statistic": "Average"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "Estimated charges",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 2,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "currencyUSD",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$datasource",
-      "editable": true,
-      "error": false,
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH}"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "currencyUSD"
         },
         "overrides": []
       },
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
       "gridPos": {
         "h": 10,
         "w": 24,
         "x": 0,
         "y": 15
       },
-      "hiddenSeries": false,
-      "id": 3,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "connected",
+      "id": 5,
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Last",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "maxHeight": 520,
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.4.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "alias": "",
-          "application": {
-            "filter": ""
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH}"
           },
           "dimensions": {
             "Currency": "USD"
           },
           "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
           "hide": true,
-          "highResolution": false,
-          "host": {
-            "filter": ""
-          },
           "id": "m1",
-          "item": {
-            "filter": ""
-          },
+          "label": "",
+          "logGroups": [],
           "matchExact": true,
+          "metricEditorMode": 0,
           "metricName": "EstimatedCharges",
-          "mode": 0,
+          "metricQueryType": 0,
           "namespace": "AWS/Billing",
-          "options": {
-            "showDisabledItems": false
-          },
           "period": "86400",
+          "queryMode": "Metrics",
           "refId": "A",
           "region": "us-east-1",
-          "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "sqlExpression": "",
+          "statistic": "Average"
         },
         {
-          "alias": "",
-          "application": {
-            "filter": ""
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH}"
           },
           "dimensions": {
-            "Currency": "USD"
+            "Currency": "USD",
+            "ServiceName": "*"
           },
           "expression": "RATE(m1) * PERIOD(m1)",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
           "hide": true,
-          "highResolution": false,
-          "host": {
-            "filter": ""
-          },
           "id": "m2",
-          "item": {
-            "filter": ""
-          },
+          "label": "",
+          "logGroups": [],
           "matchExact": true,
+          "metricEditorMode": 1,
           "metricName": "EstimatedCharges",
-          "mode": 0,
+          "metricQueryType": 0,
           "namespace": "AWS/Billing",
-          "options": {
-            "showDisabledItems": false
-          },
           "period": "86400",
+          "queryMode": "Metrics",
           "refId": "B",
           "region": "us-east-1",
-          "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "sqlExpression": "",
+          "statistic": "Average"
         },
         {
-          "alias": "Total estimated daily charge",
-          "application": {
-            "filter": ""
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH}"
           },
           "dimensions": {
-            "Currency": "USD"
+            "Currency": "USD",
+            "ServiceName": "*"
           },
           "expression": "IF(m2>0, m2)",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
           "hide": false,
-          "highResolution": false,
-          "host": {
-            "filter": ""
-          },
-          "id": "m3",
-          "item": {
-            "filter": ""
-          },
+          "id": "",
+          "label": "Total estimated daily charge",
+          "logGroups": [],
           "matchExact": true,
+          "metricEditorMode": 1,
           "metricName": "EstimatedCharges",
-          "mode": 0,
+          "metricQueryType": 0,
           "namespace": "AWS/Billing",
-          "options": {
-            "showDisabledItems": false
-          },
           "period": "86400",
+          "queryMode": "Metrics",
           "refId": "C",
           "region": "us-east-1",
-          "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "sqlExpression": "",
+          "statistic": "Average"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "Estimated daily charges",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 2,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:75",
-          "format": "currencyUSD",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:76",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "datasource": "",
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
       "gridPos": {
         "h": 3,
         "w": 24,
         "x": 0,
         "y": 25
       },
-      "id": 2,
-      "isNew": true,
-      "links": [],
+      "id": 6,
       "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
         "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/billing-metricscollected.html\">AWS CloudWatch billing documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/139\">Installed from Grafana.com dashboards</a>",
         "mode": "html"
       },
-      "pluginVersion": "7.4.1",
+      "pluginVersion": "10.4.1",
       "title": "Documentation",
       "type": "text"
     }
   ],
   "refresh": false,
-  "schemaVersion": 27,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [
     "monitoringartist",
     "cloudwatch"
@@ -522,6 +451,6 @@
   },
   "timezone": "browser",
   "title": "AWS Billing",
-  "uid": "AWSBillig",
-  "version": 5
+  "uid": "AWSBilling",
+  "version": 6
 }
