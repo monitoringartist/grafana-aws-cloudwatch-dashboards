@@ -53,7 +53,7 @@
     ]
   },
   "description": "Visualize estimated AWS charges per AWS resource (EC2, S3, ...)",
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "gnetId": 139,
   "graphTooltip": 0,
