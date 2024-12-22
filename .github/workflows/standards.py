@@ -2,11 +2,50 @@ import os
 import json
 import re
 
-standard_footer = "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/transfer/latest/userguide/monitoring.html\">AWS CloudWatch Transfer Family documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/20008\">Installed from Grafana.com dashboards</a>\n"
+validated_dashboards = [
+   "aws-api-gateway/aws-api-gateway.json",
+   "aws-autoscaling/aws-autoscaling.json"
+]
+
+standard_footer = "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/transfer/latest/userguide/monitoring.html\">AWS CloudWatch Transfer Family documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/20008\">Installed from Grafana.com dashboards</a>"
 standard_footer = re.sub(r'https://docs.aws.amazon.com/.*\"', r'https://docs.aws.amazon.com/\"', standard_footer)
 standard_footer = re.sub(r'>AWS CloudWatch .* documentation</a', r'>AWS CloudWatch documentation</a', standard_footer)
 standard_footer = re.sub(r'https://grafana.com/dashboards/.+\"', r'https://grafana.com/dashboards/n\"', standard_footer)
 standard_footer = standard_footer.replace('\n', '')
+
+def validate_template(f, template):
+    if "datasource" in template and "uid" in template["datasource"] and template["datasource"]["uid"] != "$datasource":
+        print('Dashboard ' + f + ' - variable: ' + template['name'] + ' doesn\'t use $datasource variable')   
+
+def validate_panel(f, panel):
+    if "datasource" in panel and "uid" in panel["datasource"] and panel["datasource"]["uid"] != "$datasource":
+        print('Dashboard ' + f + ' - panel: ' + panel['title'] + ' doesn\'t use $datasource variable')
+    if "targets" in panel:
+        for target in panel["targets"]:
+            if "datasource" in target and "uid" in target["datasource"] and target["datasource"]["uid"] != "$datasource":
+                print('Dashboard ' + f + ' - panel: ' + panel['title'] + ' doesn\'t use $datasource variable')
+    if "fieldConfig" in panel and "custom" in panel["fieldConfig"] and "lineWidth" in panel["fieldConfig"]["custom"] and panel["fieldConfig"]["custom"] ["lineWidth"] != 1:
+        print('Dashboard ' + f + ' - panel: ' + panel['title'] + ' doesn\'t use lineWidth = 1')
+
+def validate_config(f, dashboard):
+    if 'panels' in dashboard:
+        for panel in dashboard['panels']:
+            validate_panel(f, panel)
+    ## TODO if 'rows' in dashboard:
+    if "templating" in dashboard:
+        for template in dashboard['templating']:
+            validate_template(f, template)
+    if "editable" in dashboard and dashboard["editable"] != False:
+        print('Dashboard ' + f + ' is editable=true')
+
+
+def validate_inputs(f, dashboard):
+    if len(dashboard["__inputs"]) < 0:
+        print('Dashboard ' + f + ' doesn\'t have empty __inputs') 
+
+def validate_schema_version(f, dashboard):
+    if dashboard["schemaVersion"] < 40:
+        print('Dashboard ' + f + ' schemaVersion is less thn 40, migrate it') 
 
 def validate_title(f, dashboard):
   if not dashboard['title'].startswith('AWS '):
@@ -54,6 +93,12 @@ for d in directories:
 jsons = []
 for f in json_files:
   with open(f, 'r') as j:
+    if f not in validated_dashboards:
+       continue
+    print(f + " validating ...")
     dashboard = json.loads(j.read())
     validate_title(f, dashboard)
     validate_footer(f, dashboard)
+    validate_schema_version(f, dashboard)
+    validate_inputs(f, dashboard)
+    validate_config(f, dashboard)
