@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     name: CI tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,5 +32,9 @@ jobs:
             -v $PWD/.github/workflows/all-dashboards/:/tmp/dashboards/ \
             grafana/grafana:latest
           sleep 20
-          ERROR=$(docker logs grafana | jq .)
+          ERROR=$(docker logs grafana | grep -v "plugin xychart is already registered" | jq .)
           if [ ! -z "$ERROR" ]; then echo "$ERROR" && exit 1; fi
+
+      - name: Check standards
+        run: |
+          python3 .github/workflows/standards.py
