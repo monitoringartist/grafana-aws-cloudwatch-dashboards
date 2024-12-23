@@ -1,6 +1,6 @@
 {
   "__inputs": [],
-  "__elements": [],
+  "__elements": {},
   "__requires": [
     {
       "type": "datasource",
@@ -12,7 +12,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.5.13"
+      "version": "11.3.1"
     },
     {
       "type": "datasource",
@@ -58,12 +58,9 @@
   "description": "Visualize AWS EBS metrics",
   "editable": false,
   "fiscalYearStartMonth": 0,
-  "gnetId": 623,
   "graphTooltip": 2,
   "id": null,
-  "iteration": 1694162719777,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -76,9 +73,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -87,6 +88,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -120,7 +122,20 @@
           },
           "unit": "s"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "VolumeIdleTime"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 7,
@@ -129,24 +144,23 @@
         "y": 0
       },
       "id": 17,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.5.13",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
@@ -154,6 +168,7 @@
             "filter": ""
           },
           "datasource": {
+            "type": "cloudwatch",
             "uid": "$datasource"
           },
           "dimensions": {
@@ -171,6 +186,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeTotalReadTime",
@@ -210,6 +226,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeTotalWriteTime",
@@ -232,6 +249,7 @@
             "filter": ""
           },
           "datasource": {
+            "type": "cloudwatch",
             "uid": "$datasource"
           },
           "dimensions": {
@@ -249,6 +267,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeIdleTime",
@@ -280,9 +299,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -291,6 +314,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -350,24 +374,23 @@
         "y": 7
       },
       "id": 16,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.5.13",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
@@ -375,6 +398,7 @@
             "filter": ""
           },
           "datasource": {
+            "type": "cloudwatch",
             "uid": "$datasource"
           },
           "dimensions": {
@@ -392,6 +416,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeQueueLength",
@@ -423,9 +448,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -434,6 +463,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -476,24 +506,23 @@
         "y": 14
       },
       "id": 21,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.5.13",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
@@ -501,6 +530,7 @@
             "filter": ""
           },
           "datasource": {
+            "type": "cloudwatch",
             "uid": "$datasource"
           },
           "dimensions": {
@@ -518,6 +548,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeReadOps",
@@ -557,6 +588,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeWriteOps",
@@ -588,9 +620,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -599,6 +635,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -641,24 +678,23 @@
         "y": 21
       },
       "id": 20,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.5.13",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
@@ -683,6 +719,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeReadBytes",
@@ -705,6 +742,7 @@
             "filter": ""
           },
           "datasource": {
+            "type": "cloudwatch",
             "uid": "$datasource"
           },
           "dimensions": {
@@ -722,6 +760,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeWriteBytes",
@@ -747,16 +786,19 @@
         "type": "cloudwatch",
         "uid": "$datasource"
       },
-      "description": "For more info: https://repost.aws/knowledge-center/ebs-cloudwatch-metrics-throughput-iops",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -765,807 +807,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "iops"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 28
-      },
-      "id": 22,
-      "links": [],
-      "options": {
-        "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "8.5.13",
-      "targets": [
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeReadOps",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "A",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        },
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeWriteOps",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "B",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        },
-        {
-          "datasource": {
-            "type": "__expr__",
-            "uid": "$datasource"
-          },
-          "expression": "($A + $B)/60",
-          "hide": false,
-          "refId": "IOPS",
-          "type": "math"
-        }
-      ],
-      "title": "Average IOPS",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "cloudwatch",
-        "uid": "$datasource"
-      },
-      "description": "For more info: https://repost.aws/knowledge-center/ebs-cloudwatch-metrics-throughput-iops",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "iops"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 28
-      },
-      "id": 24,
-      "links": [],
-      "options": {
-        "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "8.5.13",
-      "targets": [
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeReadOps",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "A",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        },
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeWriteOps",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "B",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        },
-        {
-          "datasource": {
-            "type": "__expr__",
-            "uid": "$datasource"
-          },
-          "expression": "($A + $B)/(60-$C)",
-          "hide": false,
-          "refId": "IOPS",
-          "type": "math"
-        },
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeIdleTime",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "C",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        }
-      ],
-      "title": "Actual average IOPS",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "cloudwatch",
-        "uid": "$datasource"
-      },
-      "description": "For more info: https://repost.aws/knowledge-center/ebs-cloudwatch-metrics-throughput-iops",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 35
-      },
-      "id": 23,
-      "links": [],
-      "options": {
-        "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "8.5.13",
-      "targets": [
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeReadBytes",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "A",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        },
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeWriteBytes",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "B",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        },
-        {
-          "datasource": {
-            "type": "__expr__",
-            "uid": "$datasource"
-          },
-          "expression": "($A + $B)/60",
-          "hide": false,
-          "refId": "Throughput",
-          "type": "math"
-        }
-      ],
-      "title": "Average Throughput ",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "cloudwatch",
-        "uid": "$datasource"
-      },
-      "description": "For more info: https://repost.aws/knowledge-center/ebs-cloudwatch-metrics-throughput-iops",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 35
-      },
-      "id": 25,
-      "links": [],
-      "options": {
-        "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "8.5.13",
-      "targets": [
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeReadBytes",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "A",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        },
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeWriteBytes",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "B",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        },
-        {
-          "datasource": {
-            "type": "__expr__",
-            "uid": "$datasource"
-          },
-          "expression": "($A + $B)/(60-$C)",
-          "hide": false,
-          "refId": "Throughput",
-          "type": "math"
-        },
-        {
-          "alias": "",
-          "application": {
-            "filter": ""
-          },
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "dimensions": {
-            "VolumeId": "$volumeid"
-          },
-          "expression": "",
-          "functions": [],
-          "group": {
-            "filter": ""
-          },
-          "hide": true,
-          "host": {
-            "filter": ""
-          },
-          "id": "",
-          "item": {
-            "filter": ""
-          },
-          "label": "",
-          "matchExact": true,
-          "metricEditorMode": 0,
-          "metricName": "VolumeIdleTime",
-          "metricQueryType": 0,
-          "mode": 0,
-          "namespace": "AWS/EBS",
-          "options": {
-            "showDisabledItems": false
-          },
-          "period": "1m",
-          "queryMode": "Metrics",
-          "refId": "C",
-          "region": "$region",
-          "sqlExpression": "",
-          "statistic": "Sum"
-        }
-      ],
-      "title": "Average actual Throughput ",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "cloudwatch",
-        "uid": "$datasource"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1630,27 +872,26 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 42
+        "y": 28
       },
       "id": 18,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.5.13",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
@@ -1658,6 +899,7 @@
             "filter": ""
           },
           "datasource": {
+            "type": "cloudwatch",
             "uid": "$datasource"
           },
           "dimensions": {
@@ -1675,6 +917,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeThroughputPercentage",
@@ -1714,6 +957,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "VolumeConsumedReadWriteOps",
@@ -1731,7 +975,7 @@
           "statistic": "Average"
         }
       ],
-      "title": "VolumeThroughputPercentage",
+      "title": "VolumeThroughputPercentage/VolumeConsumedReadWriteOps",
       "type": "timeseries"
     },
     {
@@ -1745,9 +989,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1756,6 +1004,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1828,27 +1077,26 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 49
+        "y": 35
       },
       "id": 19,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.5.13",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
@@ -1873,6 +1121,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "BurstBalance",
@@ -1894,36 +1143,29 @@
       "type": "timeseries"
     },
     {
-      "datasource": {},
-      "editable": true,
-      "error": false,
       "gridPos": {
         "h": 3,
         "w": 24,
         "x": 0,
-        "y": 56
+        "y": 42
       },
       "id": 2,
-      "isNew": true,
-      "links": [],
       "options": {
-        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html\">AWS Cloudwatch EBS documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/grafana/dashboards/623-aws-ebs/\">Installed from Grafana.com dashboards</a>",
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cloudwatch_ebs.html\">AWS CloudWatch EBS documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/623\">Installed from Grafana.com dashboards</a>",
         "mode": "html"
       },
-      "pluginVersion": "8.5.13",
-      "targets": [
-        {
-          "datasource": {},
-          "refId": "A"
-        }
-      ],
+      "pluginVersion": "11.3.1",
       "title": "Documentation",
       "type": "text"
     }
   ],
   "refresh": false,
-  "schemaVersion": 36,
-  "style": "dark",
+  "schemaVersion": 40,
   "tags": [
     "monitoringartist",
     "cloudwatch"
@@ -1932,40 +1174,31 @@
     "list": [
       {
         "current": {},
-        "hide": 0,
         "includeAll": false,
         "label": "Datasource",
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
-        "queryValue": "dynatr",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
         "current": {},
         "datasource": {
+          "type": "cloudwatch",
           "uid": "$datasource"
         },
         "definition": "",
-        "hide": 0,
         "includeAll": false,
         "label": "Region",
-        "multi": false,
         "name": "region",
         "options": [],
         "query": "regions()",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
         "current": {},
@@ -1973,10 +1206,8 @@
           "uid": "$datasource"
         },
         "definition": "",
-        "hide": 0,
         "includeAll": false,
         "label": "VolumeId",
-        "multi": false,
         "name": "volumeid",
         "options": [],
         "query": {
@@ -1995,12 +1226,8 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       }
     ]
   },
@@ -2008,34 +1235,10 @@
     "from": "now-24h",
     "to": "now"
   },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "browser",
   "title": "AWS EBS",
   "uid": "AWSEBSaaa",
-  "version": 3,
+  "version": 17,
   "weekStart": ""
 }
