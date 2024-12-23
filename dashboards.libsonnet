@@ -5,7 +5,6 @@
     'aws-billing.json': (import 'aws-billing/aws-billing.json'),
     'aws-certificate-manager.json': (import 'aws-certificate-manager/aws-certificate-manager.json'),
     'aws-cloudfront.json': (import 'aws-cloudfront/aws-cloudfront.json'),
-    'aws-cloudwatch-browser.json': (import 'aws-cloudwatch-browser/aws-cloudwatch-browser.json'),
     'aws-cloudwatch-synthetics.json': (import 'aws-cloudwatch-synthetics/aws-cloudwatch-synthetics.json'),
     'aws-cloudwatch-usage-metrics.json': (import 'aws-cloudwatch-usage-metrics/aws-cloudwatch-usage-metrics.json'),
     'aws-codebuild.json': (import 'aws-codebuild/aws-codebuild.json'),
