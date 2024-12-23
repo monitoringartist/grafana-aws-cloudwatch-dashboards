@@ -121,6 +121,7 @@ Single click provisioning [![Gitpod ready-to-test](https://img.shields.io/badge/
 [![AWS CodeBuild](aws-codebuild/aws-codebuild.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-codebuild)
 
 ### [AWS Cognito](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-cognito)
+[![AWS Cognito](aws-cognito/aws-cognito.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-cognito)
 
 ### [AWS Direct Connect](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-direct-connect)
 [![AWS Direct Connect](aws-direct-connect/aws-direct-connect.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-direct-connect)
