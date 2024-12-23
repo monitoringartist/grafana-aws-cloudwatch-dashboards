@@ -1,6 +1,6 @@
 {
   "__inputs": [],
-  "__elements": [],
+  "__elements": {},
   "__requires": [
     {
       "type": "datasource",
@@ -12,7 +12,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.5.13"
+      "version": "11.3.1"
     },
     {
       "type": "panel",
@@ -54,14 +54,12 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1672349388636,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -70,9 +68,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -81,6 +83,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -153,18 +156,19 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "AccountMaxReads",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "AccountMaxReads",
@@ -181,13 +185,13 @@
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "AccountMaxWrites",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "AccountMaxWrites",
@@ -207,7 +211,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -216,9 +220,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -227,6 +235,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -299,18 +308,19 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "AccountMaxTableLevelReads",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "AccountMaxTableLevelReads",
@@ -327,13 +337,13 @@
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "AccountMaxTableLevelWrites",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "AccountMaxTableLevelWrites",
@@ -353,7 +363,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -362,9 +372,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -373,6 +387,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -445,18 +460,19 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "AccountProvisionedReadCapacityUtilization",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "AccountProvisionedReadCapacityUtilization",
@@ -473,13 +489,13 @@
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "AccountProvisionedWriteCapacityUtilization",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "AccountProvisionedWriteCapacityUtilization",
@@ -499,7 +515,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -508,9 +524,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -519,6 +539,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -578,12 +599,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -591,8 +613,8 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
-          "matchExact": false,
+          "label": "ConsumedReadCapacityUnits ${PROP('Dim.TableName')}",
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "ConsumedReadCapacityUnits",
           "metricQueryType": 0,
@@ -608,7 +630,7 @@
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -616,8 +638,8 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
-          "matchExact": false,
+          "label": "ConsumedWriteCapacityUnits ${PROP('Dim.TableName')}",
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "ConsumedWriteCapacityUnits",
           "metricQueryType": 0,
@@ -633,7 +655,7 @@
           "alias": "ConsumedChangeDataCaptureUnits",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -641,8 +663,8 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
-          "matchExact": false,
+          "label": "ConsumedChangeDataCaptureUnits ${PROP('Dim.TableName')}",
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "ConsumedChangeDataCaptureUnits",
           "metricQueryType": 0,
@@ -661,7 +683,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -670,9 +692,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -681,6 +707,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -753,18 +780,19 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "MaxProvisionedTableReadCapacityUtilization",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "MaxProvisionedTableReadCapacityUtilization",
@@ -781,13 +809,13 @@
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "MaxProvisionedTableWriteCapacityUtilization",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "MaxProvisionedTableWriteCapacityUtilization",
@@ -801,13 +829,13 @@
           "statistic": "Maximum"
         }
       ],
-      "title": "MaxProvisionedTableReadCapacityUtilization/AccountProvisionedWriteCapacityUtilization",
+      "title": "MaxProvisionedTableReadCapacityUtilization/MaxProvisionedTableWriteCapacityUtilization",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -816,9 +844,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -827,6 +859,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -899,12 +932,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -912,7 +946,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ProvisionedReadCapacityUnits ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ProvisionedReadCapacityUnits",
@@ -929,7 +963,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -937,7 +971,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ProvisionedWriteCapacityUnits ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ProvisionedWriteCapacityUnits",
@@ -957,7 +991,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -966,9 +1000,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -977,6 +1015,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1079,18 +1118,19 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {},
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "UserErrors",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "UserErrors",
@@ -1107,7 +1147,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1115,7 +1155,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "SystemErrors",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "SystemErrors",
@@ -1135,7 +1175,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1144,9 +1184,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -1155,6 +1199,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1227,12 +1272,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1240,7 +1286,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ThrottledRequests ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ThrottledRequests",
@@ -1257,7 +1303,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1265,7 +1311,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ReadThrottleEvents ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ReadThrottleEvents",
@@ -1282,7 +1328,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1290,7 +1336,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "WriteThrottleEvents ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "WriteThrottleEvents",
@@ -1307,7 +1353,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1315,7 +1361,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ThrottledPutRecordCount ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ThrottledPutRecordCount",
@@ -1332,7 +1378,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1340,7 +1386,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "OnlineIndexThrottleEvents ${PROP('Dim.Operation')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "OnlineIndexThrottleEvents",
@@ -1360,7 +1406,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1369,9 +1415,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -1380,6 +1430,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1452,12 +1503,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}} {{Operation}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Operation": "$operation",
@@ -1466,7 +1518,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "${PROP('Dim.TableName')} - ${PROP('Dim.Operation')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "SuccessfulRequestLatency",
@@ -1486,7 +1538,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1495,9 +1547,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -1506,6 +1562,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1582,12 +1639,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1595,7 +1653,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ReplicationLatency ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ReplicationLatency",
@@ -1612,7 +1670,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1620,7 +1678,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "PendingReplicationCount ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "PendingReplicationCount",
@@ -1640,7 +1698,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1649,9 +1707,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -1660,6 +1722,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1695,17 +1758,13 @@
         "overrides": [
           {
             "matcher": {
-              "id": "byName",
-              "options": "AgeOfOldestUnreplicatedRecord"
+              "id": "byRegexp",
+              "options": "/AgeOfOldestUnreplicatedRecord.*/"
             },
             "properties": [
               {
                 "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "ms"
+                "value": "left"
               }
             ]
           }
@@ -1736,12 +1795,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1749,7 +1809,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "FailedToReplicateRecordCount ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "FailedToReplicateRecordCount",
@@ -1766,7 +1826,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1774,7 +1834,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "AgeOfOldestUnreplicatedRecord ${PROP('Dim.TableName')} ",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "AgeOfOldestUnreplicatedRecord",
@@ -1788,13 +1848,13 @@
           "statistic": "Average"
         }
       ],
-      "title": "FailedToReplicateRecordCount/ReplicationLatency",
+      "title": "FailedToReplicateRecordCount/AgeOfOldestUnreplicatedRecord",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1803,9 +1863,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -1814,6 +1878,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1886,12 +1951,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1899,7 +1965,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "OnlineIndexConsumedWriteCapacity ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "OnlineIndexConsumedWriteCapacity",
@@ -1916,7 +1982,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -1924,7 +1990,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "OnlineIndexPercentageProgress ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "OnlineIndexPercentageProgress",
@@ -1944,7 +2010,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1953,9 +2019,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -1964,6 +2034,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -2036,12 +2107,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -2049,7 +2121,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "TransactionConflict ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "TransactionConflict",
@@ -2066,7 +2138,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -2074,7 +2146,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "TimeToLiveDeletedItemCount ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "TimeToLiveDeletedItemCount",
@@ -2091,7 +2163,7 @@
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "TableName": "$tablename"
@@ -2099,7 +2171,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ConditionalCheckFailedRequests ${PROP('Dim.TableName')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ConditionalCheckFailedRequests",
@@ -2119,7 +2191,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2128,9 +2200,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -2139,6 +2215,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -2198,12 +2275,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Operation": "$operation",
@@ -2212,7 +2290,7 @@
           },
           "expression": "",
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ReturnedBytes ${PROP('Dim.TableName')} - ${PROP('Dim.Operation')} - ${PROP('Dim.StreamLabel')} ",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ReturnedBytes",
@@ -2232,7 +2310,7 @@
     {
       "datasource": {
         "type": "cloudwatch",
-        "uid": "${datasource}"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2241,9 +2319,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -2252,6 +2334,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -2311,12 +2394,13 @@
           "sort": "desc"
         }
       },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}}",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Operation": "$operation",
@@ -2324,7 +2408,7 @@
           },
           "expression": "",
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ReturnedItemCount ${PROP('Dim.TableName')} - ${PROP('Dim.Operation')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ReturnedItemCount",
@@ -2341,7 +2425,7 @@
           "alias": "",
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Operation": "$operation",
@@ -2351,7 +2435,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "label": "${PROP('Dim.TableName')} :: ${PROP('Dim.Operation')}",
+          "label": "ReturnedRecordsCount ${PROP('Dim.TableName')} - ${PROP('Dim.Operation')} - ${PROP('Dim.StreamLabel')}",
           "matchExact": false,
           "metricEditorMode": 0,
           "metricName": "ReturnedRecordsCount",
@@ -2369,9 +2453,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": {},
-      "editable": true,
-      "error": false,
       "gridPos": {
         "h": 3,
         "w": 24,
@@ -2379,38 +2460,37 @@
         "y": 90
       },
       "id": 44,
-      "links": [],
       "options": {
-        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/metrics-dimensions.html\">AWS CloudWatch DynamoDB documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/17741\">Installed from Grafana.com dashboards</a>",
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/metrics-dimensions.html\">AWS CloudWatch DynamoDB documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/17741\">Installed from Grafana.com dashboards</a>",
         "mode": "html"
       },
-      "pluginVersion": "8.5.13",
+      "pluginVersion": "11.3.1",
       "title": "Documentation",
       "type": "text"
     }
   ],
   "refresh": false,
-  "schemaVersion": 36,
-  "style": "dark",
+  "schemaVersion": 40,
   "tags": [
-    "cloudwatch",
-    "monitoringartist"
+    "monitoringartist",
+    "cloudwatch"
   ],
   "templating": {
     "list": [
       {
         "current": {},
-        "hide": 0,
         "includeAll": false,
         "label": "Datasource",
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
-        "queryValue": "yet",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
@@ -2418,19 +2498,12 @@
         "auto_count": 30,
         "auto_min": "30s",
         "current": {
-          "selected": false,
-          "text": "auto",
-          "value": "$__auto_interval_agg"
+          "text": "$__auto",
+          "value": "$__auto"
         },
-        "hide": 0,
         "label": "Aggregation",
         "name": "agg",
         "options": [
-          {
-            "selected": true,
-            "text": "auto",
-            "value": "$__auto_interval_agg"
-          },
           {
             "selected": false,
             "text": "30s",
@@ -2478,32 +2551,27 @@
           }
         ],
         "query": "30s,1m,5m,15m,1h,6h,1d,7d,30d",
-        "queryValue": "",
         "refresh": 2,
-        "skipUrlSync": false,
         "type": "interval"
       },
       {
-        "current": {
-          "selected": true,
-          "text": "default",
-          "value": "default"
-        },
+        "current": {},
         "datasource": {
           "type": "cloudwatch",
-          "uid": "${datasource}"
+          "uid": "$datasource"
         },
         "definition": "",
-        "hide": 0,
         "includeAll": false,
         "label": "Region",
-        "multi": false,
         "name": "region",
         "options": [],
-        "query": "",
+        "query": {
+          "queryType": "regions",
+          "refId": "CloudWatchVariableQueryEditor-VariableQuery",
+          "region": "default"
+        },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       },
@@ -2512,13 +2580,11 @@
         "current": {},
         "datasource": {
           "type": "cloudwatch",
-          "uid": "${datasource}"
+          "uid": "$datasource"
         },
         "definition": "",
-        "hide": 0,
         "includeAll": false,
         "label": "TableName",
-        "multi": false,
         "name": "tablename",
         "options": [],
         "query": {
@@ -2537,22 +2603,17 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
         "allValue": "*",
         "current": {},
         "datasource": {
           "type": "cloudwatch",
-          "uid": "${datasource}"
+          "uid": "$datasource"
         },
         "definition": "",
-        "hide": 0,
         "includeAll": true,
         "label": "Operation",
         "multi": true,
@@ -2574,22 +2635,17 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
         "allValue": "*",
         "current": {},
         "datasource": {
           "type": "cloudwatch",
-          "uid": "${datasource}"
+          "uid": "$datasource"
         },
         "definition": "",
-        "hide": 0,
         "includeAll": true,
         "label": "StreamLabel",
         "multi": true,
@@ -2611,12 +2667,8 @@
         },
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       }
     ]
   },
@@ -2624,34 +2676,10 @@
     "from": "now-24h",
     "to": "now"
   },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "browser",
   "title": "AWS DynamoDB",
   "uid": "AWSDynamo",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }

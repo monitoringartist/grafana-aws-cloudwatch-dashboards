@@ -127,6 +127,7 @@ Single click provisioning [![Gitpod ready-to-test](https://img.shields.io/badge/
 [![AWS Direct Connect](aws-direct-connect/aws-direct-connect.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-direct-connect)
 
 ### [AWS DynamoDB](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-dynamodb)
+[![AWS DynamoDB](aws-dynamodb/aws-dynamodb.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-dynamodb)
 
 ### [AWS EBS](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-ebs)
 [![AWS EBS](aws-ebs/aws-ebs.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-ebs)
