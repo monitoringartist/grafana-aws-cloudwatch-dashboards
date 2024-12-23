@@ -1,5 +1,6 @@
 {
   "__inputs": [],
+  "__elements": {},
   "__requires": [
     {
       "type": "datasource",
@@ -11,18 +12,18 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.3.4"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
+      "version": "11.3.1"
     },
     {
       "type": "panel",
       "id": "text",
       "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
       "version": ""
     }
   ],
@@ -30,7 +31,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -41,23 +45,90 @@
   },
   "description": "Visualize AWS CodeBuild metrics",
   "editable": false,
-  "gnetId": 139,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1573323820795,
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$datasource",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Duration_Average"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
@@ -65,46 +136,34 @@
         "y": 0
       },
       "id": 1,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "Duration_Average",
-          "yaxis": 2
+        "dataLinks": [],
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -122,7 +181,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "Duration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -132,14 +194,15 @@
           "refId": "G",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -157,7 +220,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "Builds",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -167,68 +233,106 @@
           "refId": "A",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "Duration / Builds",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 2,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 0,
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "s",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {
-        "FailedBuilds_Sum": "red",
-        "SucceededBuilds_Sum": "green"
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
       },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$datasource",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FailedBuilds_Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SucceededBuilds_Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
@@ -236,41 +340,33 @@
         "y": 7
       },
       "id": 3,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "dataLinks": [],
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -288,7 +384,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "FailedBuilds",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -298,14 +397,16 @@
           "refId": "G",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -323,7 +424,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "SucceededBuilds",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -333,68 +437,105 @@
           "refId": "A",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "FailedBuilds / SucceededBuilds",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 2,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 0,
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "s",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {
-        "FailedBuilds_Sum": "red",
-        "SucceededBuilds_Sum": "green"
+      "datasource": {
+        "uid": "$datasource"
       },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$datasource",
-      "editable": true,
-      "error": false,
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FailedBuilds_Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SucceededBuilds_Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
       "gridPos": {
         "h": 7,
         "w": 24,
@@ -402,41 +543,34 @@
         "y": 14
       },
       "id": 4,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": true,
-        "min": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "connected",
       "options": {
-        "dataLinks": []
+        "dataLinks": [],
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -454,7 +588,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "BuildDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -464,14 +601,15 @@
           "refId": "G",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -489,7 +627,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "DownloadSourceDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -499,14 +640,16 @@
           "refId": "A",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -524,7 +667,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "FinalizingDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -534,14 +680,15 @@
           "refId": "B",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -559,7 +706,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "InstallDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -569,14 +719,16 @@
           "refId": "C",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -594,7 +746,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "PostBuildDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -604,14 +759,15 @@
           "refId": "D",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -629,7 +785,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "PreBuildDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -639,14 +798,16 @@
           "refId": "E",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -664,7 +825,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "ProvisioningDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -674,14 +838,15 @@
           "refId": "F",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -699,7 +864,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "QueuedDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -709,14 +877,16 @@
           "refId": "H",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -734,7 +904,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "SubmittedDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -744,14 +917,15 @@
           "refId": "I",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "",
           "application": {
             "filter": ""
+          },
+          "datasource": {
+            "uid": "$datasource"
           },
           "dimensions": {
             "ProjectName": "$projectname"
@@ -769,7 +943,10 @@
           "item": {
             "filter": ""
           },
+          "label": "",
+          "metricEditorMode": 0,
           "metricName": "UploadArtifactsDuration",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/CodeBuild",
           "options": {
@@ -779,58 +956,13 @@
           "refId": "J",
           "region": "$region",
           "returnData": false,
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "Durations",
-      "tooltip": {
-        "msResolution": false,
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 0,
-          "format": "s",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": 0,
-          "show": true
-        },
-        {
-          "format": "s",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/monitoring-builds.html\">AWS CloudWatch CodeBuild documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/11155\">Installed from Grafana.com dashboards</a>",
-      "editable": true,
-      "error": false,
       "gridPos": {
         "h": 3,
         "w": 24,
@@ -838,17 +970,22 @@
         "y": 21
       },
       "id": 2,
-      "isNew": true,
-      "links": [],
-      "mode": "html",
-      "options": {},
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/monitoring-builds.html\">AWS CloudWatch CodeBuild documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/11155\">Installed from Grafana.com dashboards</a>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.3.1",
       "title": "Documentation",
       "type": "text"
     }
   ],
   "refresh": false,
-  "schemaVersion": 19,
-  "style": "dark",
+  "schemaVersion": 40,
   "tags": [
     "monitoringartist",
     "cloudwatch"
@@ -857,61 +994,47 @@
     "list": [
       {
         "current": {},
-        "hide": 0,
         "includeAll": false,
         "label": "Datasource",
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
-        "allValue": null,
         "current": {},
-        "datasource": "$datasource",
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "$datasource"
+        },
         "definition": "regions()",
-        "hide": 0,
         "includeAll": false,
         "label": "Region",
-        "multi": false,
         "name": "region",
         "options": [],
         "query": "regions()",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       },
       {
-        "allValue": null,
         "current": {},
-        "datasource": "$datasource",
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "$datasource"
+        },
         "definition": "dimension_values($region,AWS/CodeBuild,BuildDuration,ProjectName)",
-        "hide": 0,
         "includeAll": false,
         "label": "ProjectName",
-        "multi": false,
         "name": "projectname",
         "options": [],
         "query": "dimension_values($region,AWS/CodeBuild,BuildDuration,ProjectName)",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       }
     ]
   },
@@ -919,33 +1042,10 @@
     "from": "now-7d",
     "to": "now"
   },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "browser",
   "title": "AWS CodeBuild",
   "uid": "AWSCodeBu",
-  "version": 1
+  "version": 2,
+  "weekStart": ""
 }
