@@ -14,7 +14,8 @@ validated_dashboards = [
    "aws-cognito/aws-cognito.json",
    "aws-direct-connect/aws-direct-connect.json",
    "aws-dynamodb/aws-dynamodb.json",
-   "aws-ebs/aws-ebs.json"
+   "aws-ebs/aws-ebs.json",
+   "aws-ec2/aws-ec2.json"
 ]
 
 standard_footer = "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/transfer/latest/userguide/monitoring.html\">AWS CloudWatch Transfer Family documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/20008\">Installed from Grafana.com dashboards</a>"
@@ -34,8 +35,10 @@ def validate_panel(f, panel):
         for target in panel["targets"]:
             if "datasource" in target and "uid" in target["datasource"] and target["datasource"]["uid"] != "$datasource":
                 print('Dashboard ' + f + ' - panel: ' + panel['title'] + ' doesn\'t use $datasource variable')
-    if "fieldConfig" in panel and "custom" in panel["fieldConfig"] and "lineWidth" in panel["fieldConfig"]["custom"] and panel["fieldConfig"]["custom"] ["lineWidth"] != 1:
+    if "fieldConfig" in panel and "defaults" in panel["fieldConfig"] and "custom" in panel["fieldConfig"]["defaults"] and "lineWidth" in panel["fieldConfig"]["defaults"]["custom"] and panel["fieldConfig"]["defaults"]["custom"] ["lineWidth"] != 1:
         print('Dashboard ' + f + ' - panel: ' + panel['title'] + ' doesn\'t use lineWidth = 1')
+    if "options" in panel and "legend" in panel["options"] and "calcs" in  panel["options"]["legend"] and "lastNotNull" in panel["options"]["legend"]["calcs"]:
+        print('Dashboard ' + f + ' - panel: ' + panel['title'] + ' has lastNotNull in the legend')
 
 def validate_config(f, dashboard):
     if 'panels' in dashboard:
