@@ -123,7 +123,9 @@
         "alertThreshold": false,
         "legend": {
           "calcs": [
-            "lastNotNull"
+            "mean",
+            "max",
+            "min"
           ],
           "displayMode": "table",
           "placement": "bottom",

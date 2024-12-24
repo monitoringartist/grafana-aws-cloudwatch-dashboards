@@ -145,7 +145,6 @@
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
@@ -282,7 +281,6 @@
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],

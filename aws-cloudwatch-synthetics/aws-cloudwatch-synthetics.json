@@ -77,7 +77,7 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 2,
+            "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -169,7 +169,6 @@
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min",
             "sum"
@@ -256,7 +255,7 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 2,
+            "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -349,7 +348,6 @@
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min",
             "sum"
@@ -436,7 +434,7 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 2,
+            "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -553,7 +551,6 @@
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min",
             "sum"
@@ -640,7 +637,7 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 2,
+            "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -761,7 +758,6 @@
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min",
             "sum"
@@ -929,7 +925,7 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 2,
+            "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -1016,7 +1012,6 @@
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min",
             "sum"
