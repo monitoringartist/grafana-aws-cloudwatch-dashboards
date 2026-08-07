@@ -30,6 +30,7 @@ validated_dashboards = [
    "aws-kinesis-firehose/aws-kinesis-firehose.json",
    "aws-lambda/aws-lambda.json",
    "aws-logs/aws-logs.json",
+   "aws-msk/aws-msk.json",
    "aws-network-firewall/aws-network-firewall.json",
    "aws-prometheus/aws-prometheus.json",
    "aws-rds/aws-rds.json",

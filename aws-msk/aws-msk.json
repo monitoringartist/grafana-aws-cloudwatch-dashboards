@@ -1,0 +1,3971 @@
+{
+  "__inputs": [],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "13.2.0"
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Visualize Amazon MSK (Managed Streaming for Kafka) CloudWatch metrics: broker health, cluster health, topic throughput, and consumer lag.",
+  "editable": false,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "ActiveControllerCount: number of active controllers in the cluster — should always be 1; 0 or >1 signals a controller election problem. OfflinePartitionsCount: number of partitions with no active leader — should be 0; any value above 0 means those partitions are unavailable for reads/writes.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 2
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "OfflinePartitionsCount"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "ActiveControllerCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "OfflinePartitionsCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        }
+      ],
+      "title": "Active Controller Count / Offline Partitions Count",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "Shows the worst observed under-replicated / under-min-ISR partition count per period (Maximum), not a summed total across samples.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} UnderReplicated",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "UnderReplicatedPartitions",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} UnderMinIsr",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "UnderMinIsrPartitionCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        }
+      ],
+      "title": "Under-Replicated / Under Min-ISR Partitions by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "Kafka data logs disk usage shown as peak (Maximum) per broker to catch near-full disk conditions early; App Logs and Root disk shown as Average.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Data Logs",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "KafkaDataLogsDiskUsed",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} App Logs",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "KafkaAppLogsDiskUsed",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Root",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "RootDiskUsed",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Disk Used (Data/App Logs/Root) by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "CpuSystem + CpuUser + CpuIOWait per broker (Maximum), computed per fixed broker ID 1/2/3 for capacity-planning parity with the AWS console dashboard.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic",
+            "seriesBy": "max"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.9,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 60
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 50,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "1",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "s1",
+          "label": "Broker 1 System",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuSystem",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "1",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "u1",
+          "label": "Broker 1 User",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuUser",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "1",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "w1",
+          "label": "Broker 1 IOWait",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuIOWait",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "2",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "s2",
+          "label": "Broker 2 System",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuSystem",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "D",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "2",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "u2",
+          "label": "Broker 2 User",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuUser",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "E",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "2",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "w2",
+          "label": "Broker 2 IOWait",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuIOWait",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "F",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "3",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "s3",
+          "label": "Broker 3 System",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuSystem",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "G",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "3",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "u3",
+          "label": "Broker 3 User",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuUser",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "H",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "3",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "w3",
+          "label": "Broker 3 IOWait",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CpuIOWait",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "I",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "s1+u1+w1",
+          "id": "",
+          "label": "Broker 1 Total CPU",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "J",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "s2+u2+w2",
+          "id": "",
+          "label": "Broker 2 Total CPU",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "K",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "s3+u3+w3",
+          "id": "",
+          "label": "Broker 3 Total CPU",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "L",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Total CPU Utilization by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "1 - RequestHandlerAvgIdlePercent per broker, using Maximum, for worst-case thread-pool utilization (capacity-planning parity with the AWS console dashboard).",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic",
+            "seriesBy": "max"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.9,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 0.6
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "id": 51,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "r1",
+          "label": "Broker ${PROP('Dim.Broker ID')} Idle",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "RequestHandlerAvgIdlePercent",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "1-r1",
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Utilization",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Request Handler Average Utilization by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "Memory Used shown as peak (Maximum) per broker to catch memory pressure spikes; Memory Free shown as Average.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Used",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "MemoryUsed",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Free",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "MemoryFree",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Memory Used / Memory Free by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "MaxOffsetLag: highest offset lag (unconsumed messages) across all partitions for this consumer group/topic. SumOffsetLag: total offset lag summed across all partitions. Rising values mean the consumer group is falling behind producers.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/ Sum$/"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Consumer Group": "$consumer_group"
+          },
+          "id": "",
+          "label": "${PROP('Dim.Consumer Group')} Max",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "MaxOffsetLag",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Consumer Group": "$consumer_group"
+          },
+          "id": "",
+          "label": "${PROP('Dim.Consumer Group')} Sum",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "SumOffsetLag",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        }
+      ],
+      "title": "Consumer Lag (Max / Sum Offset Lag)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "CpuUser: % of CPU time spent in user space on the broker host. CpuSystem: % of CPU time spent in kernel/system space. CpuIdle: % of CPU time the host was idle. The three should sum to roughly 100%.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} User",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "CpuUser",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} System",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "CpuSystem",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Idle",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "CpuIdle",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Maximum"
+        }
+      ],
+      "title": "CPU User / System / Idle by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "RequestHandlerAvgIdlePercent: average % of time broker request-handler threads are idle — low values mean the broker is saturated handling requests. RequestThrottleTime: average time (ms) client requests were throttled by quota enforcement. RequestExemptFromThrottleTime: average time (ms) spent on requests exempt from throttling.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 20
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/Throttle|Exempt/"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "ms"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 56
+      },
+      "id": 40,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Idle%",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "RequestHandlerAvgIdlePercent",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Throttle",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "RequestThrottleTime",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Exempt",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "RequestExemptFromThrottleTime",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Request Handler Idle % / Throttle Time / Exempt Time by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "SwapUsed: swap space (bytes) used on each broker host. Sustained non-zero swap usage indicates memory pressure and can degrade broker performance.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "id": 27,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "m1",
+          "label": "Broker ${PROP('Dim.Broker ID')}",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "SwapUsed",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Swap Used by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "MemoryCached / MemoryBuffered: memory (bytes) used by the OS page cache and buffers on each broker host. High cache usage is expected and normal since Kafka relies heavily on the OS page cache for throughput.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 70
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Cached",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "MemoryCached",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Buffered",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "MemoryBuffered",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Memory Cached / Memory Buffered by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "GlobalPartitionCount: total number of partitions across the cluster. GlobalTopicCount: total number of topics across the cluster. Track these against your cluster's partition/topic limits to spot capacity risk.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic",
+            "seriesBy": "max"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.9,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "GlobalTopicCount"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 77
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "GlobalPartitionCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "GlobalTopicCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        }
+      ],
+      "title": "Global Partition Count / Global Topic Count",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "LeaderCount: number of partitions this broker currently leads. PartitionCount: total partitions (leader + follower) hosted on this broker. Large imbalances across brokers indicate uneven partition/leader distribution.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/.*Partitions/",
+              "scope": "series"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 84
+      },
+      "id": 36,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Leader",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "LeaderCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Partitions",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "PartitionCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        }
+      ],
+      "title": "Leader Count / Partition Count by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "Broker network throughput shown as peak (Maximum) per period, not a summed rate, to surface true throughput spikes.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 91
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} In",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "BytesInPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "m1",
+          "label": "Broker ${PROP('Dim.Broker ID')} Out",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "BytesOutPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "m1 * -1",
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Out",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Network In / Out by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "NetworkRxPackets: packets/sec received by the broker's network interface. NetworkTxPackets: packets/sec transmitted (plotted inverted for a mirrored view).",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 98
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Rx",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "NetworkRxPackets",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "m1",
+          "label": "Broker ${PROP('Dim.Broker ID')} Tx",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "NetworkTxPackets",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "m1 * -1",
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Tx",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Network Rx / Tx Packets by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "NetworkRxDropped / NetworkTxDropped: packets/sec dropped on receive/transmit due to buffer exhaustion. NetworkRxErrors / NetworkTxErrors: packets/sec that failed due to network interface errors. These are host-level network issues, not Kafka protocol errors — non-zero values point to NIC or OS network saturation.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 105
+      },
+      "id": 32,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Rx Dropped",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "NetworkRxDropped",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "m2",
+          "label": "Broker ${PROP('Dim.Broker ID')} Tx Dropped",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "NetworkTxDropped",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Rx Errors",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "NetworkRxErrors",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "m1",
+          "label": "Broker ${PROP('Dim.Broker ID')} Tx Errors",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "NetworkTxErrors",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "D",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "m1 * -1",
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Tx Errors",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "E",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "m2 * -1",
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Tx Dropped",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "F",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Network Rx/Tx Dropped / Errors by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "ReplicationBytesInPerSec: bytes/sec a broker receives from other brokers for partition replication (as a follower). ReplicationBytesOutPerSec: bytes/sec a broker sends to followers (as leader), plotted inverted for a mirrored view.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 112
+      },
+      "id": 38,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} In",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ReplicationBytesInPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "hide": true,
+          "id": "m1",
+          "label": "Broker ${PROP('Dim.Broker ID')} Out",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ReplicationBytesOutPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "m1 * -1",
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Out",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Replication Bytes In / Out by Broker",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "ZooKeeper request latency shown as p99 to surface tail latency rather than mean, which can hide spikes that stress the controller.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/.*State/",
+              "scope": "series"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 119
+      },
+      "id": 43,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Latency",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ZooKeeperRequestLatencyMsMean",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "p99"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Broker ID": "*",
+            "Cluster Name": "$cluster_name"
+          },
+          "id": "",
+          "label": "Broker ${PROP('Dim.Broker ID')} Session State",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ZooKeeperSessionState",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Minimum"
+        }
+      ],
+      "title": "ZooKeeper Request Latency / Session State",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "MessagesInPerSec: number of messages produced per second into this topic, summed across its partitions/brokers.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "cps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 126
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Topic": "$topic"
+          },
+          "id": "m1",
+          "label": "${PROP('Dim.Topic')}",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "MessagesInPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Messages In by Topic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "Topic-level throughput shown as peak (Maximum) per period, not a summed rate, to surface true throughput spikes per topic.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 133
+      },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Topic": "$topic"
+          },
+          "id": "",
+          "label": "${PROP('Dim.Topic')} In",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "BytesInPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Topic": "$topic"
+          },
+          "hide": true,
+          "id": "m1",
+          "label": "${PROP('Dim.Topic')} Out",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "BytesOutPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "expression": "m1 * -1",
+          "id": "",
+          "label": "${PROP('Dim.Topic')} Out",
+          "logGroups": [],
+          "matchExact": false,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryLanguage": "CWLI",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "default",
+          "sqlExpression": "",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Topic Bytes In / Out",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "FetchMessageConversionsPerSec: rate of message-format down-conversions performed when serving fetch requests to older consumer clients. ProduceMessageConversionsPerSec: rate of format conversions performed on produce requests from older producer clients. Frequent conversions add broker CPU overhead and usually mean clients are on an outdated message format.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "cps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 140
+      },
+      "id": 45,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Topic": "$topic"
+          },
+          "id": "",
+          "label": "${PROP('Dim.Topic')} Fetch",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "FetchMessageConversionsPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Topic": "$topic"
+          },
+          "id": "",
+          "label": "${PROP('Dim.Topic')} Produce",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ProduceMessageConversionsPerSec",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Fetch / Produce Message Conversions by Topic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "ProduceMessageConversionsTime: average time (ms) the broker spends converting produced message formats for older-client compatibility. Sustained high values add CPU overhead.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 147
+      },
+      "id": 47,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Topic": "$topic"
+          },
+          "id": "m1",
+          "label": "${PROP('Dim.Topic')}",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ProduceMessageConversionsTime",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Produce Message Conversions Time by Topic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "description": "EstimatedMaxTimeLag: estimated maximum time (seconds) for the consumer group to catch up on its most-lagging partition, based on recent consumption rate. EstimatedTimeLag: estimated time (seconds) per partition to reach the current offset — useful for understanding lag in time rather than offset count.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 154
+      },
+      "id": 49,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Consumer Group": "$consumer_group"
+          },
+          "id": "",
+          "label": "${PROP('Dim.Consumer Group')} Max",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "EstimatedMaxTimeLag",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Maximum"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {
+            "Cluster Name": "$cluster_name",
+            "Consumer Group": "$consumer_group"
+          },
+          "id": "",
+          "label": "${PROP('Dim.Consumer Group')} Current",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "EstimatedTimeLag",
+          "metricQueryType": 0,
+          "namespace": "AWS/Kafka",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "range": true,
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Maximum"
+        }
+      ],
+      "title": "Estimated Max / Current Time Lag by Consumer Group",
+      "type": "timeseries"
+    },
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 161
+      },
+      "id": 10,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+		"content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/msk/latest/developerguide/metrics-details.html\">AWS CloudWatch MSK documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/25647\">Installed from Grafana.com dashboards</a>",
+        "mode": "html"
+      },
+      "pluginVersion": "13.2.0",
+      "title": "Documentation",
+      "type": "text"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 42,
+  "tags": [
+    "monitoringartist",
+    "cloudwatch"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allowCustomValue": true,
+        "current": {},
+        "includeAll": false,
+        "label": "Datasource",
+        "name": "datasource",
+        "options": [],
+        "query": "cloudwatch",
+        "refresh": 1,
+        "regex": "",
+        "type": "datasource"
+      },
+      {
+        "auto": true,
+        "auto_count": 30,
+        "auto_min": "1m",
+        "current": {
+          "text": "$__auto",
+          "value": "$__auto"
+        },
+        "label": "Aggregation",
+        "name": "agg",
+        "options": [
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "15m",
+            "value": "15m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "selected": false,
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "selected": false,
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "query": "1m,5m,15m,1h,6h,1d,7d,30d",
+        "refresh": 2,
+        "type": "interval"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "$datasource"
+        },
+        "includeAll": false,
+        "label": "Region",
+        "name": "region",
+        "options": [],
+        "query": "regions()",
+        "refresh": 1,
+        "regex": "",
+        "regexApplyTo": "value",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "$datasource"
+        },
+        "includeAll": false,
+        "label": "Cluster Name",
+        "name": "cluster_name",
+        "options": [],
+        "query": "dimension_values($region,AWS/Kafka,ActiveControllerCount,Cluster Name)",
+        "refresh": 1,
+        "regex": "",
+        "regexApplyTo": "value",
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "$datasource"
+        },
+        "includeAll": true,
+        "label": "Topic",
+        "multi": true,
+        "name": "topic",
+        "options": [],
+        "query": "dimension_values($region,AWS/Kafka,BytesInPerSec,Topic,{\"Cluster Name\":\"$cluster_name\"})",
+        "refresh": 2,
+        "regex": "",
+        "regexApplyTo": "value",
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "$datasource"
+        },
+        "includeAll": true,
+        "label": "Consumer Group",
+        "multi": true,
+        "name": "consumer_group",
+        "options": [],
+        "query": "dimension_values($region,AWS/Kafka,MaxOffsetLag,Consumer Group,{\"Cluster Name\":\"$cluster_name\"})",
+        "refresh": 2,
+        "regex": "",
+        "regexApplyTo": "value",
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "AWS MSK",
+  "uid": "jacpmff",
+  "version": 1,
+  "weekStart": ""
+}
