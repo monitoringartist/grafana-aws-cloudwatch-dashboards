@@ -44,7 +44,7 @@
     ]
   },
   "description": "Visualize Amazon MSK (Managed Streaming for Kafka) CloudWatch metrics: broker health, cluster health, topic throughput, and consumer lag.",
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "links": [],
@@ -3797,8 +3797,8 @@
   "refresh": "",
   "schemaVersion": 42,
   "tags": [
-    "cloudwatch",
-    "monitoringartist"
+    "monitoringartist",
+    "cloudwatch"
   ],
   "templating": {
     "list": [
