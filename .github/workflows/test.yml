@@ -6,9 +6,8 @@ on:
       - master
   workflow_dispatch:
   pull_request:
-    types:
-      - opened
-      - synchronize
+    branches:
+      - master
 
 jobs:
   test:
@@ -28,13 +27,13 @@ jobs:
         run: |
           mkdir .github/workflows/all-dashboards
           find . ! -path .github/workflows/all-dashboards -type f -name *.json -exec cp {} .github/workflows/all-dashboards \;
-          docker pull grafana/grafana:latest
+          docker pull ghcr.io/grafana/grafana:latest
           docker run --name grafana -d \
             -e GF_LOG_CONSOLE_FORMAT=json \
             -e GF_LOG_LEVEL=error \
             -v $PWD/.github/workflows/provisioning/dashboards/:/etc/grafana/provisioning/dashboards/ \
             -v $PWD/.github/workflows/all-dashboards/:/tmp/dashboards/ \
-            grafana/grafana:latest
+            ghcr.io/grafana/grafana:latest
           sleep 20
           ERROR=$(docker logs grafana | grep -v "plugin xychart is already registered" | jq .)
           if [ ! -z "$ERROR" ]; then echo "$ERROR" && exit 1; fi
