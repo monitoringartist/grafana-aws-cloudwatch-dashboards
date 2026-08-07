@@ -5,6 +5,10 @@ on:
     branches:
       - master
   workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+      - synchronize
 
 jobs:
   test:
