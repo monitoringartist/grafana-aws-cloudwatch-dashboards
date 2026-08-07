@@ -17,12 +17,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Docker Login
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_HUB_LOGIN }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-
       - name: Provision dashboards
         run: |
           mkdir .github/workflows/all-dashboards
