@@ -27,6 +27,7 @@
     'aws-kinesis-firehose.json': (import 'aws-kinesis-firehose/aws-kinesis-firehose.json'),
     'aws-lambda.json': (import 'aws-lambda/aws-lambda.json'),
     'aws-logs.json': (import 'aws-logs/aws-logs.json'),
+    'aws-msk.json': (import 'aws-msk/aws-msk.json'),
     'aws-network-firewall.json': (import 'aws-network-firewall/aws-network-firewall.json'),
     'aws-prometheus.json': (import 'aws-prometheus/aws-prometheus.json'),
     'aws-rds.json': (import 'aws-rds/aws-rds.json'),
