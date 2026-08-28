@@ -1,0 +1,2660 @@
+{
+  "__inputs": [],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "13.2.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "13.3.0"
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Visualize AWS Bedrock metrics (invocations, latency, tokens, errors, quota, delivery) across models and regions",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 107,
+      "title": "Token Usage",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "Sum of input tokens and output tokens across selected models",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m1",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m2",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "OutputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "SUM(m1)+SUM(m2)",
+          "id": "e1",
+          "label": "Total tokens (all selected models)",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "$region",
+          "statistic": ""
+        }
+      ],
+      "title": "Total tokens",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "Input tokens and output tokens across selected models",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 14,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "Input - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m1",
+          "label": "Output - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "OutputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "m1 * -1",
+          "id": "m2",
+          "label": "Output - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "OutputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Input and Output Token Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "Estimated Tokens Per Minute (TPM) quota consumption across the Converse, ConverseStream, InvokeModel, and InvokeModelWithResponseStream API operations.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "EstimatedTPMQuotaUsage",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Estimated TPM Quota Usage",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 108,
+      "title": "Latency & Performance",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "Time from when a request is sent to when the first token is received, for the ConverseStream and InvokeModelWithResponseStream streaming API operations.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 10
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "TimeToFirstToken",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "title": "Time To First Token (TTFT)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "The time from when a request is sent to when the last token is received.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 10
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "Avg - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InvocationLatency",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        }
+      ],
+      "title": "End to End Invocation Latency",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "The volume of tokens read from and written to the prompt cache over time.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 9,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 10
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "Cache Read In - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CacheReadInputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m1",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CacheWriteInputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "m1 * -1",
+          "id": "",
+          "label": "Cache Write In - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "CacheWriteInputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Prompt Cache Usage (Read vs Write Tokens)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 109,
+      "title": "Volume & Distribution",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "Number of successful requests to the Converse, ConverseStream, InvokeModel, and InvokeModelWithResponseStream API operations.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 9,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 19
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Invocations",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Invocation count",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "Estimated call counts per input token size bucket, derived from percentile-rank stats times sample count",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 19
+      },
+      "id": 106,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m1",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "PR(:8800)"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m2",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "PR(8800:17600)"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m3",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "$region",
+          "statistic": "PR(17600:44000)"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m4",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "D",
+          "region": "$region",
+          "statistic": "PR(44000:88000)"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m5",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "E",
+          "region": "$region",
+          "statistic": "PR(88000:300000)"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m6",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "F",
+          "region": "$region",
+          "statistic": "PR(300000:)"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m7",
+          "label": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "G",
+          "region": "$region",
+          "statistic": "SampleCount"
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "SUM(m1)*SUM(m7)/100",
+          "id": "e1",
+          "label": "Calls with input tokens under or at 8,800",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "H",
+          "region": "$region",
+          "statistic": ""
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "SUM(m2)*SUM(m7)/100",
+          "id": "e2",
+          "label": "Calls with input tokens between 8,801-17,600",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "I",
+          "region": "$region",
+          "statistic": ""
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "SUM(m3)*SUM(m7)/100",
+          "id": "e3",
+          "label": "Calls with input tokens between 17,601-44,000",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "J",
+          "region": "$region",
+          "statistic": ""
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "SUM(m4)*SUM(m7)/100",
+          "id": "e4",
+          "label": "Calls with input tokens between 44,001-88,000",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "K",
+          "region": "$region",
+          "statistic": ""
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "SUM(m5)*SUM(m7)/100",
+          "id": "e5",
+          "label": "Calls with input tokens between 88,001-300,000",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "L",
+          "region": "$region",
+          "statistic": ""
+        },
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "SUM(m6)*SUM(m7)/100",
+          "id": "e6",
+          "label": "Calls with input tokens above 300,000",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "M",
+          "region": "$region",
+          "statistic": ""
+        }
+      ],
+      "title": "Request Distribution by Input Token Size",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 110,
+      "title": "Reliability & Errors",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "Number of invocations that result in client-side errors or in AWS server-side errors.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "InvocationClientErrors Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#EAB839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "InvocationServerErrors Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#e24d42",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 28
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "Client - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InvocationClientErrors",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "hide": true,
+          "id": "m1",
+          "label": "Server - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InvocationServerErrors",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "m1 * -1",
+          "id": "",
+          "label": "Server - ${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 1,
+          "metricName": "InvocationServerErrors",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Invocation Errors (Client vs Server)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "description": "Number of invocations that the system throttled. Throttled requests and other invocation errors don't count as either Invocations or Errors. The number of throttles you see will depend on your retry settings in the SDK.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.7,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "InvocationThrottles Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 28
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "InvocationThrottles",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Invocation Throttles",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 111,
+      "title": "Other Metrics",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 37
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "OutputImageCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Output Image Count",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 37
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "LegacyModelInvocations",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Legacy Model Invocations",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "^.*Failure.*$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#e24d42",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 45
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "",
+          "id": "",
+          "label": "Success",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "ModelInvocationLargeDataS3DeliverySuccess",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {},
+          "expression": "",
+          "id": "",
+          "label": "Failure",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "ModelInvocationLargeDataS3DeliveryFailure",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Large Data S3 Delivery",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "^.*Failure.*$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#e24d42",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 45
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "*"
+          },
+          "expression": "",
+          "id": "",
+          "label": "CloudWatch Success",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ModelInvocationLogsCloudWatchDeliverySuccess",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "*"
+          },
+          "expression": "",
+          "id": "",
+          "label": "CloudWatch Failure",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ModelInvocationLogsCloudWatchDeliveryFailure",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "*"
+          },
+          "expression": "",
+          "id": "",
+          "label": "S3 Success",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ModelInvocationLogsS3DeliverySuccess",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "*"
+          },
+          "expression": "",
+          "id": "",
+          "label": "S3 Failure",
+          "matchExact": false,
+          "metricEditorMode": 0,
+          "metricName": "ModelInvocationLogsS3DeliveryFailure",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "D",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Model Invocation Logs Delivery (CloudWatch & S3)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 53
+      },
+      "id": 100,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "all",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "13.3.0",
+      "targets": [
+        {
+          "alias": "{{metric}} {{stat}}",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${datasource}"
+          },
+          "dimensions": {
+            "ModelId": "$modelid"
+          },
+          "expression": "",
+          "id": "",
+          "label": "${PROP('Dim.ModelId')}",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "CacheWriteOutputTokenCount",
+          "metricQueryType": 0,
+          "namespace": "AWS/Bedrock",
+          "period": "$agg",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Cache Write Output Token Count",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 61
+      },
+      "id": 112,
+      "title": "Documentation",
+      "type": "row"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 62
+      },
+      "id": 1,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/monitoring-runtime-metrics.html\">AWS CloudWatch Bedrock documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/25736\">Installed from Grafana.com dashboards</a>",
+        "mode": "html"
+      },
+      "pluginVersion": "13.3.0",
+      "type": "text"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 42,
+  "tags": [
+    "monitoringartist",
+    "cloudwatch"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allowCustomValue": true,
+        "current": {},
+        "includeAll": false,
+        "label": "Datasource",
+        "name": "datasource",
+        "options": [],
+        "query": "cloudwatch",
+        "refresh": 1,
+        "regex": "",
+        "type": "datasource"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "${datasource}"
+        },
+        "definition": "regions()",
+        "includeAll": false,
+        "label": "Region",
+        "name": "region",
+        "options": [],
+        "query": "regions()",
+        "refresh": 1,
+        "regex": "",
+        "regexApplyTo": "value",
+        "type": "query"
+      },
+      {
+        "auto": true,
+        "auto_count": 50,
+        "auto_min": "1m",
+        "current": {
+          "text": "$__auto",
+          "value": "$__auto"
+        },
+        "label": "Aggregation",
+        "name": "agg",
+        "options": [
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "15m",
+            "value": "15m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          }
+        ],
+        "query": "1m,5m,15m,1h,6h,1d",
+        "refresh": 2,
+        "type": "interval"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "${datasource}"
+        },
+        "definition": "dimension_values($region,AWS/Bedrock,Invocations,ModelId)",
+        "includeAll": true,
+        "label": "ModelId",
+        "multi": true,
+        "name": "modelid",
+        "options": [],
+        "query": "dimension_values($region,AWS/Bedrock,Invocations,ModelId)",
+        "refresh": 1,
+        "regex": "",
+        "regexApplyTo": "value",
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "AWS Bedrock",
+  "uid": "bedrock",
+  "version": 1,
+  "weekStart": ""
+}
