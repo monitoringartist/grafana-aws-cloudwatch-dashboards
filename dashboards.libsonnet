@@ -2,6 +2,7 @@
   grafanaDashboards:: {
     'aws-api-gateway.json': (import 'aws-api-gateway/aws-api-gateway.json'),
     'aws-autoscaling.json': (import 'aws-autoscaling/aws-autoscaling.json'),
+    'aws-bedrock.json': (import 'aws-bedrock/aws-bedrock.json'),
     'aws-billing.json': (import 'aws-billing/aws-billing.json'),
     'aws-certificate-manager.json': (import 'aws-certificate-manager/aws-certificate-manager.json'),
     'aws-cloudfront.json': (import 'aws-cloudfront/aws-cloudfront.json'),
