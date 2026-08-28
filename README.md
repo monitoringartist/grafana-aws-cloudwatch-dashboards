@@ -181,6 +181,7 @@ Single click provisioning [![Gitpod ready-to-test](https://img.shields.io/badge/
 [![AWS Logs](aws-logs/aws-logs.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-logs)
 
 ### [AWS MSK](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-msk)
+[![AWS MSK](aws-msk/aws-msk.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-msk)
 
 ### [AWS Network Firewall](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-network-firewall)
 [![AWS Network Firewall](aws-network-firewall/aws-network-firewall.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-network-firewall)
